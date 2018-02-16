@@ -1,0 +1,9 @@
+@font-face {
+    font-family: $base-font-italic;
+    src: url($font-src + "bitter/BitterItalic.eot");
+    src: url($font-src + "bitter/BitterItalic.eot?#iefix")format("embedded-opentype"),
+    url($font-src + "bitter/BitterItalic.woff") format("woff"),
+    url($font-src + "bitter/BitterItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
