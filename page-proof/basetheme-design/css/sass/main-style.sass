@@ -1,11 +1,46 @@
 @import "base/base"
 @import "helpers/helpers"
 
+@import "components/header"
+@import "parts/main/main"
+@import "components/footer"
+
+html 
+    font-size: 62.5%
+
 body
     font-size: $base-font-size
     font-family: $base-font
+    background: $body-bg
+    color: $base-color
+
+.header
+    grid-template-areas: 'header'
+    width: 100%
+
+.main
+    display: grid
+    grid-template-areas: 'main'
 
 
+.footer
+    grid-template-areas: 'footer'  
 
+.wrapper
+    display: grid
+    align-items: center
+    justify-content: center
+    grid-template-columns: "header" "main" "footer"
+    grid-template-rows: 1fr 40px
+    min-height: 100vh
 
+.mask_black
+    opacity: 0.5
+    width: 100%
+    height: 100%
+    background: #000000
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 1
 
