@@ -1,43 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About</title>
-  <link rel="stylesheet" href="css/base64-fonts.css">
-  <link rel="stylesheet" href="css/main-style.css">
-  <link rel="stylesheet" href="node_modules/lightgallery.js/dist/css/lightgallery.min.css">
-</head>
+  <div w3-include-html="html/head/head.html"></div>
 <body>
 <div class="wrapper">
   <main class="main main__position">
     <header class="header">
-      <nav class="menu">
-        <ul class="nav-menu">
-          <li class="active">
-            <a href="/"><span class="nav-menu__txt">Главная</span></a>
-          </li>
-          <li>
-            <a href="#"><span class="nav-menu__txt">История</span></a>
-          </li>
-          <li>
-            <a href="#"><span class="nav-menu__txt">Спектакли</span></a>
-          </li>
-          <li>
-            <a href="#"><span class="nav-menu__txt">Галлерея</span></a>
-          </li>
-          <li>
-            <a href="#"><span class="nav-menu__txt">Труппа</span></a>
-          </li>
-          <li>
-            <a href="#"><span class="nav-menu__txt">Видео</span></a>
-          </li>
-          <li>
-            <a href="#"><span class="nav-menu__txt">Контакты</span></a>
-          </li>
-        </ul>
-      </nav>
+      <div w3-include-html="html/navigation/navigation.html"></div>
     </header>
     <div class="main__curtain main__curtain-position">
       <div class="main__curtain_center">
@@ -148,16 +116,7 @@
     </div>
     </div>
   </main>
-    <footer class="footer" style="color: white">
-      <div class="footer__main">
-        <div class="footer__main-author">(c) 2018 Powered by ArtyShock</div>
-        <div class="footer__main-link">
-          <a href="#"><img src="images/social_ic2.png"></a>
-          <a href="#"><img src="images/social_ic4.png"></a>
-          <a href="#"><img src="images/social_ic3.png"></a>
-        </div>
-      </div>
-    </footer>
+  <div w3-include-html="html/footer/footer.html"></div>
 </div>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/lightgallery/dist/js/lightgallery.js"></script>
@@ -166,7 +125,9 @@
 <script src="node_modules/lg-pager/dist/lg-pager.js"></script>
 <script src="node_modules/lg-thumbnail/dist/lg-thumbnail.min.js"></script>
 <script src="node_modules/lg-fullscreen/dist/lg-fullscreen.min.js"></script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
 <script src="js/scripts.js"> </script>
+
 </body>
 
 </html>
