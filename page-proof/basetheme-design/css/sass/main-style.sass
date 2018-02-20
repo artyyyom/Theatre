@@ -5,6 +5,7 @@
 @import "parts/main/main"
 @import "parts/about/about"
 @import "parts/gallery/gallery"
+@import "parts/contacts/contacts"
 @import "components/footer"
 
 html 
@@ -81,3 +82,47 @@ h4
         background: url($img-src + 'date1.png')
         background-repeat: no-repeat
         background-position: 0 0
+
+.column-2
+    display: grid
+    grid-template-columns: 1fr 1px 1fr
+    grid-column-gap: 50px
+
+input[type=text]
+    padding-left: 5px
+    font-size: 1.4 + $base-unit
+    color: $base-color
+    background: $bg-input-color
+    border: 1px solid $border-color
+
+textarea
+    width: 416px
+    height: 110px
+    font-size: 1.4 + $base-unit
+    color: $base-color
+    background: $bg-input-color
+    border: 1px solid $border-color
+    padding: 5px
+    resize: none
+    
+form
+    button
+        width: 149px
+        height: 51px
+        cursor: pointer
+        background: url($img-src + 'submit.png')
+        background-position: left top
+        border: none
+
+a
+    color: $link-active-color
+    text-decoration: underline
+    outline: none
+
+.delimeter
+    width: 1px
+    height: 100%
+    background: url($img-src + 'delimeter.png')
+    background-repeat: repeat-y
+    background-position: 0 0
+

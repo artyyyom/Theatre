@@ -889,6 +889,69 @@ th
     border: 3px solid #04070a;
 }
 
+.contact__address h3,
+.contact__form h3
+{
+    text-align: left;
+}
+
+.contact__form-fields
+{
+    display: -ms-grid;
+    display:     grid;
+
+    -ms-grid-rows: 32px 32px 120px 51px;
+    grid-template-rows: 32px 32px 120px 51px;
+    grid-row-gap: 10px;
+}
+.contact__form-fields input[type=text]
+{
+    width: 420px;
+}
+.contact__form-fields button
+{
+    margin-top: 5px;
+}
+
+.contact__information
+{
+    margin-top: 10px;
+}
+.contact__information-title
+{
+    font-family: 'BitterBold';
+    font-size: 1.6rem; 
+
+    color: #e8ddcb;
+}
+.contact__information-address
+{
+    font-size: 1.2rem; 
+
+    margin-top: 10px;
+
+    color: #b9b0a1;
+}
+.contact__information-address p
+{
+    margin-top: 3px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.google_map
+{
+    width: 425px;
+    height: 262px;
+    margin: 0;
+
+    border: 5px solid #94887a; 
+    border-radius: 3px;
+    background: #fff;
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, .75);
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, .75);
+}
+
 .footer__main
 {
     display: -ms-grid;
@@ -1050,6 +1113,72 @@ h4::before
 
     background: url('../images/date1.png');
     background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.column-2
+{
+    display: -ms-grid;
+    display:     grid;
+
+    -ms-grid-columns: 1fr 1px 1fr;
+    grid-template-columns: 1fr 1px 1fr;
+    grid-column-gap: 50px;
+}
+
+input[type=text]
+{
+    font-size: 1.4rem;
+
+    padding-left: 5px;
+
+    color: #b9b0a1;
+    border: 1px solid #504e4c; 
+    background: #121212;
+}
+
+textarea
+{
+    font-size: 1.4rem;
+
+    width: 416px;
+    height: 110px;
+    padding: 5px;
+
+    resize: none; 
+
+    color: #b9b0a1;
+    border: 1px solid #504e4c;
+    background: #121212;
+}
+
+form button
+{
+    width: 149px;
+    height: 51px;
+
+    cursor: pointer;
+
+    border: none; 
+    background: url('../images/submit.png');
+    background-position: left top;
+}
+
+a
+{
+    text-decoration: underline;
+
+    color: #eee1d2;
+    outline: none;
+}
+
+.delimeter
+{
+    width: 1px;
+    height: 100%;
+
+    background: url('../images/delimeter.png');
+    background-repeat: repeat-y;
     background-position: 0 0;
 }
 
