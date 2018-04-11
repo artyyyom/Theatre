@@ -3831,6 +3831,8 @@ a
     }
     .main__content
     {
+        margin-top: 91px; 
+
         grid-area: 1/1/2/9;
     }
 }
@@ -3849,6 +3851,11 @@ a
     .btn
     {
         font-size: 2.8rem;
+    }
+    .column-2
+    {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 }
 
