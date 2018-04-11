@@ -31,6 +31,8 @@ body
 .header
     grid-template-areas: 'header'
     width: 100%
+    position: absolute
+    top: 0
 
 .main
     display: grid
@@ -47,6 +49,7 @@ body
     grid-template-columns: "header" "main" "footer"
     grid-template-rows: 1fr 40px
     min-height: 100vh
+    position: relative
 
 .mask_black
     opacity: 0

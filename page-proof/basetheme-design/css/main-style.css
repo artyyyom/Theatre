@@ -3583,7 +3583,10 @@ body
 
 .header
 {
-    width: 100%; 
+    position: absolute;
+    top: 0; 
+
+    width: 100%;
 
     grid-template-areas: 'header';
 }
@@ -3603,10 +3606,12 @@ body
 
 .wrapper
 {
+    position: relative; 
+
     display: -ms-grid;
     display:     grid;
 
-    min-height: 100vh; 
+    min-height: 100vh;
 
     -webkit-box-align: center;
     -webkit-align-items: center;
