@@ -45,7 +45,6 @@ body
 .wrapper
     display: grid
     align-items: center
-    justify-content: center
     grid-template-columns: "header" "main" "footer"
     grid-template-rows: 1fr 40px
     min-height: 100vh
@@ -68,18 +67,16 @@ body
     padding-left: 30px
     padding-bottom: 50px
 
-
-
 h3
     text-align: center
     font-weight: normal
-    font-size: 30px
+    font-size: 3.0 + $base-unit
     color: $title-color
     text-shadow: 0px 3px 3px #000
 
 h4
     text-align: left
-    font-size: 16px
+    font-size: 1.6 + $base-unit
     color: $subtitle-color-h4
     margin: 0
     &::before
@@ -99,23 +96,29 @@ h4
     display: grid
     grid-template-columns: 1fr 1px 1fr
     grid-column-gap: 50px
+    max-width: 1280px
+    margin: 0 auto
+
+.column-1
+    max-width: 1280px
+    margin: 0 auto
 
 input[type=text]
     padding-left: 5px
-    font-size: 1.4 + $base-unit
     color: $base-color
     background: $bg-input-color
     border: 1px solid $border-color
+    width: calc(100% - 5px)
 
 textarea
-    width: 416px
+    width: calc(100% - 10px)
     height: 110px
-    font-size: 1.4 + $base-unit
     color: $base-color
     background: $bg-input-color
     border: 1px solid $border-color
     padding: 5px
     resize: none
+
 a
     color: $link-active-color
     text-decoration: underline
@@ -191,6 +194,13 @@ a
         grid-area: 1/1/2/9
         margin-top: 91px
 
+@media screen and (max-width: 835px)
+    .column-2
+        grid-template-columns: 1fr
+        justify-items: center
+        padding: 10px
+
+
 @media screen and (max-width: 750px)
     html
         font-size: 35%
@@ -200,9 +210,11 @@ a
     .btn
         font-size: 2.8 + $base-unit
 
-    .column-2
-        grid-template-columns: 1fr
+
 
 @media screen and (max-width: 488px)
     html
         font-size: 25%
+
+    .column-2
+        padding: 5px
