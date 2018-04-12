@@ -16,6 +16,7 @@
 @import "parts/performances/performances"
 @import "parts/performance/performance"
 @import "parts/employees/employees"
+@import "parts/employee/employee"
 
 
 html 
@@ -196,6 +197,21 @@ a
         font-size: 2.4 + $base-unit
         border-bottom: 1px solid $title-color
         padding: 10px
+
+.show-more
+    background-color: rgba(2,2,2, 0.8)
+    height: 30px
+    color: white
+    text-align: center
+    text-transform: uppercase
+    cursor: pointer
+    line-height: 30px
+    font-style: $base-font-bold
+    transition: 0.5s
+
+    &:hover
+        opacity: 0.6
+
 
 @media screen and (max-width: 1000px)
     html

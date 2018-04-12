@@ -3711,6 +3711,85 @@ nav
     background-color: black;
 }
 
+.employee-block
+{
+    padding-top: 10px;
+}
+
+.employee__description h5
+{
+    margin: 0;
+}
+
+.employee__birthday
+{
+    text-align: center;
+}
+.employee__birthday h5
+{
+    font-size: 1.5rem;
+}
+
+.employee__name
+{
+    text-align: center;
+}
+.employee__name h5
+{
+    font-size: 2rem;
+}
+
+.employee__bio
+{
+    margin-top: 10px;
+}
+
+.employee__gallery .demo-gallery li
+{
+    width: 170px;
+    margin-right: 0; 
+    margin-bottom: 0;
+}
+.employee__gallery .demo-gallery li img
+{
+    height: 100px;
+}
+
+.employee__gallery #lightgallery
+{
+    margin: 0;
+    padding: 15px; 
+
+    text-align: center;
+}
+
+.employee__photo
+{
+    text-align: center; 
+
+    background: #bb975e;
+}
+.employee__photo img
+{
+    max-width: 295px;
+}
+
+@media screen and (max-width: 835px)
+{
+    .employee-block .column-2
+    {
+        padding: 0;
+    }
+    .employee__description
+    {
+        margin-bottom: 10px;
+    }
+    .employee__bio
+    {
+        margin-top: 5px;
+    }
+}
+
 html
 {
     font-size: 62.5%;
@@ -3988,6 +4067,27 @@ a
 
     color: #bb975e;
     border-bottom: 1px solid #bb975e;
+}
+
+.show-more
+{
+    font-style: 'BitterBold';
+    line-height: 30px;
+
+    height: 30px;
+
+    cursor: pointer;
+    -webkit-transition: .5s;
+            transition: .5s; 
+    text-align: center;
+    text-transform: uppercase;
+
+    color: white;
+    background-color: rgba(2, 2, 2, .8);
+}
+.show-more:hover
+{
+    opacity: .6;
 }
 
 @media screen and (max-width: 1000px)
