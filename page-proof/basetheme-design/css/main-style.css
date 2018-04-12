@@ -516,7 +516,6 @@ th
 div.cs-select
 {
     position: relative;
-    z-index: 100;
 
     display: inline-block;
 
@@ -709,6 +708,8 @@ div.cs-skin-elastic
 
 .cs-skin-elastic.cs-active .cs-options
 {
+    z-index: 1000; 
+
     pointer-events: auto;
 }
 
@@ -3150,6 +3151,8 @@ nav
     display: -ms-grid;
     display:     grid;
 
+    text-align: center; 
+
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -3196,10 +3199,9 @@ nav
     display: block;
 
     width: 100%;
-    max-width: 250px; 
     height: 100%;
 
-    object-fit: cover;
+    object-fit: fill;
 }
 .a-face__content
 {
@@ -3353,6 +3355,41 @@ nav
 .btn-performance
 {
     width: 100%;
+}
+
+@media screen and (max-width: 1185px)
+{
+    .performances-block
+    {
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+    .up-event-slide
+    {
+        max-width: 90%;
+    }
+    .perforamnces-control
+    {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 750px)
+{
+    .performances-block
+    {
+        margin-left: 0;
+
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-row-gap: 15px;
+    }
+    .up-event-slide
+    {
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 
 .performance__gallery
@@ -3640,8 +3677,9 @@ body
 {
     z-index: 11;
 
+    margin-top: 91px; 
     padding-right: 30px;
-    padding-bottom: 50px; 
+    padding-bottom: 50px;
     padding-left: 30px;
 
     grid-area: 1/2/2/8;
@@ -3685,6 +3723,15 @@ h4::before
     background: url('../images/date1.png');
     background-repeat: no-repeat;
     background-position: 0 0;
+}
+
+.column-3
+{
+    display: -ms-grid;
+    display:     grid;
+
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .column-2
@@ -3834,8 +3881,6 @@ a
     }
     .main__content
     {
-        margin-top: 91px; 
-
         grid-area: 1/1/2/9;
     }
 }

@@ -10,6 +10,7 @@
 .perforamnces-control
     display: grid
     grid-template-columns: 1fr 1fr 1fr
+    text-align: center
 
 .performances-block
     margin-left: 40px
@@ -35,8 +36,7 @@
         display: block
         width: 100%
         height: 100%
-        object-fit: cover
-        max-width: 250px
+        object-fit: fill
 
     &__content
         position: absolute
@@ -122,3 +122,20 @@
 .btn-performance
     width: 100%
 
+@media screen and (max-width: 1185px)
+    .performances-block
+        grid-template-columns: 1fr 1fr
+    .up-event-slide
+        max-width: 90%
+    .perforamnces-control
+        grid-template-columns: 1fr
+
+
+@media screen and (max-width: 750px)
+    .performances-block
+        grid-template-columns: 1fr
+        margin-left: 0
+        grid-row-gap: 15px
+    .up-event-slide
+        width: 100%
+        margin: 0 auto

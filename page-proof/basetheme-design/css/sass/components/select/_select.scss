@@ -5,7 +5,7 @@ div.cs-select {
   position: relative;
   text-align: left;
   background: #fff;
-  z-index: 100;
+
   width: 100%;
   max-width: 500px;
   -webkit-touch-callout: none;
@@ -148,6 +148,7 @@ div.cs-skin-elastic {
 
 .cs-skin-elastic.cs-active .cs-options {
   pointer-events: auto;
+  z-index: 1000;
 }
 
 .cs-skin-elastic .cs-options > ul::before {
