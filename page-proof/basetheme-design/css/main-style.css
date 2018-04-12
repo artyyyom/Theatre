@@ -3571,37 +3571,144 @@ nav
     /* On mouse-over, add a deeper shadow */
     /* Add some padding inside the card container */
 }
-.employees-block
+.employees-block h2
 {
-    display: -ms-grid;
-    display:     grid;
+    margin: 0;
 
-    -ms-grid-columns: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    text-align: center;
+}
+.employees-block p
+{
+    text-align: center;
+}
+.employees-block__title
+{
+    font-size: 2em;
+
+    text-align: center;
 }
 .employees__card
 {
+    max-width: 250px;
+    margin: 0 auto; 
+    /* Add shadows to create the "card" effect */
+    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) */
+
     -webkit-transition: .3s;
             transition: .3s;
 
-    border-radius: 5px; 
-    /* Add shadows to create the "card" effect */
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
-}
-.employees__card img
-{
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
 }
 .employees__card:hover
 {
-    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+    opacity: .7;
+}
+.employees__card a
+{
+    text-decoration: none;
+}
+.employees__card img
+{
+    height: 315px; 
+
+    border-radius: 5px 5px 0 0;
 }
 .employees__container
 {
     padding: 2px 16px;
+}
+.employees__navigation
+{
+    margin-bottom: 35px;
+    /* 1. Menu settings */
+    /* 2. Screen settings */
+}
+.employees__navigation .sub-menu
+{
+    /* 1.1 Reset */
+    /* 1.2 Sizing-up links */
+    /* 1.3 List-items */
+    /* 1.4 Default display for menu-items and links */
+}
+.employees__navigation .sub-menu,
+.employees__navigation .sub-menu li
+{
+    margin: 0;
+    padding: 0;
+}
+.employees__navigation .sub-menu a
+{
+    font-weight: 700;
+
+    padding: .75em 1.25em;
+
+    -webkit-transition: background .25s ease-in-out;
+            transition: background .25s ease-in-out;
+}
+.employees__navigation .sub-menu li
+{
+    position: relative;
+
+    border-width: 0 0 1px;
+    border-style: solid;
+}
+.employees__navigation .sub-menu li:last-child
+{
+    border-width: 0;
+}
+.employees__navigation .sub-menu li,
+.employees__navigation .sub-menu a
+{
+    display: block;
+}
+@media only screen and (min-width: 1024px)
+{
+    .employees__navigation .sub-menu
+    {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display:         flex;
+
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-flow: row wrap;
+                flex-flow: row wrap;
+        /* 2.1.1 Border adjustments for menu-items */
+    }
+    .employees__navigation .sub-menu li
+    {
+        border-width: 0 1px 0 0;
+    }
+}
+
+/* Theming */
+.sub-nav
+{
+    width: 100%; 
+
+    background-color: #222;
+}
+
+.sub-menu
+{
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+}
+.sub-menu li
+{
+    border-color: #2a2a2a;
+}
+.sub-menu li .menu-item-current a
+{
+    color: rgba(255, 255, 255, .75);
+}
+.sub-menu li .menu-item-current a:hover,
+.sub-menu li .menu-item-current a:active,
+.sub-menu li .menu-item-current a:focus
+{
+    color: rgba(255, 255, 255, .9);
+    background-color: black;
 }
 
 html
@@ -3723,6 +3830,16 @@ h4::before
     background: url('../images/date1.png');
     background-repeat: no-repeat;
     background-position: 0 0;
+}
+
+.column-4
+{
+    display: -ms-grid;
+    display:     grid;
+
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
 }
 
 .column-3
@@ -3896,6 +4013,11 @@ a
         -ms-grid-column-align: center;
         justify-items: center;
     }
+    .column-4
+    {
+        -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 750px)
@@ -3915,6 +4037,15 @@ a
     }
 }
 
+@media screen and (max-width: 640px)
+{
+    .column-4
+    {
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media screen and (max-width: 488px)
 {
     html
@@ -3924,6 +4055,11 @@ a
     .column-2
     {
         padding: 5px;
+    }
+    .column-4
+    {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
     }
 }
 

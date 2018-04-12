@@ -93,6 +93,11 @@ h4
         background-repeat: no-repeat
         background-position: 0 0
 
+.column-4
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    grid-gap: 10px
+
 .column-3
     display: grid
     grid-template-columns: 1fr 1fr 1fr
@@ -204,7 +209,8 @@ a
         grid-template-columns: 1fr
         justify-items: center
         padding: 10px
-    .column-3
+    .column-4
+        grid-template-columns: 1fr 1fr 1fr
 
 
 @media screen and (max-width: 750px)
@@ -216,11 +222,15 @@ a
     .btn
         font-size: 2.8 + $base-unit
 
-
-
+@media screen and (max-width: 640px)
+    .column-4
+        grid-template-columns: 1fr 1fr
 @media screen and (max-width: 488px)
     html
         font-size: 25%
 
     .column-2
         padding: 5px
+
+    .column-4
+        grid-template-columns: 1fr
