@@ -20,6 +20,8 @@
     grid-row-gap: 10px
 
 .performances-date
+    &__day, &__month, &__week
+        display: inline
     &__day
         font-size: 5.0 + $base-unit
     &__month
@@ -60,6 +62,7 @@
 
 .up-event-info
     font-family: $base-font
+    font-size: 1.4 + $base-unit
     background: #FFFFFF
     transition: background .4s ease-in-out
     padding: 10px
@@ -71,6 +74,7 @@
     &__date
         letter-spacing: 2px
         font-family: $base-font-italic
+
     &__time
         letter-spacing: 1px
 
@@ -129,6 +133,8 @@
         max-width: 90%
     .perforamnces-control
         grid-template-columns: 1fr
+    .performances-block
+        margin-left: 0
 
 
 @media screen and (max-width: 750px)
@@ -139,3 +145,17 @@
     .up-event-slide
         width: 100%
         margin: 0 auto
+
+@media screen and (max-width: 488px)
+    .performances
+        .column-2
+            grid-template-columns: 1fr
+            grid-row-gap: 5px
+    .performances-date
+        &__day, &__month, &__week
+            font-size: 3rem
+            margin-right: 10px
+
+@media screen and (max-width: 374px)
+    .up-event-slide
+        max-width: 280px

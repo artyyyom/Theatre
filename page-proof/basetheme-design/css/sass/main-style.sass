@@ -19,11 +19,11 @@
 @import "parts/employee/employee"
 
 
-html 
+html
     font-size: 62.5%
 
 body
-    font-size: $base-font-size-text
+    font-size: $base-font-size-text + $base-unit
     font-family: $base-font
 
     background-color: #0c0505
@@ -214,8 +214,9 @@ a
 
 
 @media screen and (max-width: 1000px)
-    html
-        font-size: 50%
+    body
+        font-size: 1.5 + $base-unit
+
     .main__content
         grid-area: 1/1/2/9
 
@@ -230,20 +231,19 @@ a
 
 
 @media screen and (max-width: 750px)
-    html
-        font-size: 35%
+    body
+        font-size: 1.2 + $base-unit
     .main__content
         padding-right: 5px
         padding-left: 5px
-    .btn
-        font-size: 2.8 + $base-unit
+
 
 @media screen and (max-width: 640px)
     .column-4
         grid-template-columns: 1fr 1fr
 @media screen and (max-width: 488px)
-    html
-        font-size: 25%
+    body
+        font-size: 0.8 + $base-unit
 
     .column-2
         padding: 5px

@@ -116,13 +116,13 @@ div.cs-select:focus {
 
 div.cs-skin-elastic {
   background: transparent;
-  font-size: 1em;
+  font-size: 1.7 + $base-unit;
   font-weight: 700;
   color: #5b8583;
 }
 
 @media screen and (max-width: 30em) {
-  div.cs-skin-elastic { font-size: 1em; }
+  div.cs-skin-elastic { font-size: 1.7 + $base-unit; }
 }
 
 .cs-skin-elastic > span {
@@ -142,7 +142,7 @@ div.cs-skin-elastic {
   background: transparent;
   opacity: 1;
   visibility: visible;
-  padding-bottom: 1.25em;
+  padding-bottom: 1.7 + $base-unit;
   pointer-events: none;
 }
 
