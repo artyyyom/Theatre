@@ -4053,6 +4053,11 @@ yx-axis
 {
     margin-top: 2px;
 }
+.main__curtain_left,
+.main__curtain_right
+{
+    display: none;
+}
 .main__curtain_left
 {
     position: absolute;
