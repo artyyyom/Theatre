@@ -64,3 +64,17 @@ w3.includeHTML();
         });
     });
 })(jQuery);
+
+
+/*scroll*/
+
+(function($){
+    $(window).on('load', function(){
+
+
+        $(".performance__title").mCustomScrollbar({
+            theme:"light-thin"
+        });
+
+    });
+})(jQuery);
