@@ -7,6 +7,7 @@
     .btn:after
         width: 145%
         height: 1000%
+
 .perforamnces-control
     display: grid
     grid-template-columns: 1fr 1fr 1fr
@@ -29,6 +30,7 @@
         margin-bottom: .2 + $base-unit
     &__week
         font-size: 3.0 + $base-unit
+
 .a-face
     height: 340px
     width: 100%
@@ -45,7 +47,7 @@
         bottom: 0
         left: 0
         width: 100%
-        background: linear-gradient(transparent,#282828)
+        background: linear-gradient(transparent, #282828)
     &__title
         padding: 0 20px
         display: inline-block
@@ -95,8 +97,8 @@
 .up-event-slide
     max-width: 242px
     .a-face__subtitle, .a-face__title
-       transform: translate3d(0,80px,0)
-       transition: transform .5s cubic-bezier(.645,.045,.355,1)
+        transform: translate3d(0, 80px, 0)
+        transition: transform .5s cubic-bezier(.645, .045, .355, 1)
     &:hover
         background-color: #282828
         color: #FFFFFF
@@ -114,8 +116,8 @@
         transform: scaleY(.1)
         opacity: 0
         transition: transform .4s, opacity .4s
-        border-top: 1px solid hsla(0,0%,100%,.15)
-        border-bottom: 1px solid hsla(0,0%,100%,.15)
+        border-top: 1px solid hsla(0, 0%, 100%, .15)
+        border-bottom: 1px solid hsla(0, 0%, 100%, .15)
         a
             display: block
             text-decoration: none
@@ -135,7 +137,6 @@
         grid-template-columns: 1fr
     .performances-block
         margin-left: 0
-
 
 @media screen and (max-width: 750px)
     .performances-block

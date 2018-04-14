@@ -3856,13 +3856,13 @@ nav
     margin-top: 10px;
 }
 
-.employee__gallery .demo-gallery li
+.employee__gallery li
 {
     width: 170px;
     margin-right: 0; 
     margin-bottom: 0;
 }
-.employee__gallery .demo-gallery li img
+.employee__gallery li img
 {
     height: 100px;
 }
@@ -3912,8 +3912,16 @@ body
     font-family: 'BitterRegular';
     font-size: 1.4rem;
 
-    color: #b9b0a1; 
+    color: #b9b0a1;
     background-color: #0c0505;
+
+    scrollbar-face-color: #5997ca;
+    scrollbar-shadow-color: #fff;
+    scrollbar-highlight-color: #fff;
+    scrollbar-3dlight-color: #5997ca;
+    scrollbar-darkshadow-color: #5997ca;
+    scrollbar-track-color: #f6f6f6;
+    scrollbar-arrow-color: #f6f6f6;
 }
 
 .header

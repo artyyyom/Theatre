@@ -18,16 +18,21 @@
 @import "parts/employees/employees"
 @import "parts/employee/employee"
 
-
 html
     font-size: 62.5%
 
 body
     font-size: $base-font-size-text + $base-unit
     font-family: $base-font
-
     background-color: #0c0505
     color: $base-color
+    scrollbar-face-color: #5997CA
+    scrollbar-shadow-color: #ffffff
+    scrollbar-highlight-color: #ffffff
+    scrollbar-3dlight-color: #5997CA
+    scrollbar-darkshadow-color: #5997CA
+    scrollbar-track-color: #F6F6F6
+    scrollbar-arrow-color: #F6F6F6
 
 .header
     grid-template-areas: 'header'
@@ -39,9 +44,8 @@ body
     display: grid
     grid-template-areas: 'main'
 
-
 .footer
-    grid-template-areas: 'footer'  
+    grid-template-areas: 'footer'
 
 .wrapper
     display: grid
@@ -155,14 +159,12 @@ a
     color: #fff
     font-size: 1.5 + $base-unit
     background-color: #222
-    box-shadow: 0 5px 15px rgba(0,0,0,0.20)
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20)
     padding: 7px
-
 
 .btn span
     position: relative
     z-index: 1
-
 
 .btn:after
     content: ""
@@ -174,7 +176,6 @@ a
     transition: all .5s ease-in-out
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg)
     transform: translateX(-98%) translateY(-25%) rotate(45deg)
-
 
 .btn:hover:after
     -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg)
@@ -199,7 +200,7 @@ a
         padding: 10px
 
 .show-more
-    background-color: rgba(2,2,2, 0.8)
+    background-color: rgba(2, 2, 2, 0.8)
     height: 30px
     color: white
     text-align: center
@@ -212,14 +213,12 @@ a
     &:hover
         opacity: 0.6
 
-
 @media screen and (max-width: 1000px)
     body
         font-size: 1.5 + $base-unit
 
     .main__content
         grid-area: 1/1/2/9
-
 
 @media screen and (max-width: 835px)
     .column-2
@@ -229,7 +228,6 @@ a
     .column-4
         grid-template-columns: 1fr 1fr 1fr
 
-
 @media screen and (max-width: 750px)
     body
         font-size: 1.2 + $base-unit
@@ -237,10 +235,10 @@ a
         padding-right: 5px
         padding-left: 5px
 
-
 @media screen and (max-width: 640px)
     .column-4
         grid-template-columns: 1fr 1fr
+
 @media screen and (max-width: 488px)
     body
         font-size: 0.8 + $base-unit
