@@ -1,0 +1,11 @@
+@mixin grid-areas {
+  .header {
+    grid-template-areas: 'header'
+  }
+  .main {
+    grid-template-areas: 'main'
+  }
+  .footer {
+    grid-template-areas: 'footer'
+  }
+}
