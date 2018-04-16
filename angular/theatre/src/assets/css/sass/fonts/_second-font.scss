@@ -1,0 +1,9 @@
+@font-face {
+    font-family: $second-font;
+    src: url($font-src + "flemishscript/FlemishScriptBT.eot");
+    src: url($font-src + "flemishscript/FlemishScriptBT.eot?#iefix") format("embedded-opentype"),
+    url($font-src + "flemishscript/FlemishScriptBT.woff2") format("woff2"),
+    url($font-src + "flemishscript/FlemishScriptBT.woff") format("woff"),
+    url($font-src + "flemishscript/FlemishScriptBT.ttf") format("truetype"),
+    url($font-src + "flemishscript/FlemishScriptBT.svg#FlemishScript BT") format("svg");
+}

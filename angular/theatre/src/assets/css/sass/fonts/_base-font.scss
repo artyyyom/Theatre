@@ -1,0 +1,9 @@
+@font-face {
+    font-family: $base-font;
+    src: url($font-src + "bitter/BitterRegular.eot");
+    src: url($font-src + "bitter/BitterRegular.eot?#iefix")format("embedded-opentype"),
+    url($font-src + "bitter/BitterRegular.woff") format("woff"),
+    url($font-src + "bitter/BitterRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

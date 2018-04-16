@@ -1,0 +1,43 @@
+.employee
+    &-block
+        padding-top: 10px
+    &__description
+        h5
+            margin: 0
+    &__birthday
+        text-align: center
+        h5
+            font-size: 1.5 + $base-unit
+    &__name
+        text-align: center
+        h5
+            font-size: 2 + $base-unit
+    &__bio
+        margin-top: 10px
+    &__gallery
+        .demo-gallery
+        li
+            width: 170px
+            margin-bottom: 0
+            margin-right: 0
+
+            img
+                height: 100px
+        #lightgallery
+            text-align: center
+            margin: 0
+            padding: 15px
+    &__photo
+        background: #bb975e
+        text-align: center
+        img
+            max-width: 295px
+
+@media screen and (max-width: 835px)
+    .employee-block
+        .column-2
+            padding: 0
+    .employee__description
+        margin-bottom: 10px
+    .employee__bio
+        margin-top: 5px
