@@ -1,0 +1,28 @@
+<nav id='cssmenu'>
+  <div id="head-mobile"></div>
+  <div class="button"></div>
+  <ul>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <a [routerLink]="['/']" >Главная</a>
+    </li>
+    <li routerLinkActive="active"><a [routerLink]="['/performances']" >Спектакли</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['/employees']">Труппа</a>
+      <ul>
+        <li><a href='#'>Product 1</a>
+          <ul>
+            <li><a href='#'>Sub Product</a></li>
+            <li><a href='#'>Sub Product</a></li>
+          </ul>
+        </li>
+        <li><a href='#'>Product 2</a>
+          <ul>
+            <li><a href='#'>Sub Product</a></li>
+            <li><a href='#'>Sub Product</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li routerLinkActive="active"><a [routerLink]="['/history']">История</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['/contacts']">Контакты</a></li>
+  </ul>
+</nav>
