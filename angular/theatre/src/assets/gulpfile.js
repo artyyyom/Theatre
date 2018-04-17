@@ -14,6 +14,9 @@ const babel = require('gulp-babel');
 const imagemin = require('gulp-imagemin');
 const spritesmith = require("gulp-spritesmith");
 const gulpif = require("gulp-if");
+const jsmin = require('gulp-jsmin');
+const concat = require('gulp-concat');
+const order = require('gulp-order');
 
 gulp.task('serve', function () {
 
@@ -57,33 +60,38 @@ gulp.task('sass', function (callback) {
   callback();
 });
 
-/*gulp.task('templates', function (callback) {
-  gulp.src('jade/*.jade')
-    .pipe(plumber())
-    .pipe(jade({
-      pretty: true
-    }))
-    .pipe(gulp.dest('.'))
-    .pipe(debug({title: 'jade:'}));
-  callback();
-});*/
+gulp.task('jsmin', function () {
+    gulp.src([
+        'js/jquery.js',
+        'js/classie.js',
+        'js/lightgallery.min.js',
+        'js/lg-autoplay.min.js',
+        'js/lg-fullscreen.min.js',
+        'js/lg-pager.min.js',
+        'js/lg-thumbnail.min.js',
+        'js/lg-zoom.min.js',
+        'js/jquery.mCustomScrollbar.concat.min.js',
+        'js/selectFx.js',
+        'js/slick.min.js',
+        'js/w3.js',
+        'js/scripts.js'
+        ])
+        /*.pipe(order([
+            "jquery.js",
+            "lightgallery.min.js",
+            "*.js",
+            "scripts.js"
+        ]))*/
+        .pipe(jsmin())
+        .pipe(concat('scripts.min.js'))
+        .pipe(gulp.dest('js/jsmin'));
+});
 
 gulp.task('imagemin', () =>
   gulp.src('images/nonoptimised/*')
     .pipe(imagemin())
     .pipe(gulp.dest('images'))
 );
-
-/*gulp.task('sprites', () =>
-  gulp.src('../images/sprite/*.png')
-    .pipe(spritesmith({
-      imgName: 'sprite.png',
-      styleName: 'sprite.css',
-      imgPath: '../images/sprite.png'
-    }))
-    .pipe(gulpif('*.png', gulp.dest('../images/nonoptimised/')))
-    .pipe(gulpif('*.css', gulp.dest('../css/')))
-);*/
 
 gulp.task('watch', function () {
   gulp.watch('css/sass/**/*.*', ['sass']);
@@ -92,4 +100,4 @@ gulp.task('watch', function () {
  // gulp.watch('images/sprite/*.*', ['sprites']);
 });
 
-gulp.task('default', ['serve', 'sass', 'imagemin', 'watch']);
+gulp.task('default', ['serve', 'sass', 'imagemin', 'watch', 'jsmin']);
