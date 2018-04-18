@@ -11,10 +11,23 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { PerformancesComponent } from './performances/performances.component';
 import { HomeComponent } from './home/home.component';
+import {EmployeesService} from '../shared/services/employees.service';
 
 @NgModule({
-  declarations: [SystemComponent, FooterComponent, NavigationComponent, HistoryComponent, PerformanceComponent, ContactsComponent, EmployeeComponent, EmployeesComponent, PerformancesComponent, HomeComponent],
-  imports: [CommonModule, SystemRoutingModule]
+  declarations: [
+    SystemComponent,
+    FooterComponent,
+    NavigationComponent,
+    HistoryComponent,
+    PerformanceComponent,
+    ContactsComponent,
+    EmployeeComponent,
+    EmployeesComponent,
+    PerformancesComponent,
+    HomeComponent
+  ],
+  imports: [CommonModule, SystemRoutingModule],
+  providers: [EmployeesService]
 })
 
 export class SystemModule {}

@@ -4,8 +4,8 @@ import {Observable} from 'rxjs/Observable';
 
 
 export class BaseApi {
-  private baseUrl = 'htpp://localhost:3000';
-  constructor(private http: HttpClient) {}
+  private baseUrl = 'http://127.0.0.1:8000/api/';
+  constructor(public http: HttpClient) {}
 
   private getUrl(url: string = '') {
     return this.baseUrl + url;
