@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/of';
 
 
 export class BaseApi {
@@ -12,8 +14,8 @@ export class BaseApi {
   }
 
   public get(url: string = ''): Observable<any> {
-    return this.http.get(this.getUrl(url))
-      .map((response: Response) => response.json());
+    return this.http
+      .get(this.getUrl(url))
   }
 
   public post(url: string = '', data: any = {}): Observable<any> {

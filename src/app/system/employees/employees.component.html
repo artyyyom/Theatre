@@ -23,52 +23,15 @@
   <div class="employees-block">
     <div class="employees-block__title"><h5>Режиссеры</h5></div>
     <div class="column-4">
-      <div class="employees__card">
+      <div class="employees__card" *ngFor="let employee of employees">
         <a href="">
-          <img src="images/actors.jpg" alt="Avatar" style="width:100%">
+          <img src="./assets/uploads/{{employee.photo_main}}" alt="{{employee.photo_main}}" style="width:100%">
           <div class="employees__container">
-            <h2><b>John Doe Lorem ipsum dolor.</b></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, tenetur?</p>
+            <h2><b>{{employee.name}} {{employee.surname}}</b></h2>
+            <p>{{employee.biography_short}}</p>
           </div>
         </a>
       </div>
-      <div class="employees__card">
-        <a href="">
-          <img src="images/actors.jpg" alt="Avatar" style="width:100%">
-          <div class="employees__container">
-            <h2><b>John Doe</b></h2>
-            <p>Architect & Engineer</p>
-          </div>
-        </a>
-      </div>
-      <div class="employees__card">
-        <a href="">
-          <img src="images/actors.jpg" alt="Avatar" style="width:100%">
-          <div class="employees__container">
-            <h2><b>John Doe</b></h2>
-            <p>Architect & Engineer</p>
-          </div>
-        </a>
-      </div>
-      <div class="employees__card">
-        <a href="">
-          <img src="images/actors.jpg" alt="Avatar" style="width:100%">
-          <div class="employees__container">
-            <h2><b>John Doe</b></h2>
-            <p>Architect & Engineer</p>
-          </div>
-        </a>
-      </div>
-      <div class="employees__card">
-        <a href="">
-          <img src="images/actors.jpg" alt="Avatar" style="width:100%">
-          <div class="employees__container">
-            <h2><b>John Doe</b></h2>
-            <p>Architect & Engineer</p>
-          </div>
-        </a>
-      </div>
-
     </div>
   </div>
   <div class="employees-block">

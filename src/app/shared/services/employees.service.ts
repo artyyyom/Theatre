@@ -9,7 +9,11 @@ export class EmployeesService extends BaseApi {
   constructor (public http: HttpClient) {
     super(http);
   }
-  getEmployees(): Observable<Employees> {
-      return this.get('employees');
+  getEmployees(): Observable<Employees[]> {
+      return this.get('employees')
+        .map(response => {
+          return response.data;
+        });
+
     }
 }

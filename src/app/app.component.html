@@ -1,1 +1,12 @@
-<router-outlet></router-outlet>
+<div class="ncf-container nfc-top-right"
+    *ngIf="notification"
+    (click)="closeNotification()" 
+>
+  <div class="ncf" [ngClass]="type">
+      <p class="ncf-title">Results</p>
+      <p class="nfc-message">{{notification}}</p>
+    </div>
+  </div>  
+<router-outlet></router-outlet> 
+ 
+  

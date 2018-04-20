@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
 import {SystemModule} from './system/system.module';
 import {AppRoutingModule} from './app-routing.module';
+import {ErrorsModule} from './shared/core/errors';
+import {NotificationService} from './shared/core/services/notification/notification.service';
 
 
 @NgModule({
@@ -14,11 +16,14 @@ import {AppRoutingModule} from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
-    SystemModule
+    HttpClientModule,
+    SystemModule,
+    ErrorsModule,
   ],
-  providers: [],
+  providers: [
+    NotificationService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
