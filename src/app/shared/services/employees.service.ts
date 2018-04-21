@@ -12,4 +12,8 @@ export class EmployeesService extends BaseApi {
   getEmployees(): Observable<Employees[]> {
       return this.get('employees')
     }
+
+  getEmployee(id: number): Observable<Employees> {
+    return this.get(`employees/${id}`)  
+  }
 }

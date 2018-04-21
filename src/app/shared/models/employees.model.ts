@@ -11,7 +11,9 @@ export class Employees {
     public biography_short: string,
     public photo_main: string,
     public photos: string,
-    public position_id: number
+    public position_id: number,
+    public performances: Array<any>,
+    public role: string
   ) {}
 
 }

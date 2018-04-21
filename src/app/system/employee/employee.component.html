@@ -5,10 +5,10 @@
         <img src="assets/images/actors.jpg" alt="">
       </div>
       <div class="employee__name">
-        <h5>Иванов Иван Иванович</h5>
+        <h5>{{employee?.surname}} {{employee?.name}} {{employee?.middlename}}</h5>
       </div>
       <div class="employee__birthday">
-        <h5>20 октября 1984</h5>
+        <h5>{{employee?.birthday | date:'d MMMM y'}}</h5>
       </div>
     </div>
     <div class="delimeter"></div>
@@ -17,48 +17,14 @@
       <div class="description__text">
         <div class="demo-gallery">
           <ul id="lightgallery">
-            <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+            <li *ngFor="let g of galleryImages?.photosStandart"  
+                data-responsive="uploads/g.photo 375, uploads/g.photo 480, uploads/g.photo 800" 
+                data-src="uploads/g.photo"
+                data-sub-html="<h4>Фото</h4><p>g.text</p>">
               <a href="">
-                <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
+                <img class="img-responsive" src="./assets/uploads/{{g.photo}}" alt="photo">
                 <div class="demo-gallery-poster">
-                  <img src="images/zoom.png" alt="photo">
-                </div>
-              </a>
-            </li>
-            <li data-responsive="images/middle_theatre.jpg 375, images/middle_theatre.jpg 480, images/middle_theatre.jpg 800" data-src="images/middle_theatre.jpg"
-                data-sub-html="<h4>Coniston Calmness</h4><p>Beautiful morning</p>">
-              <a href="">
-                <img class="img-responsive" src="images/middle_theatre.jpg" alt="photo">
-                <div class="demo-gallery-poster">
-                  <img src="images/zoom.png" alt="photo">
-                </div>
-              </a>
-            </li>
-            <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-              <a href="">
-                <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                <div class="demo-gallery-poster">
-                  <img src="images/zoom.png" alt="photo">
-                </div>
-              </a>
-            </li>
-            <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-              <a href="">
-                <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                <div class="demo-gallery-poster">
-                  <img src="images/zoom.png" alt="photo">
-                </div>
-              </a>
-            </li>
-            <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-              <a href="">
-                <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                <div class="demo-gallery-poster">
-                  <img src="images/zoom.png" alt="photo">
+                  <img src="./assets/images/zoom.png" alt="photo">
                 </div>
               </a>
             </li>
@@ -69,15 +35,15 @@
     </div>
   </div>
   <div class="column-1">
-    <div class="employee__bio">
+    <div class="employee__bio" *ngIf="employee?.biography">
       <div class="table-header">Биография</div>
       <div class="description__text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum ea, earum facilis iste iure magni molestias nobis sit veniam. Dolorem facilis laudantium libero non quo rem. Alias, nihil, qui? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dolorem earum esse, explicabo facere, in, necessitatibus odit porro quaerat quibusdam ratione repudiandae sequi tempora totam vero vitae voluptas voluptatum. Beatae cum exercitationem ipsa recusandae vero, voluptatum! Accusamus consectetur dolorem, et illo laudantium pariatur perferendis tempore. A et eveniet ex explicabo facere harum illo mollitia nostrum optio placeat porro repellat repudiandae, sit ullam vel veritatis vitae! Aliquam debitis dignissimos dolores earum laboriosam molestias quos, sit? Autem consequatur non provident. Assumenda aut culpa dolores fugit, in itaque laboriosam magnam molestias natus officiis provident, quam quo quod rem repellat repudiandae saepe sit tempora. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium assumenda distinctio obcaecati repellat rerum. Accusantium alias amet animi architecto asperiores aut autem beatae corporis dolorum ex explicabo fugit impedit incidunt ipsam itaque laboriosam laudantium maxime modi molestias, natus nisi nobis nostrum officiis perspiciatis placeat quasi quis quo ratione repudiandae rerum sint suscipit tempora voluptatibus. Adipisci amet aperiam debitis earum eligendi esse est eveniet facere fuga harum id illum ipsa itaque magni molestiae nostrum perferendis perspiciatis possimus quam quasi quidem reiciendis repellendus sapiente sunt totam, unde veritatis voluptatibus. Accusamus accusantium ad aut cumque, deleniti deserunt, dicta exercitationem fugiat labore minima numquam, quia reprehenderit repudiandae sint ut! Aliquid, aut beatae distinctio eligendi exercitationem labore neque non qui tenetur. Alias earum et, ipsa itaque labore libero magnam perspiciatis qui saepe sequi? Amet blanditiis delectus ea, id odit praesentium unde. Aliquid animi aperiam dolorem doloribus id, incidunt, laboriosam magnam officiis quae quaerat quasi ut velit voluptate! Consectetur dolore laudantium quam quos vero. Ab aspernatur distinctio dolor ea expedita illo porro quis quos soluta voluptatem. Dolores ea ipsum repudiandae veniam! Accusantium eaque eius magnam pariatur quaerat. Adipisci aliquam aperiam autem cum cumque distinctio dolor est excepturi impedit iste maiores molestiae nam nihil obcaecati odio omnis perferendis, placeat quis quo, rem, reprehenderit similique sunt tempora tenetur ut veniam voluptates? Adipisci architecto dicta dignissimos ipsum molestiae numquam officiis quis saepe sunt, voluptatem. Ad adipisci beatae delectus dicta dolorum eligendi exercitationem, in itaque natus nesciunt nobis nostrum, odit praesentium quae repellendus sunt tempora tenetur velit veniam veritatis voluptates.</p>
+        <p>{{employee?.biography}}</p>
       </div>
     </div>
-    <div class="table">
-      <div class="table-header">Играл в спектаклях</div>
-
+    <div class="table" *ngIf="performances?.length">
+      <div class="table-header">Деятельность в спектаклях</div>
+      
       <table cellspacing="0">
         <tr>
           <th>Фото</th>
@@ -85,28 +51,10 @@
           <th width="230">Роль</th>
         </tr>
 
-        <tr>
-          <td><img src="images/old_theatre.jpg" alt="" /></td>
-          <td>Lorem ipsum dolor lorem.</td>
-          <td>Lorem ipsum dolor.</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/old_theatre.jpg" alt="" /></td>
-          <td>John Doe</td>
-          <td>Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo ducimus neque, nesciunt rerum perferendis, inventore.</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/old_theatre.jpg" alt="" /></td>
-          <td>Jane Smith</td>
-          <td> Culpa praesentium unde pariatur fugit eos recusandae voluptas.</td>
-        </tr>
-
-        <tr>
-          <td><img src="images/old_theatre.jpg" alt="" /></td>
-          <td>John Smith</td>
-          <td>Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci consequatur maxime temporibus quas, dolorem impedit.</td>
+        <tr *ngFor="let p of performances">
+          <td><img src="./assets/uploads/{{p.photo_main}}" alt="" /></td>
+          <td><a [ngStyle]="{'color': 'black'}" [routerLink]="['/performance', p.id]">{{p.name}}</a></td>
+          <td>{{p.pivot.role}}</td>
         </tr>
       </table>
     </div>
