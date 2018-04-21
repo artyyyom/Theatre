@@ -1,0 +1,12 @@
+<nav class="sub-nav">
+  <ul class="sub-menu">
+    <li class="menu-item"><a (click)="click(-1)">Все категории</a></li>
+    <ng-container *ngFor="let n of navigation">
+      <li class="menu-item" 
+        *ngIf="n.is_parent"
+      >
+      <a (click)="click(n.id)">{{n.name}}</a>
+    </li>
+  </ng-container>
+  </ul><!-- .menu -->
+</nav><!-- .nav -->

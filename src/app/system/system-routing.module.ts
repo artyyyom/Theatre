@@ -7,13 +7,15 @@ import {PerformancesComponent} from './performances/performances.component';
 import {EmployeesComponent} from './employees/employees.component';
 import {ContactsComponent} from './contacts/contacts.component';
 import {HomeComponent} from './home/home.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 const routes = [{path: '', component: SystemComponent, children: [
     {path: '', component: HomeComponent},
     {path: 'history', component: HistoryComponent},
     {path: 'performances', component: PerformancesComponent},
     {path: 'employees', component: EmployeesComponent},
-    {path: 'contacts', component: ContactsComponent}
+    {path: 'employee/:id', component: EmployeeComponent},
+    {path: 'contacts', component: ContactsComponent},
   ]}];
 
 @NgModule({

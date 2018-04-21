@@ -12,6 +12,10 @@ import { EmployeesComponent } from './employees/employees.component';
 import { PerformancesComponent } from './performances/performances.component';
 import { HomeComponent } from './home/home.component';
 import {EmployeesService} from '../shared/services/employees.service';
+import { PositionsService } from '../shared/services/positions.service';
+import { SubNavigationComponent } from './shared/components/sub-navigation/sub-navigation.component';
+import { EmployeesListComponent } from './employees/employees-list/employees-list.component';
+import { FilterItemsPipe } from './shared/pipes/filter-items.pipe';
 
 @NgModule({
   declarations: [
@@ -24,10 +28,13 @@ import {EmployeesService} from '../shared/services/employees.service';
     EmployeeComponent,
     EmployeesComponent,
     PerformancesComponent,
-    HomeComponent
+    HomeComponent,
+    SubNavigationComponent,
+    EmployeesListComponent,
+    FilterItemsPipe
   ],
   imports: [CommonModule, SystemRoutingModule],
-  providers: [EmployeesService]
+  providers: [EmployeesService, PositionsService]
 })
 
 export class SystemModule {}

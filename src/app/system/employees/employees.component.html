@@ -1,69 +1,15 @@
 <div class="employees-main">
   <div class="title"><h3>Сотрудники</h3></div>
   <div class="employees__navigation">
-    <nav class="sub-nav">
-      <ul class="sub-menu">
-        <li class="menu-item"><a href="#">Lorem</a></li>
-        <li class="menu-item"><a href="#">Nobis</a></li>
-        <li class="menu-item"><a href="#">Nostrum</a></li>
-        <li class="menu-item"><a href="#">Quia</a></li>
-        <li class="menu-item"><a href="#">Non</a></li>
-        <li class="menu-item"><a href="#">Voluptate</a></li>
-        <li class="menu-item"><a href="#">Magni</a></li>
-        <li class="menu-item"><a href="#">Lorem</a></li>
-        <li class="menu-item"><a href="#">Nobis</a></li>
-        <li class="menu-item"><a href="#">Nostrum</a></li>
-        <li class="menu-item"><a href="#">Quia</a></li>
-        <li class="menu-item"><a href="#">Non</a></li>
-        <li class="menu-item"><a href="#">Voluptate</a></li>
-        <li class="menu-item"><a href="#">Magni</a></li>
-      </ul><!-- .menu -->
-    </nav><!-- .nav -->
+    <app-sub-navigation [navigation]='positions'
+    (onChangedId)='onChangedId($event)'
+    >
+    </app-sub-navigation>
   </div>
-  <div class="employees-block">
-    <div class="employees-block__title"><h5>Режиссеры</h5></div>
-    <div class="column-4">
-      <div class="employees__card" *ngFor="let employee of employees">
-        <a href="">
-          <img src="./assets/uploads/{{employee.photo_main}}" alt="{{employee.photo_main}}" style="width:100%">
-          <div class="employees__container">
-            <h2><b>{{employee.name}} {{employee.surname}}</b></h2>
-            <p>{{employee.biography_short}}</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="employees-block">
-    <div class="column-4">
-      <div class="employees__card">
-        <img src="images/actors.jpg" alt="Avatar" style="width:100%">
-        <div class="employees__container">
-          <h2><b>John Doe</b></h2>
-          <p>Architect & Engineer</p>
-        </div>
-      </div>
-      <div class="employees__card">
-        <img src="images/actors.jpg" alt="Avatar" style="width:100%">
-        <div class="employees__container">
-          <h2><b>John Doe</b></h2>
-          <p>Architect & Engineer</p>
-        </div>
-      </div>
-      <div class="employees__card">
-        <img src="images/actors.jpg" alt="Avatar" style="width:100%">
-        <div class="employees__container">
-          <h2><b>John Doe</b></h2>
-          <p>Architect & Engineer</p>
-        </div>
-      </div>
-      <div class="employees__card">
-        <img src="images/actors.jpg" alt="Avatar" style="width:100%">
-        <div class="employees__container">
-          <h2><b>John Doe</b></h2>
-          <p>Architect & Engineer</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-employees-list 
+  [employees]='employees'
+  [positionId]='positionId' 
+  [positions] = 'positions'
+  >
+  </app-employees-list>
 </div>
