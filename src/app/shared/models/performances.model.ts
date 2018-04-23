@@ -1,4 +1,5 @@
 import { Employees_Performances } from "./Employees_Performances.model";
+import { Seances } from "./seances.model";
 
 export class Performances {
     constructor(
@@ -9,7 +10,8 @@ export class Performances {
       public description: string,
       public photo_main: string,
       public photos: string,
-      public pivot: Employees_Performances
+      public pivot: Employees_Performances,
+      public seances: Seances[]
     ) {}
   
   }

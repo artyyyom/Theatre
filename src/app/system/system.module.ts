@@ -17,6 +17,12 @@ import { SubNavigationComponent } from './shared/components/sub-navigation/sub-n
 import { EmployeesListComponent } from './employees/employees-list/employees-list.component';
 import { FilterItemsPipe } from './shared/pipes/filter-items.pipe';
 
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
+import { PerformancesService } from '../shared/services/performances.service';
+import { SeancesService } from '../shared/services/seances.service';
+import { PerformancesListComponent } from './performances/performances-list/performances-list.component';
+
 @NgModule({
   declarations: [
     SystemComponent,
@@ -31,10 +37,11 @@ import { FilterItemsPipe } from './shared/pipes/filter-items.pipe';
     HomeComponent,
     SubNavigationComponent,
     EmployeesListComponent,
-    FilterItemsPipe
+    FilterItemsPipe,
+    PerformancesListComponent
   ],
-  imports: [CommonModule, SystemRoutingModule],
-  providers: [EmployeesService, PositionsService]
+  imports: [CommonModule, SystemRoutingModule, NgSelectModule, FormsModule],
+  providers: [EmployeesService, PositionsService, PerformancesService, SeancesService]
 })
 
 export class SystemModule {}

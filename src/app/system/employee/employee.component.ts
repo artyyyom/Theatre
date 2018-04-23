@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EmployeesService } from '../../shared/services/employees.service';
 import { Employees } from '../../shared/models/employees.model';
-import { Subscription } from 'rxjs';
+import {Subscription} from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { Performances } from '../../shared/models/performances.model';
-import { Employees_Performances } from '../../shared/models/Employees_Performances.model';
+import { Employees_Performances } from '../../shared/models/employees_performances.model';
 
 @Component({
   selector: 'app-employee',
@@ -36,7 +36,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if(this.sub1) 
+    if(this.sub1)
       this.sub1.unsubscribe();
   }
 

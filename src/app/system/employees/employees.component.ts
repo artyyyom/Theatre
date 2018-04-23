@@ -4,7 +4,7 @@ import {Employees} from '../../shared/models/employees.model';
 import {Subscription} from 'rxjs/Subscription';
 import { PositionsService } from '../../shared/services/positions.service';
 import { Positions } from '../../shared/models/positions.model';
-import {Observable} from 'rxjs/Rx'
+import {Observable} from 'rxjs/Rx';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 import { forEach } from '@angular/router/src/utils/collection';
 
@@ -27,7 +27,6 @@ export class EmployeesComponent implements OnInit, OnDestroy {
   ) { }
   sub1: Subscription;
   ngOnInit() {
-    
     this.sub1 = Observable.combineLatest(
       this.employeesService.getEmployees(),
       this.positionsService.getPositions()
