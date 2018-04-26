@@ -22,6 +22,13 @@ import { FormsModule } from '@angular/forms';
 import { PerformancesService } from '../shared/services/performances.service';
 import { SeancesService } from '../shared/services/seances.service';
 import { PerformancesListComponent } from './performances/performances-list/performances-list.component';
+import { StagesService } from '../shared/services/stages.service';
+import { SeasonsService } from '../shared/services/seasons.service';
+import { FilterItems2Pipe } from './shared/pipes/filter-items-2.pipe';
+import { FilterPerformancesPipe } from './shared/pipes/filterPerformances/filter-performances.pipe';
+import { FilterPerformancesSeasonsPipe } from './shared/pipes/filterPerformances/filter-performances-seasons.pipe';
+import { FilterPerformancesStagePipe } from './shared/pipes/filterPerformances/filter-performances-stage.pipe';
+import { FilterPerformancsesMonthsPipe } from './shared/pipes/filterPerformances/filter-performancses-months.pipe';
 
 @NgModule({
   declarations: [
@@ -38,10 +45,28 @@ import { PerformancesListComponent } from './performances/performances-list/perf
     SubNavigationComponent,
     EmployeesListComponent,
     FilterItemsPipe,
-    PerformancesListComponent
+    PerformancesListComponent,
+    FilterItems2Pipe,
+    FilterPerformancesPipe,
+    FilterPerformancesSeasonsPipe,
+    FilterPerformancesStagePipe,
+    FilterPerformancsesMonthsPipe,
   ],
-  imports: [CommonModule, SystemRoutingModule, NgSelectModule, FormsModule],
-  providers: [EmployeesService, PositionsService, PerformancesService, SeancesService]
+  imports: [
+    CommonModule, 
+    SystemRoutingModule, 
+    NgSelectModule, 
+    FormsModule
+  ],
+  providers: [
+    EmployeesService, 
+    PositionsService, 
+    PerformancesService, 
+    SeancesService,
+    StagesService,
+    SeasonsService,
+
+  ]
 })
 
 export class SystemModule {}

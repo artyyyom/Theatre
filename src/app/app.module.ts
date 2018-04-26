@@ -11,7 +11,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {ErrorsModule} from './shared/core/errors';
 import {NotificationService} from './shared/core/services/notification/notification.service';
 
-
 registerLocaleData(localeRU);
 
 @NgModule({

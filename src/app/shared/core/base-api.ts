@@ -3,6 +3,7 @@ import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
+import { URLSearchParams } from '@angular/http';
 
 
 export class BaseApi {
@@ -13,9 +14,9 @@ export class BaseApi {
     return this.baseUrl + url;
   }
 
-  public get(url: string = ''): Observable<any> {
+  public get(url: string = '', params: any = {}): Observable<any> {
     return this.http
-      .get(this.getUrl(url))
+      .get(this.getUrl(url), params)
   }
 
   public post(url: string = '', data: any = {}): Observable<any> {

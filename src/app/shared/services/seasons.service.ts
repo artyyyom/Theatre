@@ -2,16 +2,16 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BaseApi} from '../core/base-api';
 import {Observable} from 'rxjs/Observable';
-import { Seances } from '../models/seances.model';
+import { Seasons } from '../models/seasons.model';
 
 @Injectable()
-export class SeancesService extends BaseApi {
+export class SeasonsService extends BaseApi {
   constructor (public http: HttpClient) {
     super(http);
   }
-  getSeances(filter: string = 'false'): Observable<Seances[]> {
+  getSeasons(filter: string = 'false'): Observable<Seasons[]> {
       let data = {filter: filter};
-      return this.get('seances', {params: data})
+      return this.get('seasons', {params: data});
     }
 
 }

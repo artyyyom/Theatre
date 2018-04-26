@@ -10,7 +10,7 @@ export class PerformancesService extends BaseApi {
     super(http);
   }
   getPerformances(): Observable<Performances[]> {
-      return this.get('performances')
+      return this.get('performances');
     }
 
 }

@@ -1,4 +1,8 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
+.ng-dropdown-panel {
+    left: 0;
+}
+
 a {
     cursor: pointer;
 }

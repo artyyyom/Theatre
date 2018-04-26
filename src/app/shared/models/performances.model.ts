@@ -5,6 +5,7 @@ export class Performances {
     constructor(
       public id: number,
       public name: string,
+      public author: string,
       public genre: string,
       public duration: string,
       public description: string,

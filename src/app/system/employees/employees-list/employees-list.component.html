@@ -1,19 +1,18 @@
   <div class="employees-block">
     <ng-container *ngFor="let p of positions | filterItems:'id':positionId">
-        <div class="employees-block__title" *ngIf='p.is_parent'><h5>{{p.name}}</h5></div>
-        <div class="column-4">
-          <ng-container *ngFor="let employee of employees">
-            <div class="employees__card" *ngIf='employee.position_id === p.id' >
-              <a [routerLink]="['/employee', employee.id]">
-                <img src="./assets/uploads/{{employee.photo_main}}" alt="{{employee.photo_main}}" style="width:100%">
-                <div class="employees__container">
-                  <h2><b>{{employee.name}} {{employee.surname}}</b></h2>
-                  <p>{{employee.biography_short}}</p>
-                </div>
-              </a>
-            </div>
-          </ng-container>          
-        </div>  
+      <div class="employees-block__title" *ngIf='p.is_parent'><h5>{{p.name}}</h5></div>
+      <div class="column-4">
+        <ng-container *ngFor="let employee of employees">
+          <div class="employees__card" *ngIf='employee.position_id === p.id' >
+            <a [routerLink]="['/employee', employee.id]">
+              <img src="./assets/uploads/{{employee.photo_main}}" alt="{{employee.photo_main}}" style="width:100%">
+              <div class="employees__container">
+                <h2><b>{{employee.name}} {{employee.surname}}</b></h2>
+                <p>{{employee.biography_short}}</p>
+              </div>
+            </a>
+          </div>
+        </ng-container>          
+      </div>  
     </ng-container>
-    
   </div>

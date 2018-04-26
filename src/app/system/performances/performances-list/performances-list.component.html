@@ -1,34 +1,39 @@
 
   <div class="performances">
     <div class="column-2">
-      <ng-container *ngFor="let key of keys">
-        <ng-container>
+      <ng-container *ngFor="let key of keys 
+      | filterPerformancesSeasons:seances:seasonSelectId
+      | filterPerformancesStage:seances:stageSelectId
+      | filterPerformancsesMonths:monthSelectId">
           <div class="performances-date" >
-                <div class="performances-date__day">{{key | date:"d"}}</div>
+                <div class="performances-date__day">{{key | date: "dd"}}</div>
                 <div class="performances-date__month">{{key | date: "MMMM"}}</div>
-                <div class="performances-date__week">{{key | date: "EEEEEE" }}</div>
+                <div class="performances-date__week">{{key | date: "E"}}</div>
           </div>
           <div class="delimeter"></div>
-          <div class="performances-block">
-                <div class="up-event-slide items-x1"  *ngFor="let seance of seances[key]">
-                  <div class="event-group">
+          <div class="performances-block"> 
+                <div class="up-event-slide items-x1"  
+                *ngFor="let seance of seances[key] 
+                | filterItems2:['stage', 'id']:stageSelectId" 
+                >
+                  <div class="event-group" >
                     <div class="a-face">
                       <img src="https://opera.lviv.ua/wp-content/uploads/2018/02/photo_2018-02-13_11-26-00-315x440.jpg" alt="">
                       <div class="a-face__content">
                         <div class="a-face__title">{{seance.performance.name}}</div>
-                        <div class="a-face__subtitle">А. Иванов</div>
+                        <div class="a-face__subtitle">{{seance.performance.author}}</div>
                         <div class="a-face__buttons">
                           <div><a href="#" class="btn"><span>Купить</span></a></div>
-                          <div><a href="#" class="btn"><span>Подробнее</span></a></div>
+                          <div><a [routerLink]="['/performance', seance.performance.id]" class="btn"><span>Подробнее</span></a></div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="up-event-info">
-                    <div class="up-event-info__day">{{key | date: "EEEEEE" }}</div>
-                    <div class="up-event-info__date">{{key | date:'d MMMM y'}}</div>
+                    <div class="up-event-info__day">{{key | date: "dd MMMM"}}</div>
+                    <div class="up-event-info__date"></div>
                     <div class="up-event-info__time">
-                      {{seance.performance.time}}
+                      {{ newTime(seance?.time) | date:"H"}}
                       <span class="pipe">|</span>
                       200-1200 грн
                     </div>
@@ -39,7 +44,5 @@
                 </div>
           </div>
         </ng-container>
-        
-      </ng-container>
     </div>
   </div>
