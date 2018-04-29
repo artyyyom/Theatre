@@ -15,7 +15,7 @@ export class NotificationService {
   constructor() {}
 
   notify(message, type = "success") {
-    this._notification.next({message : message, type: type});
+    this._notification.next({message : message, type: type = ''});
     setTimeout(() => this._notification.next({message: null, type: null}), 7000);
   }
 

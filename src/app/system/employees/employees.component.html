@@ -1,15 +1,20 @@
-<div class="employees-main">
+<div class="employees-main" *ngIf="isLoaded">
   <div class="title"><h3>Сотрудники</h3></div>
-  <div class="employees__navigation">
-    <app-sub-navigation [navigation]='positions'
-    (onChangedId)='onChangedId($event)'
+  <ng-container *ngIf="employees.length; else message">
+    <div class="employees__navigation">
+      <app-sub-navigation [navigation]='units'
+      (onChangedId)='onChangedId($event)'
+      >
+      </app-sub-navigation>
+    </div>
+    <app-employees-list 
+    [employees]='employees'
+    [positionId]='positionId' 
+    [positions] = 'positions'
+    [units]='units'
     >
-    </app-sub-navigation>
-  </div>
-  <app-employees-list 
-  [employees]='employees'
-  [positionId]='positionId' 
-  [positions] = 'positions'
-  >
-  </app-employees-list>
+    </app-employees-list>
+  </ng-container>
+  <ng-template #message>Нет данных</ng-template>
 </div>
+<div *ngIf="!isLoaded">Загрузка...</div>

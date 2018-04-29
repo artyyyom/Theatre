@@ -1,7 +1,7 @@
 <div class="error-container">
 
   <div *ngIf="data?.error">
-    <h1>ERROR {{ data?.error | uppercase}}</h1>
+    <h1>ERROR {{ data?.error}}</h1>
     <h3 *ngIf="data?.error === 404">Not found :(</h3>
     <a mat-raised-button [routerLink]="'/'">
       <h3>Go Home</h3>

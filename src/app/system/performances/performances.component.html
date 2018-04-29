@@ -1,5 +1,6 @@
-<div class="performances-main">
+<div class="performances-main" *ngIf="isLoaded">
   <div class="title"><h3>Афиша</h3></div>
+  <ng-container *ngIf="seances.length; else message">
   <div class="perforamnces-control">
     <section>
         <ng-select [(ngModel)]="seasonSelectId">   
@@ -31,11 +32,15 @@
         </ng-select>
     </section>
   </div>
-  <app-performances-list 
-  [seasonSelectId]="seasonSelectId" 
-  [stageSelectId]="stageSelectId"
-  [monthSelectId]="monthSelectId"
-  [seances]="seances" 
-  [keys]="keys">
-  </app-performances-list>
+  
+    <app-performances-list 
+    [seasonSelectId]="seasonSelectId" 
+    [stageSelectId]="stageSelectId"
+    [monthSelectId]="monthSelectId"
+    [seances]="seances" 
+    [keys]="keys">
+    </app-performances-list>
+  </ng-container>
+  <ng-template #message>Нет данных</ng-template>
 </div>
+<div *ngIf="!isLoaded">Загрузка...</div>

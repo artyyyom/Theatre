@@ -49,10 +49,12 @@ export class PerformancesComponent implements OnInit {
                 this.seances = data[1];
                 this.keys = data[1].keys;
                 this.seasons = data[2];
-                this.uniqueKeys = this.uniqDate(this.keys);
+                if(this.keys[0])
+                  this.uniqueKeys = this.uniqDate(this.keys);
                 if(this.seasons)
                   this.seasonSelectId = this.seasons[0].id ? this.seasons[0].id : -1;
                 this.isLoaded = true;
+                console.log(this.seances);
               }
       );    
   }

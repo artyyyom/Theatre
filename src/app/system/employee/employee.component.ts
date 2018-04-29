@@ -18,6 +18,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   routeId: number;
   galleryImages: any;
   pivot: Employees_Performances;
+  isLoaded: boolean = false;
   constructor(
     private employeesService: EmployeesService,
     private route: ActivatedRoute
@@ -29,8 +30,10 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     this.sub1 = this.employeesService.getEmployee(this.routeId)
       .subscribe((data: Employees) => {
         this.employee = data;
-        this.galleryImages = JSON.parse(data.photos);
+        if(data.photos)
+          this.galleryImages = JSON.parse(data.photos);
         this.performances = data.performances;
+        this.isLoaded = true;
         console.log(this.performances);
       });
   }

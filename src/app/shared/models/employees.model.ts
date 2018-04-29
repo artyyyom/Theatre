@@ -1,3 +1,6 @@
+import { Employees_Performances } from "./Employees_Performances.model";
+import { Units } from "./units.model";
+
 export class Employees {
   constructor(
     public id: number,
@@ -13,7 +16,9 @@ export class Employees {
     public photos: string,
     public position_id: number,
     public performances: Array<any>,
-    public role: string
+    public role: string,
+    public pivot: Employees_Performances,
+    public unit: Units
   ) {}
 
 }

@@ -1,222 +1,106 @@
 <div class="column-1">
-  <div class="performance__img">
-    <img src="images/t.jpg" alt="">
-    <div class="performance__title-block">
-      <div class="performance__title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa doloribus earum facere non quisquam. Aliquid, at, dignissimos doloremque ea itaque laudantium minima necessitatibus neque pariatur quae, qui sit temporibus ut!Играем в дружную семью, или гарнир по-французски Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, tempora</div>
-      <div class="performance__subtitle">Непряхин С.М.</div>
-      <div class="performance__age">14+</div>
+  <ng-container *ngIf="isLoaded">
+    <div class="performance__img">
+      <img src="./assets/uploads/{{performance?.photo_main}}" alt="">
+      <div class="performance__title-block">
+        <div class="performance__title">{{performance?.name}}</div>
+        <div class="performance__subtitle">{{performance?.author}}</div>
+        <div class="performance__age">{{performance?.age_restrict}}+</div>
+      </div>
+      <div class="performance__buy">
+        <a href="" class="btn"><span>Купить билет</span></a>
+      </div>
     </div>
-    <div class="performance__buy">
-      <a href="" class="btn"><span>Купить билет</span></a>
-    </div>
-  </div>
-  <div class="performance__block">
-    <div class="performance__block-main">
-      <div class="performance__block-gallery">
-        <div class="table-header">Галерея</div>
-        <div class="performance__description-text">
-          <div class="demo-gallery">
-            <ul id="lightgallery">
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/middle_theatre.jpg 375, images/middle_theatre.jpg 480, images/middle_theatre.jpg 800" data-src="images/middle_theatre.jpg"
-                  data-sub-html="<h4>Coniston Calmness</h4><p>Beautiful morning</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/middle_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-              <li data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
-                  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                <a href="">
-                  <img class="img-responsive" src="images/old_theatre.jpg" alt="photo">
-                  <div class="demo-gallery-poster">
-                    <img src="images/zoom.png" alt="photo">
-                  </div>
-                </a>
-              </li>
-            </ul>
+    <div class="performance__block">
+      <div class="performance__block-main">
+        <div class="performance__block-gallery" *ngIf="galleryImages">
+          <div class="table-header">Галерея</div>
+          <div class="performance__description-text">
+            <div class="demo-gallery">
+              <ul id="lightgallery">
+                <li *ngFor="let g of galleryImages?.photosStandart"
+                    data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
+                    data-sub-html="<h4>Фото</h4><p>g.text</p>">
+                  <a href="">
+                    <img class="img-responsive" src="./assets/uploads/{{g.photo}}" alt="photo">
+                    <div class="demo-gallery-poster">
+                      <img src="./assets/images/zoom.png" alt="photo">
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="show-more">Показать больше...</div>
           </div>
-          <div class="show-more">Показать больше...</div>
         </div>
-      </div>
-      <div class="performance__block-description">
-        <div class="table-header">Описание</div>
-        <div class="performance__description-text">
-          <div class="performance__description-header"><h5>Lorem ipsum dolor.</h5></div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet distinctio doloremque dolores doloribus dolorum earum eius esse exercitationem expedita illum iste magnam, nemo nostrum praesentium, provident quia quisquam rerum similique sunt, tempore ut velit vitae? Aliquam, aut commodi cum dolore eius et ex id molestiae nostrum numquam praesentium quam quibusdam sint suscipit tempora tempore vero vitae. Amet animi commodi dicta dolore doloremque dolores dolorum eos eveniet hic illum impedit iusto labore laboriosam, laborum molestiae perspiciatis placeat possimus quaerat quam quas qui, quis quod ratione rem repellendus suscipit temporibus veniam! Adipisci at cumque delectus dicta, dolore doloremque facere fugiat fugit id illo maiores maxime minima molestias nihil numquam odio praesentium, quae sed sit tenetur? Debitis eligendi explicabo minus non praesentium quas, quasi quis repellendus rerum ut. Amet autem, consequatur, delectus dignissimos distinctio eum impedit in molestias nesciunt nostrum officiis quidem quisquam quos. Debitis dolorum earum nobis perspiciatis placeat quis sunt. Accusantium asperiores atque autem eaque incidunt, labore molestias provident quasi qui ratione. Beatae debitis deleniti dolore dolores doloribus exercitationem fugiat impedit ipsum itaque libero natus nobis praesentium, quo rerum sunt ut, vel. A ab adipisci consectetur consequuntur id numquam provident vel. Ab accusamus asperiores atque blanditiis, commodi culpa cum delectus dignissimos dolor dolorem doloremque dolores esse est excepturi exercitationem explicabo facilis fugiat fugit itaque magnam nemo neque nihil obcaecati placeat porro possimus soluta tempore, temporibus unde vel. Ad cum cupiditate delectus doloribus eaque, eveniet expedita incidunt iste libero neque nihil nulla, odio placeat quis quo quod reiciendis rem similique, vel veniam. Dolores explicabo fugit nostrum similique soluta? Aperiam, cumque porro possimus provident soluta unde? Aspernatur atque blanditiis doloribus explicabo fugit laborum maiores molestiae numquam obcaecati quam recusandae, rerum voluptatem. Animi architecto blanditiis deleniti dolores ducimus eum fugiat, harum modi nemo obcaecati porro quasi quo similique sit tempore tenetur vel veritatis voluptas!</p>
+        <div class="performance__block-description">
+          <div class="table-header">Описание</div>
+          <div class="performance__description-text">
+            <!--<div class="performance__description-header"><h5>Lorem ipsum dolor.</h5></div>-->
+            <p>{{performance?.description}}</p>
+          </div>
         </div>
-      </div>
-      <div class="table">
-        <div class="table-header">Постановщики</div>
+        <ng-container *ngFor="let unit of units">
+          <div class="table" *ngIf="unit.is_parent">
+            <div class="table-header">{{unit.name}}</div>
 
-        <table cellspacing="0">
-          <tr>
-            <th>Фото</th>
-            <th>Должность</th>
-            <th width="230">Исполнитель</th>
-          </tr>
+            <table cellspacing="0">
+              <tr>
+                <th>Фото</th>
+                <th>Роль</th>
+                <th width="230">Исполнитель</th>
+              </tr>
+              <ng-container *ngFor="let employee of performance.employees">
+                <tr *ngIf="employee.unit.id === unit.id">
+                  <td><img src="./assets/uploads/{{employee.photo_main}}" alt="" /></td>
+                  <td>{{employee.pivot.role}}</td>
+                  <td><a 
+                    [ngStyle]="{'color': 'black'}" 
+                    [routerLink]="['/employee', employee.id]"
+                    >{{employee.name}} {{employee.surname}}</a></td>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        <!-- <div class="table">
+            <div class="table-header">Действующие лица и исполнители</div>
 
-          <tr>
-            <td><img src="images/t.jpg" alt="" /></td>
-            <td>Lorem ipsum dolor lorem.</td>
-            <td>Lorem ipsum dolor.</td>
-          </tr>
+            <table cellspacing="0">
+              <tr>
+                <th>Фото</th>
+                <th>Должность</th>
+                <th width="230">Исполнитель</th>
+              </tr>
 
-          <tr>
-            <td><img src="images/old_theatre.jpg" alt="" /></td>
-            <td>John Doe</td>
-            <td>Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo ducimus neque, nesciunt rerum perferendis, inventore.</td>
-          </tr>
+              <tr>
+                <td><img src="images/old_theatre.jpg" alt="" /></td>
+                <td>Lorem ipsum dolor lorem.</td>
+                <td>Lorem ipsum dolor.</td>
+              </tr>
 
-          <tr>
-            <td><img src="images/old_theatre.jpg" alt="" /></td>
-            <td>Jane Smith</td>
-            <td> Culpa praesentium unde pariatur fugit eos recusandae voluptas.</td>
-          </tr>
+              <tr>
+                <td><img src="images/old_theatre.jpg" alt="" /></td>
+                <td>John Doe</td>
+                <td>Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo ducimus neque, nesciunt rerum perferendis, inventore.</td>
+              </tr>
 
-          <tr>
-            <td><img src="images/old_theatre.jpg" alt="" /></td>
-            <td>John Smith</td>
-            <td>Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci consequatur maxime temporibus quas, dolorem impedit.</td>
-          </tr>
-        </table>
-      </div>
-      <div class="table">
-        <div class="table-header">Действующие лица и исполнители</div>
+              <tr>
+                <td><img src="images/old_theatre.jpg" alt="" /></td>
+                <td>Jane Smith</td>
+                <td> Culpa praesentium unde pariatur fugit eos recusandae voluptas.</td>
+              </tr>
 
-        <table cellspacing="0">
-          <tr>
-            <th>Фото</th>
-            <th>Должность</th>
-            <th width="230">Исполнитель</th>
-          </tr>
-
-          <tr>
-            <td><img src="images/old_theatre.jpg" alt="" /></td>
-            <td>Lorem ipsum dolor lorem.</td>
-            <td>Lorem ipsum dolor.</td>
-          </tr>
-
-          <tr>
-            <td><img src="images/old_theatre.jpg" alt="" /></td>
-            <td>John Doe</td>
-            <td>Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo ducimus neque, nesciunt rerum perferendis, inventore.</td>
-          </tr>
-
-          <tr>
-            <td><img src="images/old_theatre.jpg" alt="" /></td>
-            <td>Jane Smith</td>
-            <td> Culpa praesentium unde pariatur fugit eos recusandae voluptas.</td>
-          </tr>
-
-          <tr>
-            <td><img src="images/old_theatre.jpg" alt="" /></td>
-            <td>John Smith</td>
-            <td>Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci consequatur maxime temporibus quas, dolorem impedit.</td>
-          </tr>
-        </table>
+              <tr>
+                <td><img src="images/old_theatre.jpg" alt="" /></td>
+                <td>John Smith</td>
+                <td>Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci consequatur maxime temporibus quas, dolorem impedit.</td>
+              </tr>
+            </table>
+          </div>-->
+      </ng-container>
       </div>
     </div>
-  </div>
+    </ng-container>
+    <div *ngIf="!isLoaded">Загрузка...</div>
 </div>
 

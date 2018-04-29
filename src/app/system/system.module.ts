@@ -29,6 +29,7 @@ import { FilterPerformancesPipe } from './shared/pipes/filterPerformances/filter
 import { FilterPerformancesSeasonsPipe } from './shared/pipes/filterPerformances/filter-performances-seasons.pipe';
 import { FilterPerformancesStagePipe } from './shared/pipes/filterPerformances/filter-performances-stage.pipe';
 import { FilterPerformancsesMonthsPipe } from './shared/pipes/filterPerformances/filter-performancses-months.pipe';
+import { UnitsService } from '../shared/services/units.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { FilterPerformancsesMonthsPipe } from './shared/pipes/filterPerformances
     SeancesService,
     StagesService,
     SeasonsService,
+    UnitsService
 
   ]
 })

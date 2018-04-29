@@ -33,7 +33,7 @@
                     <div class="up-event-info__day">{{key | date: "dd MMMM"}}</div>
                     <div class="up-event-info__date"></div>
                     <div class="up-event-info__time">
-                      {{ newTime(seance?.time) | date:"H"}}
+                      {{ seance.datetime | date:"H:mm"}}
                       <span class="pipe">|</span>
                       200-1200 грн
                     </div>
