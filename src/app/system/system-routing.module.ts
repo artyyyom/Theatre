@@ -12,7 +12,7 @@ import { PerformanceComponent } from './performance/performance.component';
 import { StageSmallComponent } from '../shared/components/stages/stage-small/stage-small.component';
 
 const routes = [{path: '', component: SystemComponent, children: [
-    {path: '', component: HomeComponent},
+    {path: '', component: StageSmallComponent},
     {path: 'history', component: HistoryComponent},
     {path: 'performances', component: PerformancesComponent},
     {path: 'performance/:id', component: PerformanceComponent},

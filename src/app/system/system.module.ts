@@ -31,6 +31,10 @@ import { FilterPerformancesStagePipe } from './shared/pipes/filterPerformances/f
 import { FilterPerformancsesMonthsPipe } from './shared/pipes/filterPerformances/filter-performancses-months.pipe';
 import { UnitsService } from '../shared/services/units.service';
 import { ResizeGreedDirective } from './shared/directives/resize-greed/resize-greed.directive';
+import { SeancesComponent } from './seances/seances.component';
+import { SeanceRightbarComponent } from './seances/seance-rightbar/seance-rightbar.component';
+import { StageSmallComponent } from '../shared/components/stages/stage-small/stage-small.component';
+import { StageMainComponent } from '../shared/components/stages/stage-main/stage-main.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +58,10 @@ import { ResizeGreedDirective } from './shared/directives/resize-greed/resize-gr
     FilterPerformancesStagePipe,
     FilterPerformancsesMonthsPipe,
     ResizeGreedDirective,
+    SeancesComponent,
+    SeanceRightbarComponent,
+    StageMainComponent,
+    StageSmallComponent,
   ],
   imports: [
     CommonModule, 

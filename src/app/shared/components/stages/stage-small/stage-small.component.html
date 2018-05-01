@@ -1,22 +1,17 @@
-<div class="stage-main">
-    <div class="column-2">
-        <svg id="stage-main-map" height="10587" width="11280" version="1.1"  xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
-          <ng-container *ngFor="let map of stageMap"> 
-            <circle 
-              class="svg__circle"
-              [attr.cx]= map.cx [attr.cy] = map.cy r="8" fill="#71ac57" stroke="#000000" stroke-width="1" 
-              style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.5;" cx="5576" cy="5320" r="8" fill="#71ac57" stroke="#000000" stroke-width="1" transform="matrix(3.0375,0,0,3.0375,-11491.5,-11060.5688)" opacity="0.5"
-              >    
-            </circle>
-            <text 
-            style="z-index: 150;"
-            fill="white" 
-            class="svg__point_text" 
-            [attr.x]= map.x [attr.y]= map.y>{{map.place}}</text>
-          </ng-container>
-          <ellipse style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" cx="5664.691358024692" cy="5454.672839506173" rx="89.54732510288068" ry="15.144032921811231" fill="#ffffff" stroke="#666666" stroke-width="3" transform="matrix(3.0375,0,0,3.0375,-11491.5,-11060.5688)" opacity="0.3"></ellipse>
-          <ellipse style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" cx="5664.691358024692" cy="5454.672839506173" rx="89.54732510288068" ry="15.144032921811231" fill="#000000" stroke="#000" transform="matrix(3.0375,0,0,3.0375,-11491.5,-11060.5688)" stroke-width="1" opacity="0"></ellipse>
-                  
-        </svg>
-    </div>
-  </div>
+<svg id="stage-main-map" height="10587" width="11280" version="1.1"  xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
+  <ng-container *ngFor="let map of stageMap"> 
+    <circle 
+      class="svg__circle"
+      [attr.cx]= map.cx [attr.cy] = map.cy r="8" fill="#71ac57" stroke="#000000" stroke-width="1" 
+      style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.5;" cx="5576" cy="5320" r="8" fill="#71ac57" stroke="#000000" stroke-width="1" transform="matrix(3.0375,0,0,3.0375,-11491.5,-11060.5688)" opacity="0.5"
+      >    
+    </circle>
+    <text 
+    style="z-index: 150;"
+    fill="white" 
+    class="svg__point_text" 
+    [attr.x]= map.x [attr.y]= map.y>{{map.place}}</text>
+  </ng-container>
+  <ellipse style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" cx="5664.691358024692" cy="5454.672839506173" rx="89.54732510288068" ry="15.144032921811231" fill="#ffffff" stroke="#666666" stroke-width="3" transform="matrix(3.0375,0,0,3.0375,-11491.5,-11060.5688)" opacity="0.3"></ellipse>
+  <ellipse style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" cx="5664.691358024692" cy="5454.672839506173" rx="89.54732510288068" ry="15.144032921811231" fill="#000000" stroke="#000" transform="matrix(3.0375,0,0,3.0375,-11491.5,-11060.5688)" stroke-width="1" opacity="0"></ellipse>
+</svg>

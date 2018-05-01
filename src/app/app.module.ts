@@ -10,16 +10,13 @@ import {SystemModule} from './system/system.module';
 import {AppRoutingModule} from './app-routing.module';
 import {ErrorsModule} from './shared/core/errors';
 import {NotificationService} from './shared/core/services/notification/notification.service';
-import { StageMainComponent } from './shared/components/stages/stage-main/stage-main.component';
-import { StageSmallComponent } from './shared/components/stages/stage-small/stage-small.component';
 
 registerLocaleData(localeRU);
 
 @NgModule({
   declarations: [
     AppComponent,
-    StageMainComponent,
-    StageSmallComponent,
+
   ],
   imports: [
     BrowserModule,
