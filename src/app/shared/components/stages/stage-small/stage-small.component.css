@@ -1,0 +1,25 @@
+.stage-main .column-2 {
+    grid-template-columns: 1fr 1px 0.3fr;
+}
+
+.stage-main #stage-main-map {
+    width: 100%;
+    height: 500px;
+    border: 1px solid red;
+}
+
+.svg__point_text {
+    padding: 0px;
+    font-family: Verdana, sans-serif;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    white-space: pre;
+    z-index: 110;
+    pointer-events: none;
+    transform: translate(-1%, 1.2%) rotate(360deg);
+}
+
+.svg__circle {
+    cursor: pointer;
+}

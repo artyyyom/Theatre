@@ -1,0 +1,76 @@
+<div class="stage-main">
+    <div class="column-2">
+        <svg id="stage-main-map" height="10587" width="11280" version="1.1"  xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
+          <ng-container *ngFor="let map of stageMap"> 
+            <circle 
+              class="svg__circle"
+              style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; z-index: 100;" 
+              [attr.cx]= map.cx [attr.cy] = map.cy r="8" fill="#71ac57" stroke="#000000" stroke-width="1" 
+              transform="matrix(1,0,0,1,0,0)" 
+              opacity="1">    
+            </circle>
+            <text 
+            style="z-index: 150;"
+            fill="white" 
+            class="svg__point_text" 
+            [attr.x]= map.x [attr.y]= map.y>{{map.place}}</text>
+          </ng-container>
+          <ellipse style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;" cx="5640.22" cy="5764.83" rx="277.7777777777783"
+            ry="46.66666666666697" fill="#ffffff" stroke="#666666" stroke-width="3" transform="matrix(1,0,0,1,0,0)" opacity="1"></ellipse>
+          <ellipse style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" cx="5640.22" cy="5764.83" rx="277.7777777777783"
+            ry="46.66666666666697" fill="#000000" stroke="#000" transform="matrix(1,0,0,1,0,0)" opacity="0"></ellipse>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" x="5322.4366666666665" y="5628.835555555555"
+            width="26.66666666666697" height="78.8888888888896" r="4" rx="4" ry="4" fill="#ffffff" stroke="#666666" stroke-width="3"
+            transform="matrix(0.9397,-0.342,0.342,0.9397,-1616.8796,2166.7799)" opacity="0.3"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" x="5322.4366666666665" y="5628.835555555555"
+            width="26.66666666666697" height="78.8888888888896" r="4" rx="4" ry="4" fill="#000000" stroke="#000" transform="matrix(0.9397,-0.342,0.342,0.9397,-1616.8796,2166.7799)"
+            opacity="0"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" x="5291.983333333333" y="5639.334444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#ffffff" stroke="#666666" stroke-width="3"
+            transform="matrix(0.9397,-0.342,0.342,0.9397,-1615.9472,2155.2883)" opacity="0.3"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" x="5291.983333333333" y="5639.334444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#000000" stroke="#000" transform="matrix(0.9397,-0.342,0.342,0.9397,-1615.9472,2155.2883)"
+            opacity="0"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" x="5276.673333333333" y="5599.884444444446"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#ffffff" stroke="#666666" stroke-width="3"
+            transform="matrix(0.9397,-0.342,0.342,0.9397,-1603.3778,2147.6728)" opacity="0.3"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" x="5276.673333333333" y="5599.884444444446"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#000000" stroke="#000" transform="matrix(0.9397,-0.342,0.342,0.9397,-1603.3778,2147.6728)"
+            opacity="0"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" x="5917.243333333333" y="5663.114444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#ffffff" stroke="#666666" stroke-width="3"
+            transform="matrix(0.9135,0.4067,-0.4067,0.9135,2824.3381,-1920.1259)" opacity="0.3"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" x="5917.243333333333" y="5663.114444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#000000" stroke="#000" transform="matrix(0.9135,0.4067,-0.4067,0.9135,2824.3381,-1920.1259)"
+            opacity="0"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" x="5933.6433333333325" y="5624.104444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#ffffff" stroke="#666666" stroke-width="3"
+            transform="matrix(0.9135,0.4067,-0.4067,0.9135,2809.8891,-1930.1689)" opacity="0.3"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" x="5933.6433333333325" y="5624.104444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#000000" stroke="#000" transform="matrix(0.9135,0.4067,-0.4067,0.9135,2809.8891,-1930.1689)"
+            opacity="0"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" x="5957.243333333333" y="5635.114444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#ffffff" stroke="#666666" stroke-width="3"
+            transform="matrix(0.9135,0.4067,-0.4067,0.9135,2816.4076,-1938.8161)" opacity="0.3"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" x="5957.243333333333" y="5635.114444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#000000" stroke="#000" transform="matrix(0.9135,0.4067,-0.4067,0.9135,2816.4076,-1938.8161)"
+            opacity="0"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" x="5973.6433333333325" y="5596.104444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#ffffff" stroke="#666666" stroke-width="3"
+            transform="matrix(0.9135,0.4067,-0.4067,0.9135,2801.9587,-1948.8591)" opacity="0.3"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" x="5973.6433333333325" y="5596.104444444445"
+            width="23.33333333333394" height="41.111111111110404" r="4" rx="4" ry="4" fill="#000000" stroke="#000" transform="matrix(0.9135,0.4067,-0.4067,0.9135,2801.9587,-1948.8591)"
+            opacity="0"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.3;" x="5470.61" y="5776.384444444445"
+            width="1" height="1.1111111111113132" r="4" rx="4" ry="4" fill="#ffffff" stroke="#666666" stroke-width="1" transform="matrix(1,0,0,1,0,0)"
+            opacity="0.3"></rect>
+          <rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;" x="5470.61" y="5776.384444444445"
+            width="1" height="1.1111111111113132" r="4" rx="4" ry="4" fill="#000000" stroke="#000" transform="matrix(1,0,0,1,0,0)"
+            opacity="0"></rect>
+     
+            <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc>
+          <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs>
+          
+        </svg>
+    </div>
+  </div>

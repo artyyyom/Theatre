@@ -1,6 +1,6 @@
 <div class="performances-main" *ngIf="isLoaded">
   <div class="title"><h3>Афиша</h3></div>
-  <ng-container *ngIf="seances.length; else message">
+  <ng-container *ngIf="keys.length; else message">
   <div class="perforamnces-control">
     <section>
         <ng-select [(ngModel)]="seasonSelectId">   

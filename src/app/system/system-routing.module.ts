@@ -9,6 +9,7 @@ import {ContactsComponent} from './contacts/contacts.component';
 import {HomeComponent} from './home/home.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { PerformanceComponent } from './performance/performance.component';
+import { StageSmallComponent } from '../shared/components/stages/stage-small/stage-small.component';
 
 const routes = [{path: '', component: SystemComponent, children: [
     {path: '', component: HomeComponent},

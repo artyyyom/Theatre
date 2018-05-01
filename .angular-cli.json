@@ -27,7 +27,8 @@
         "assets/css/main-style.css"
       ],
       "scripts": [
-        "assets/js/jsmin/scripts.min.js"
+        "assets/js/jsmin/scripts.min.js",
+        "assets/js/jsmin/svg-pan-zoom.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

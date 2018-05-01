@@ -30,6 +30,7 @@ import { FilterPerformancesSeasonsPipe } from './shared/pipes/filterPerformances
 import { FilterPerformancesStagePipe } from './shared/pipes/filterPerformances/filter-performances-stage.pipe';
 import { FilterPerformancsesMonthsPipe } from './shared/pipes/filterPerformances/filter-performancses-months.pipe';
 import { UnitsService } from '../shared/services/units.service';
+import { ResizeGreedDirective } from './shared/directives/resize-greed/resize-greed.directive';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { UnitsService } from '../shared/services/units.service';
     FilterPerformancesSeasonsPipe,
     FilterPerformancesStagePipe,
     FilterPerformancsesMonthsPipe,
+    ResizeGreedDirective,
   ],
   imports: [
     CommonModule, 
