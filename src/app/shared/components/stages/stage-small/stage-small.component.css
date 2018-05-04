@@ -1,3 +1,4 @@
+
 #stage-main-map {
     width: 100%;
     height: 500px;
@@ -16,6 +17,7 @@
     transform: translate(-1%, 1.2%) rotate(360deg);
 }
 
-.svg__circle {
-    cursor: pointer;
+.svg__circle_active {
+    stroke: white;
+    stroke-width: 2 !important;
 }

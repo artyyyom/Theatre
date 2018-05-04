@@ -10,15 +10,17 @@ import {HomeComponent} from './home/home.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { PerformanceComponent } from './performance/performance.component';
 import { StageSmallComponent } from '../shared/components/stages/stage-small/stage-small.component';
+import { SeancesComponent } from './seances/seances.component';
 
 const routes = [{path: '', component: SystemComponent, children: [
-    {path: '', component: StageSmallComponent},
+    {path: '', component: HomeComponent},
     {path: 'history', component: HistoryComponent},
     {path: 'performances', component: PerformancesComponent},
     {path: 'performance/:id', component: PerformanceComponent},
     {path: 'employees', component: EmployeesComponent},
     {path: 'employee/:id', component: EmployeeComponent},
     {path: 'contacts', component: ContactsComponent},
+    {path: 'seances', component: SeancesComponent},
   ]}];
 
 @NgModule({

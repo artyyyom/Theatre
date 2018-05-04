@@ -6,3 +6,7 @@
 a {
     cursor: pointer;
 }
+
+.seance-active {
+    color: red !important;
+}

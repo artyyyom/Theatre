@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterItems2Pipe implements PipeTransform {
 
   transform(items: any, namesField: any, data: any): any {
-    console.log(items);
+    //console.log(items);
     if(
       typeof data === "undefined" || 
       typeof namesField[0] === "undefined" ||

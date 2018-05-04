@@ -17,6 +17,7 @@ registerLocaleData(localeRU);
   declarations: [
     AppComponent,
 
+
   ],
   imports: [
     BrowserModule,

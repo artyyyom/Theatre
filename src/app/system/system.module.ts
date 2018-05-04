@@ -35,6 +35,10 @@ import { SeancesComponent } from './seances/seances.component';
 import { SeanceRightbarComponent } from './seances/seance-rightbar/seance-rightbar.component';
 import { StageSmallComponent } from '../shared/components/stages/stage-small/stage-small.component';
 import { StageMainComponent } from '../shared/components/stages/stage-main/stage-main.component';
+import { Rows_PlacesService } from '../shared/services/rows_places.service';
+import { TicketsService } from '../shared/services/tickets.service';
+import { MergeArrayPipe } from '../shared/pipes/merge-array/merge-array.pipe';
+import { Category_PlacesService } from '../shared/services/category_places.service';
 
 @NgModule({
   declarations: [
@@ -62,6 +66,7 @@ import { StageMainComponent } from '../shared/components/stages/stage-main/stage
     SeanceRightbarComponent,
     StageMainComponent,
     StageSmallComponent,
+    MergeArrayPipe,
   ],
   imports: [
     CommonModule, 
@@ -76,7 +81,10 @@ import { StageMainComponent } from '../shared/components/stages/stage-main/stage
     SeancesService,
     StagesService,
     SeasonsService,
-    UnitsService
+    UnitsService,
+    Rows_PlacesService,
+    TicketsService,
+    Category_PlacesService
 
   ]
 })

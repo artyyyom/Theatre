@@ -12,7 +12,8 @@ export class PerformancesService extends BaseApi {
   getPerformances(): Observable<Performances[]> {
       return this.get('performances');
     }
-  getPerformance(id: number): Observable<Performances> {
-    return this.get(`performances/${id}`)  
+  getPerformance(id: number, filter: string = 'false', seance_id?:number): Observable<Performances> {
+    let data = {filter: filter, seance_id: seance_id};
+    return this.get(`performances/${id}`,{params: data})  
   }
 }

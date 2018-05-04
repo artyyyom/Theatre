@@ -18,8 +18,8 @@ export class FilterPerformancsesMonthsPipe implements PipeTransform {
    return  items.filter(item => {
     dateItem = new Date(item).getMonth();
     date = new Date(data).getMonth(); 
-    console.log(dateItem);
-    console.log(date);
+   // console.log(dateItem);
+   // console.log(date);
     return dateItem===date ? true : false;
    });
   }

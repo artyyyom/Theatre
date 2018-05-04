@@ -24,6 +24,7 @@
         "styles.css",
         "assets/css/base64-fonts.css",
         "assets/css/lightgallery.min.css",
+        "assets/css/fontawesome-all.min.css",
         "assets/css/main-style.css"
       ],
       "scripts": [

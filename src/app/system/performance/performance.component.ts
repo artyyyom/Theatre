@@ -22,6 +22,8 @@ export class PerformanceComponent implements OnInit, OnDestroy {
   galleryImages: any;
   sub1: Subscription;  
   isLoaded: boolean = false;
+  seance_id: number;
+  stage_id: number;
   constructor(
     private unitsService: UnitsService,
     private performanceService: PerformancesService,
@@ -29,6 +31,10 @@ export class PerformanceComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.seance_id = params.seance_id;
+      this.stage_id = params.stage_id;
+    });
     this.routeId = this.route.snapshot.params.id;
     this.sub1 = Observable.combineLatest(
       this.performanceService.getPerformance(this.routeId),
@@ -37,7 +43,7 @@ export class PerformanceComponent implements OnInit, OnDestroy {
         (data: [Performances, Units[]]) => {
           this.performance = data[0]; 
           this.units = data[1];
-          if(data[0].photos)
+          if(data[0] && data[0].photos !== '')
             this.galleryImages = JSON.parse(data[0].photos);
           this.isLoaded = true;
         },

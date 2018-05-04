@@ -27,7 +27,7 @@ export class FilterPerformancesStagePipe implements PipeTransform {
     let array = [];
     items.forEach((item) => {
       seances[item].forEach(seance => {
-        console.log(seance);
+      //  console.log(seance);
         if (seance.stage.id === data) {
           array.push(item);
         }

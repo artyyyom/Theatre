@@ -27,7 +27,7 @@ export class FilterPerformancesSeasonsPipe implements PipeTransform {
     let array = [];
     items.forEach((item) => {
       seances[item].forEach(seance => {
-        console.log(seance);
+     //   console.log(seance);
         if (seance.season_id === data) {
           array.push(item);
         }
@@ -36,7 +36,7 @@ export class FilterPerformancesSeasonsPipe implements PipeTransform {
     
     array = this.uniqueArray(array);
 
-    console.log(array);
+    //console.log(array);
     return array;
   }
 

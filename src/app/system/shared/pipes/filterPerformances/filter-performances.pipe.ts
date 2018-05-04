@@ -16,7 +16,7 @@ export class FilterPerformancesPipe implements PipeTransform {
       return items;
     }
     let array = [];
- items.forEach((item) => {
+    items.forEach((item) => {
       seances[item].forEach(seance => {
         if (seance[namesField[0]][namesField[1]] === data) {
           array.push(seance);
@@ -24,8 +24,8 @@ export class FilterPerformancesPipe implements PipeTransform {
       });  
 
     });
-    console.log('array-parent');
-    console.log(array);
+  //  console.log('array-parent');
+  //  console.log(array);
     return array;
   }
 

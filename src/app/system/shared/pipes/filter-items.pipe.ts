@@ -20,7 +20,7 @@ export class FilterItemsPipe implements PipeTransform {
     }
     
     return items.filter(i => {
-      console.log(`i: ${i} - nF: ${i[nameField]} - d: ${data}`)
+     // console.log(`i: ${i} - nF: ${i[nameField]} - d: ${data}`)
       return i[nameField] == data
     });
   }

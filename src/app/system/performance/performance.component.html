@@ -8,7 +8,10 @@
         <div class="performance__age">{{performance?.age_restrict}}+</div>
       </div>
       <div class="performance__buy">
-        <a href="" class="btn"><span>Купить билет</span></a>
+        <a [routerLink]="['/seances']" 
+        [queryParams]="{performance_id: performance.id, seance_id: seance_id, stage_id: stage_id}" class="btn">
+          <span>Купить билет</span>
+        </a>
       </div>
     </div>
     <div class="performance__block">

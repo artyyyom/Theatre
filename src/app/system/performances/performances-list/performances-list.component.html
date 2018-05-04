@@ -23,8 +23,18 @@
                         <div class="a-face__title">{{seance.performance.name}}</div>
                         <div class="a-face__subtitle">{{seance.performance.author}}</div>
                         <div class="a-face__buttons">
-                          <div><a href="#" class="btn"><span>Купить</span></a></div>
-                          <div><a [routerLink]="['/performance', seance.performance.id]" class="btn"><span>Подробнее</span></a></div>
+                          <div>
+                            <a href="#"[routerLink]="['/seances']" 
+                            [queryParams]="{performance_id: seance.performance.id,
+                                            seance_id: seance.id,
+                                            stage_id: seance.stage.id}" class="btn">
+                              <span>Купить</span>
+                            </a>
+                          </div>
+                          <div><a 
+                            [routerLink]="['/performance', seance.performance.id]" 
+                            [queryParams]="{seance_id: seance.id, stage_id: seance.stage.id}"
+                            class="btn"><span>Подробнее</span></a></div>
                         </div>
                       </div>
                     </div>

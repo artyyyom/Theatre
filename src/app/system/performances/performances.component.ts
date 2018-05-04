@@ -54,7 +54,6 @@ export class PerformancesComponent implements OnInit {
                 if(this.seasons)
                   this.seasonSelectId = this.seasons[0].id ? this.seasons[0].id : -1;
                 this.isLoaded = true;
-                console.log(this.seances);
               }
       );    
   }

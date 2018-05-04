@@ -1,7 +1,23 @@
-<div class="seances-main">
-  <div class="title"><h3>Формирование заказа</h3></div>
-  <div class="column-2">
-      <app-stage-small></app-stage-small>
-      <app-seance-rightbar></app-seance-rightbar>
-  </div>
+<div class="seance-main" *ngIf="isLoad">
+    <div class="title"><h3>Оформление заказа</h3></div>
+    <div class="column-2">
+        <app-stage-small 
+        [disActiveClass]="disActiveClassId"
+        [stageMap]="rows_places"
+        [tickets]="tickets"
+        (placeOrder)="placeOrder($event)"
+        ></app-stage-small>
+        <div class="delimeter"></div>
+        <app-seance-rightbar 
+         [category_places]="category_places"
+         [seances]="seances"
+         [performance]="performance"
+         [seance_id]="seance_id"
+         [ticketsOrder]="ticketsOrder"
+         (placeOrder)="closeTicket($event)"
+         (_changeSeance)="changeSeance($event)"
+        >
+        </app-seance-rightbar>
+    </div>
 </div>
+<div *ngIf="!isLoad">Загрузка...</div>
