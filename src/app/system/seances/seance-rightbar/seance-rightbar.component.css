@@ -1,0 +1,10 @@
+.time-left {
+    position: relative;
+}
+
+.countdown-timer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}

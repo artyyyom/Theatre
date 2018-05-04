@@ -34,7 +34,10 @@
             <div class="column-2">
                 <span>Ваши билеты</span>
                 <div class="delimeter"></div>
-                <span class="time-left">15:00</span>
+                <span class="time-left">
+                    <countdown-timer class="countdown-timer" [end]="timeLeft">
+
+                    </countdown-timer></span>
             </div>
         </div>
         <div class="description__text">

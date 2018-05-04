@@ -27,7 +27,6 @@ export class StageSmallComponent implements OnInit, AfterViewInit {
           });
         });
       }
-      console.log(this.ticketsMap);
   }
   @Output() placeOrder = new EventEmitter();
   @Input('disActiveClass') set _disActiveClass(id) {
@@ -52,7 +51,6 @@ export class StageSmallComponent implements OnInit, AfterViewInit {
   constructor(private elRef: ElementRef, private render: Renderer2) { }
  
   ngOnInit() {
-    console.log(this.tickets);
   }
   ngAfterViewInit() {
     let svg =  svgPanZoom('#stage-main-map', this.options);

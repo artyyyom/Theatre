@@ -39,6 +39,7 @@ import { Rows_PlacesService } from '../shared/services/rows_places.service';
 import { TicketsService } from '../shared/services/tickets.service';
 import { MergeArrayPipe } from '../shared/pipes/merge-array/merge-array.pipe';
 import { Category_PlacesService } from '../shared/services/category_places.service';
+import { CountdownTimerModule } from 'ngx-countdown-timer';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { Category_PlacesService } from '../shared/services/category_places.servi
     CommonModule, 
     SystemRoutingModule, 
     NgSelectModule, 
-    FormsModule
+    FormsModule,
+    CountdownTimerModule.forRoot()
   ],
   providers: [
     EmployeesService, 
