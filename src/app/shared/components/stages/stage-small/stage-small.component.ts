@@ -11,6 +11,10 @@ export class StageSmallComponent implements OnInit, AfterViewInit {
   active: boolean = false;
   ticketsMap: Array<any> = [];
   tickets;
+  isLoadPlace: boolean;
+  @Input('isLoadPlace') set _isLoadPlace(value) {
+    this.isLoadPlace = value;
+  }
   @Input() stageMap;
   @Input('tickets') set _megreMapTickets(value) {
       this.tickets = value;
@@ -34,8 +38,10 @@ export class StageSmallComponent implements OnInit, AfterViewInit {
       let elements: Array<any> = [];
       elements = this.elRef.nativeElement.querySelectorAll('.svg__circle_active');
       elements.forEach((el: any) => {
-        if(el.textContent==id)
+        if(el.textContent==id) {
           this.render.removeClass(el, 'svg__circle_active');
+          this.countTickets--;
+        }
       });
     }
   }
@@ -61,14 +67,14 @@ export class StageSmallComponent implements OnInit, AfterViewInit {
       if(event.target.className.animVal !== 'svg__circle svg__circle_active')  {
         if(this.countTickets < 5) {
           this.render.addClass(event.target, 'svg__circle_active');
-          this.ticket = new Tickets(id, row_id, place_id, category_id, seance_id, price, false, null);
+          this.ticket = new Tickets(id, row_id, place_id, category_id, seance_id, price, 0, null);
           this.placeOrder.emit(this.ticket);
           this.countTickets++;
         }
       }
       else { 
         this.render.removeClass(event.target, 'svg__circle_active');
-        this.ticket = new Tickets(id, row_id, place_id, category_id, seance_id, price, true, null);
+        this.ticket = new Tickets(id, row_id, place_id, category_id, seance_id, price, 1, null);
         this.placeOrder.emit(this.ticket);
         this.countTickets--;
       }

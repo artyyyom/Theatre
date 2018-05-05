@@ -1,13 +1,13 @@
 export class Tickets {
     constructor(
-      public id: number,
-      public row_id: number, 
-      public place_id: number,
-      public category_id: number,
-      public seance_id: number,
-      public price: number,
-      public is_avalaible: boolean,
-      public status: boolean,
+      public id: number = null,
+      public row_id: number = null, 
+      public place_id: number = null,
+      public category_id: number = null,
+      public seance_id: number = null,
+      public price: number = null,
+      public is_avalaible: number = null,
+      public status: number = null,
     ) {}
   
   }

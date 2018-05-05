@@ -24,6 +24,8 @@ export class SeancesComponent implements OnInit, OnDestroy {
   sub1: Subscription;
   sub2: Subscription;
   sub3: Subscription;
+  sub4: Subscription;
+  sub5: Subscription;
   performance_id: number;
   seance_id: number;
   stage_id: number;
@@ -34,6 +36,10 @@ export class SeancesComponent implements OnInit, OnDestroy {
   rows_places: Rows_Places[];
   ticketsOrder: Tickets[] = [];
   category_places: Category_Places[];
+  isLoadPlace: boolean = true;
+  ticket = {
+    is_avalaible: null
+  };
   constructor(
     private activatedRoute: ActivatedRoute,
     private performancesService: PerformancesService,
@@ -68,19 +74,23 @@ export class SeancesComponent implements OnInit, OnDestroy {
 
   }
   placeOrder(order: Tickets) {
+    this.isLoadPlace = false;
     if(!order.is_avalaible) {
       if(this.ticketsOrder.length < 5)
         this.ticketsOrder.push(order);
+        this.ticketsOrder = this.ticketsOrder.slice();
     } else {
       this.ticketsOrder = this.ticketsOrder.filter(ticketOrder => {
         return ticketOrder.id != order.id;
       });
     }
-      /*this.ticketsService.updateTickets(order.id, order.is_avalaible)
-      .subscribe(data => {
-        console.log('ok');
-        console.log(data);
-      })*/
+
+    this.ticket.is_avalaible = order.is_avalaible;
+    // send data to server
+    this.sub4 = this.ticketsService.updateTickets(order.id,  this.ticket)
+    .subscribe(data => {
+      this.isLoadPlace = true;
+    })
   }
   changeSeance(id:number) {
     this.sub3 = this.ticketsService.getTickets('seances', id)
@@ -88,11 +98,18 @@ export class SeancesComponent implements OnInit, OnDestroy {
         this.tickets = data;
       });
   }
-  closeTicket(id: number) {
+  closeTicket(order: Tickets) {
+    this.isLoadPlace = false;
     this.ticketsOrder = this.ticketsOrder.filter(ticketOrder => {
-      return ticketOrder.id != id;
+      return ticketOrder.id != order.id;
     });
-    this.disActiveClassId = id;
+    this.disActiveClassId = order.id;
+    this.ticket.is_avalaible = order.is_avalaible;
+    // send data to server
+    this.sub5 = this.ticketsService.updateTickets(order.id, this.ticket)
+    .subscribe(data => {
+      this.isLoadPlace = true;
+    })
   }
   ngOnDestroy(): void {
     if(this.sub1)
@@ -101,6 +118,9 @@ export class SeancesComponent implements OnInit, OnDestroy {
       this.sub2.unsubscribe();
     if(this.sub3)
       this.sub3.unsubscribe()
-      
+    if(this.sub4)
+      this.sub4.unsubscribe()
+    if(this.sub5)
+      this.sub3.unsubscribe()
   }
 }
