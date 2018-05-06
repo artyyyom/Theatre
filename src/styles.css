@@ -10,3 +10,7 @@ a {
 .seance-active {
     color: red !important;
 }
+
+.btn-default, .btn-primary {
+    display: inline !important;
+}

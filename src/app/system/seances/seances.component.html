@@ -10,6 +10,7 @@
         ></app-stage-small>
         <div class="delimeter"></div>
         <app-seance-rightbar 
+         [timeLeft]="timeLeft"
          [category_places]="category_places"
          [seances]="seances"
          [performance]="performance"
@@ -17,8 +18,11 @@
          [ticketsOrder]="ticketsOrder"
          (placeOrder)="closeTicket($event)"
          (_changeSeance)="changeSeance($event)"
+         (_timerFinish)="timerFinish()"
         >
         </app-seance-rightbar>
     </div>
 </div>
+<p-confirmDialog key="closeConfirmation" appendTo="body" header="Подтверждение" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+<p-confirmDialog key="updatePageDialog" appendTo="body" header="Обновление страницы" icon="fa fa-question-circle" width="425" #cd></p-confirmDialog>
 <div *ngIf="!isLoad">Загрузка...</div>

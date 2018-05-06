@@ -11,6 +11,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { PerformanceComponent } from './performance/performance.component';
 import { StageSmallComponent } from '../shared/components/stages/stage-small/stage-small.component';
 import { SeancesComponent } from './seances/seances.component';
+import { ExitGuard } from '../shared/guards/exit/exit.guard';
 
 const routes = [{path: '', component: SystemComponent, children: [
     {path: '', component: HomeComponent},
@@ -20,7 +21,7 @@ const routes = [{path: '', component: SystemComponent, children: [
     {path: 'employees', component: EmployeesComponent},
     {path: 'employee/:id', component: EmployeeComponent},
     {path: 'contacts', component: ContactsComponent},
-    {path: 'seances', component: SeancesComponent},
+    {path: 'seances', component: SeancesComponent, canDeactivate: [ExitGuard]},
   ]}];
 
 @NgModule({

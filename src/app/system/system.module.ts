@@ -17,6 +17,7 @@ import { SubNavigationComponent } from './shared/components/sub-navigation/sub-n
 import { EmployeesListComponent } from './employees/employees-list/employees-list.component';
 import { FilterItemsPipe } from './shared/pipes/filter-items.pipe';
 
+
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { PerformancesService } from '../shared/services/performances.service';
@@ -40,6 +41,9 @@ import { TicketsService } from '../shared/services/tickets.service';
 import { MergeArrayPipe } from '../shared/pipes/merge-array/merge-array.pipe';
 import { Category_PlacesService } from '../shared/services/category_places.service';
 import { CountdownTimerModule } from 'ngx-countdown-timer';
+import { ExitGuard } from '../shared/guards/exit/exit.guard';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -74,7 +78,8 @@ import { CountdownTimerModule } from 'ngx-countdown-timer';
     SystemRoutingModule, 
     NgSelectModule, 
     FormsModule,
-    CountdownTimerModule.forRoot()
+    CountdownTimerModule.forRoot(),
+    ConfirmDialogModule
   ],
   providers: [
     EmployeesService, 
@@ -86,8 +91,9 @@ import { CountdownTimerModule } from 'ngx-countdown-timer';
     UnitsService,
     Rows_PlacesService,
     TicketsService,
-    Category_PlacesService
-
+    Category_PlacesService,
+    ExitGuard,
+    ConfirmationService
   ]
 })
 

@@ -21,12 +21,15 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@ng-bootstrap/ng-bootstrap": "^2.0.0",
     "@ng-select/ng-select": "^1.1.0",
     "angular-lightgallery": "^1.0.8",
     "core-js": "^2.4.1",
     "ngx-countdown-timer": "^0.1.9",
+    "primeng": "^5.2.5",
     "rxjs": "^5.5.6",
     "stacktrace-js": "^2.0.0",
+    "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {

@@ -4,12 +4,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeRU from '@angular/common/locales/ru';
 import { LOCALE_ID } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import {SystemModule} from './system/system.module';
 import {AppRoutingModule} from './app-routing.module';
 import {ErrorsModule} from './shared/core/errors';
 import {NotificationService} from './shared/core/services/notification/notification.service';
+
 
 registerLocaleData(localeRU);
 
@@ -25,6 +27,7 @@ registerLocaleData(localeRU);
     HttpClientModule,
     SystemModule,
     ErrorsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'ru' },

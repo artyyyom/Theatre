@@ -35,7 +35,7 @@
                 <span>Ваши билеты</span>
                 <div class="delimeter"></div>
                 <span class="time-left">
-                    <countdown-timer class="countdown-timer" [end]="timeLeft">
+                    <countdown-timer (zeroTrigger)="timerFinish()" class="countdown-timer" [end]="timeLeft">
 
                     </countdown-timer></span>
             </div>
@@ -65,6 +65,8 @@
             </div>
         </div>
         <div class="field-sum" *ngIf="sumTickets">Сумма: {{sumTickets | currency:'UAH'}} </div>
-        <div class="btn-buy" [style.cursor]="ticketsOrder.length ? 'pointer' : 'not-allowed'">Оформить заказ</div>
+        <div class="btn-buy"
+        
+        [style.cursor]="ticketsOrder.length ? 'pointer' : 'not-allowed'">Оформить заказ</div>
     </div>
 </div>
