@@ -63,10 +63,6 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
    }
 
   ngOnInit() {
-    
-    this.getSeances();
-  }
-  getSeances() {
     this.items = [
       {label: 'Выбор мест',
       command: (event: any) => {
@@ -84,6 +80,10 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         }
       }
     ];
+    this.getSeances();
+  }
+  getSeances() {
+    
     this.isLoad=false;
     this.activatedRoute.queryParams.subscribe(params => {
       this.performance_id = params.performance_id;

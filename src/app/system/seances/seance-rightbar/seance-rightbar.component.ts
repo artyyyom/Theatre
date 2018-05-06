@@ -45,11 +45,9 @@ export class SeanceRightbarComponent implements OnInit{
     });
   }
   ngOnInit() {
-    this.setTime();
+    
   }
-  setTime() {
-   // this.timeLeft = new Date(new Date().getTime() + 0.2*60000);
-  }
+  
   removeTickets() {
     let elements: Array<any> = [];
     elements = this.elRef.nativeElement.querySelectorAll('.ticket');

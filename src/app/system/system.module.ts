@@ -45,6 +45,7 @@ import { ExitGuard } from '../shared/guards/exit/exit.guard';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {StepsModule} from 'primeng/steps';
+import { SeanceOrderComponent } from './seances/seance-order/seance-order.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import {StepsModule} from 'primeng/steps';
     StageMainComponent,
     StageSmallComponent,
     MergeArrayPipe,
+    SeanceOrderComponent,
   ],
   imports: [
     CommonModule, 
