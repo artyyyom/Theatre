@@ -19,7 +19,7 @@ import { FilterItemsPipe } from './shared/pipes/filter-items.pipe';
 
 
 import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PerformancesService } from '../shared/services/performances.service';
 import { SeancesService } from '../shared/services/seances.service';
 import { PerformancesListComponent } from './performances/performances-list/performances-list.component';
@@ -45,7 +45,9 @@ import { ExitGuard } from '../shared/guards/exit/exit.guard';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {StepsModule} from 'primeng/steps';
+import {CheckboxModule} from 'primeng/checkbox';
 import { SeanceOrderComponent } from './seances/seance-order/seance-order.component';
+
 
 
 @NgModule({
@@ -79,12 +81,14 @@ import { SeanceOrderComponent } from './seances/seance-order/seance-order.compon
   ],
   imports: [
     CommonModule, 
+    ReactiveFormsModule,
     SystemRoutingModule, 
     NgSelectModule, 
     FormsModule,
     CountdownTimerModule.forRoot(),
     ConfirmDialogModule,
-    StepsModule
+    StepsModule,
+    CheckboxModule,
   ],
   providers: [
     EmployeesService, 

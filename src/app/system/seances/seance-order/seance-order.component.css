@@ -1,0 +1,7 @@
+.seance-order-block .contact__form-fields {
+    grid-template-rows: 42px 42px 42px 28px 42px 42px;
+}
+    
+.seance-order-block .contact__form-fields input[type="text"] {
+    height: 100%;
+}

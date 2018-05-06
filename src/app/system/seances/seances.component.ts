@@ -154,6 +154,8 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       this.ticket.is_avalaible = 1;
       return Observable.create((observer: Observer<boolean>) => {
         this.confirmationService.confirm({
+            acceptLabel: 'Да',
+            rejectLabel: 'Нет',
             key: 'closeConfirmation',
             header: 'Вы уверены что хотите закрыть страницу?',
             message: 'Вы имеете выбранные места. После закрытия страницы все выбранные места будут сброшены!',
@@ -161,7 +163,6 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
                 this.ticketsOrder.forEach(ticketOrder => {
                   this.sub5 = this.ticketsService.updateTickets(ticketOrder.id, this.ticket)
                   .subscribe(data => {
-                    console.log("hello");
                     observer.next(true);
                     observer.complete();
                   });
@@ -190,6 +191,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       acceptLabel: 'Обновить',
       rejectVisible: false,
       accept: () => {
+        this.activeIndex = 0;
         this.getSeances()
       }
   });
@@ -205,5 +207,9 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       this.sub4.unsubscribe()
     if(this.sub5)
       this.sub5.unsubscribe()
+  }
+  orderTickets() {
+    this.activeIndex = 1;
+    this.timerStart();
   }
 }

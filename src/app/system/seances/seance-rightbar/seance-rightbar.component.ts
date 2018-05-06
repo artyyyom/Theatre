@@ -17,21 +17,26 @@ import { Time } from '@angular/common';
   styleUrls: ['./seance-rightbar.component.css']
 })
 export class SeanceRightbarComponent implements OnInit{
+  message: string;
+  ticketsOrder: Array<any> = [];
   @Input() category_places;
   @Input() seances;
   @Input() seance_id;
   @Input() performance;
   @Input() timeLeft;
-  message: string;
-  ticketsOrder: Array<any> = [];
+  activeIndex: number;
+  @Input('activeIndex') set _activeIndex(value) {
+    this.activeIndex = value;
+  }
   @Input('ticketsOrder') set _ticketsOrder(_ticketsOrder) {
     this.ticketsOrder = _ticketsOrder;
     this.pay(this.ticketsOrder);
   }
-
   @Output() placeOrder = new EventEmitter();
   @Output() _changeSeance = new EventEmitter();
   @Output() _timerFinish = new EventEmitter();
+  @Output() _orderTickets = new EventEmitter();
+
   idActivePlace: Array<number>
   ticket: Tickets;
   sumTickets: number;
@@ -78,5 +83,9 @@ export class SeanceRightbarComponent implements OnInit{
     this.removeTickets();
     this._timerFinish.emit(true);
   }
-    
+
+  clickOrderTickets() {
+    if(this.ticketsOrder.length)
+      this._orderTickets.emit();
+  }
 }

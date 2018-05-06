@@ -1,6 +1,6 @@
 <div class="seance__order">
     <div class="seance__shedule">
-        <div class="table-header">{{seances && seances[0]?.datetime | date:"dd MMMM"}}</div>
+        <div class="table-header">Дата сеанса: {{seances && seances[0]?.datetime | date:"dd MMMM"}}</div>
         <div class="description__text">
             <div class="column-2">
                 <img class="seance__img" src="./assets/uploads/{{performance?.photo_main}}" alt="" />
@@ -8,20 +8,36 @@
                 <div class="seance__description">
                     <div class="seance__time-header"><h5>Название спектакля:</h5></div>
                     <div class="seance__name">{{performance?.name}}</div>
+                    <div class="seance__time-header"><h5>В. О.:</h5></div>
+                    <div class="seance__name">{{performance?.age_restrict}}+</div>
                     <div class="seance__time-header"><h5>Название сцены:</h5></div>
                     <ng-container *ngFor="let seance of seances">
                         <div class="seance__name" *ngIf="seance.id==seance_id">{{seance.stage?.name}}</div>
                     </ng-container>
                     <div class="seance__time">
-                        <div class="seance__time-header"><h5>Расписание сеансов:</h5></div>
-                        <ng-container *ngFor="let seance of seances">
-                            <span>
-                                <a [class.seance-active]="seance_id==seance.id" 
-                                (click)="changeSeance(seance.id)"
-                                >
-                                    {{seance?.datetime | date:"H:mm"}}
-                                </a>
-                            </span>
+                        <ng-container *ngIf="activeIndex==0">
+                            <div class="seance__time-header"><h5>Расписание сеансов:</h5></div>
+                            <ng-container *ngFor="let seance of seances">
+                                <span>
+                                    <a [class.seance-active]="seance_id==seance.id" 
+                                    (click)="changeSeance(seance.id)"
+                                    >
+                                        {{seance?.datetime | date:"H:mm"}}
+                                    </a>
+                                </span>
+                            </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="activeIndex==1">
+                                <div class="seance__time-header"><h5>Расписание сеанса:</h5></div>
+                                <ng-container *ngFor="let seance of seances">
+                                    <span *ngIf="seance_id==seance.id">
+                                        <a [class.seance-active]="seance_id==seance.id" 
+                                        (click)="changeSeance(seance.id)"
+                                        >
+                                            {{seance?.datetime | date:"H:mm"}}
+                                        </a>
+                                    </span>
+                                </ng-container>
                         </ng-container>
                     </div>
                 </div>
@@ -59,14 +75,16 @@
                 </div>
                 <div class="ticket__price"><b>{{ticketOrder?.price/1000 | currency:'UAH'}}
                 </b></div>
-                <div class="close" (click)="closeTicket(ticketOrder.id)">
+                
+                <div *ngIf="activeIndex==0" class="close" (click)="closeTicket(ticketOrder.id)">
                     <i class="fas fa-times-circle"></i>    
                 </div>
             </div>
         </div>
         <div class="field-sum" *ngIf="sumTickets">Сумма: {{sumTickets | currency:'UAH'}} </div>
-        <div class="btn-buy"
-        
+        <div class="btn-buy" 
+        *ngIf="activeIndex==0"
+        (click)="clickOrderTickets()"
         [style.cursor]="ticketsOrder.length ? 'pointer' : 'not-allowed'">Оформить заказ</div>
     </div>
 </div>
