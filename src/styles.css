@@ -11,6 +11,14 @@ a {
     color: red !important;
 }
 
-.btn-default, .btn-primary {
-    display: inline !important;
+.ui-steps.ui-steps-readonly .ui-steps-item {
+    width: 33.3%;
+}
+
+.ui-state-highlight {
+    border: 1px solid
+}
+
+.steps-block {
+    margin-bottom: 15px;
 }

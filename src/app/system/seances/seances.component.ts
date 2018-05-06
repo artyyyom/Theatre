@@ -16,6 +16,8 @@ import { ComponentCanDeactivate } from '../../shared/guards/exit/exit.guard';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { Observer } from 'rxjs/Observer';
+import {StepsModule} from 'primeng/steps';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-seances',
@@ -23,6 +25,7 @@ import { Observer } from 'rxjs/Observer';
   styleUrls: ['./seances.component.css']
 })
 export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactivate {
+  items: MenuItem[];
   isModalShown: boolean = false;
   disActiveClassId: number = 0;
   isLoad: boolean = false;
@@ -44,6 +47,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   isLoadPlace: boolean = true;
   isClose: boolean;
   timeLeft: any;
+  activeIndex: number = 0;
   ticket = {
     is_avalaible: null
   };
@@ -59,9 +63,27 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
    }
 
   ngOnInit() {
+    
     this.getSeances();
   }
   getSeances() {
+    this.items = [
+      {label: 'Выбор мест',
+      command: (event: any) => {
+          this.activeIndex = 0;
+        }
+      },
+      {label: 'Оформление заказа',
+      command: (event: any) => {
+          this.activeIndex = 1;
+        }
+      },
+      {label: 'Оплата заказа',
+      command: (event: any) => {
+          this.activeIndex = 2;
+        }
+      }
+    ];
     this.isLoad=false;
     this.activatedRoute.queryParams.subscribe(params => {
       this.performance_id = params.performance_id;
@@ -158,13 +180,14 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     }
   }
   timerStart() {
-    this.timeLeft = new Date(new Date().getTime() + 0.2*60000);
+    this.timeLeft = new Date(new Date().getTime() + 15*60000);
   }
   timerFinish() {
     this.confirmationService.confirm({
       key: 'updatePageDialog',
       header: 'Время выбора мест истекло',
       message: 'Все выбранные места получили статус свободные.', 
+      acceptLabel: 'Обновить',
       rejectVisible: false,
       accept: () => {
         this.getSeances()

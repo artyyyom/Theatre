@@ -1,6 +1,10 @@
 <div class="seance-main" *ngIf="isLoad">
     <div class="title"><h3>Оформление заказа</h3></div>
+    <div class="steps-block">
+        <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+    </div>
     <div class="column-2">
+        <ng-container *ngIf="activeIndex==0">    
         <app-stage-small 
         [disActiveClass]="disActiveClassId"
         [stageMap]="rows_places"
@@ -21,6 +25,10 @@
          (_timerFinish)="timerFinish()"
         >
         </app-seance-rightbar>
+        </ng-container >
+        <ng-container *ngIf="activeIndex==1">
+            "hello"
+        </ng-container>
     </div>
 </div>
 <p-confirmDialog key="closeConfirmation" appendTo="body" header="Подтверждение" icon="fa fa-question-circle" width="425"></p-confirmDialog>

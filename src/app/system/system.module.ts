@@ -44,6 +44,8 @@ import { CountdownTimerModule } from 'ngx-countdown-timer';
 import { ExitGuard } from '../shared/guards/exit/exit.guard';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
+import {StepsModule} from 'primeng/steps';
+
 
 @NgModule({
   declarations: [
@@ -79,7 +81,8 @@ import {ConfirmationService} from 'primeng/api';
     NgSelectModule, 
     FormsModule,
     CountdownTimerModule.forRoot(),
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    StepsModule
   ],
   providers: [
     EmployeesService, 
