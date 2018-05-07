@@ -48,6 +48,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   isClose: boolean;
   timeLeft: any;
   activeIndex: number = 0;
+  isAvalaiblePlace: boolean;
   ticket = {
     is_avalaible: null
   };
@@ -82,6 +83,13 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     ];
     this.getSeances();
   }
+  avalaiblePlace() {
+    this.isAvalaiblePlace = this.tickets.some(ticket => {
+      return ticket.is_avalaible===1;
+    });
+    console.log(this.isAvalaiblePlace);
+    
+  }
   getSeances() {
     
     this.isLoad=false;
@@ -104,8 +112,10 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         this.category_places = data[3];
         this.seances = this.performance.seances;
         this.timerStart();
+        this.avalaiblePlace();
         this.isLoad = true; 
     });
+
   }
   placeOrder(order: Tickets) {
     this.isLoadPlace = false;
@@ -130,6 +140,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     this.sub3 = this.ticketsService.getTickets('seances', id)
       .subscribe((data: Tickets[]) => {
         this.tickets = data;
+        this.avalaiblePlace();
       });
   }
   closeTicket(order: Tickets) {
@@ -146,7 +157,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     })
   }
   
-  @HostListener('window:beforeunload')
+  @HostListener('gg')
   canDeactivate() : boolean | Observable<boolean>{
      
     if(this.ticketsOrder.length) { 

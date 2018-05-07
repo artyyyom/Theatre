@@ -17,7 +17,7 @@
             </div>
             <input type="text" formControlName="phone" placeholder="Ваш мобильный телефон 096...">
             <div class="error-form" *ngIf="!userform.controls['phone'].valid&&userform.controls['phone'].dirty">
-                - Поле "Мобильный телефон" некорректно!"
+                - Поле "Мобильный телефон" некорректно!
             </div>
             <div>
               <input formControlName="checkboxReserve" type="checkbox" class="checkbox checkbox--orange"/>Забронировать билет
@@ -29,9 +29,10 @@
               <input formControlName="checkboxRules" type="checkbox" class="checkbox checkbox--orange"/>Вы согласны с правилами театра и подтверждаете, что ознакомлены с возрастным ограничением. 
             </div>
             <div class="error-form" *ngIf="!userform.controls['checkboxRules'].untouched&&!userform.controls['checkboxRules'].value">
-                - Поле обязательно для выбора!"
+                - Поле обязательно для выбора!
             </div> 
-            <button type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Отправить</span></button>
+            <button *ngIf="userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Забронировать</span></button>
+            <button *ngIf="!userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Оплатить</span></button>
           </form>
         </div>
     </div>

@@ -4,14 +4,17 @@
         <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
     </div>
     <div class="column-2">
-        <app-stage-small  *ngIf="activeIndex==0"
-        [disActiveClass]="disActiveClassId"
-        [stageMap]="rows_places"
-        [tickets]="tickets"
-        (placeOrder)="placeOrder($event)"
-        [isLoadPlace]="isLoadPlace"
-        ></app-stage-small>
-        <app-seance-order *ngIf="activeIndex==1"></app-seance-order>
+        <ng-container *ngIf="isAvalaiblePlace">
+            <app-stage-small  *ngIf="activeIndex==0"
+            [disActiveClass]="disActiveClassId"
+            [stageMap]="rows_places"
+            [tickets]="tickets"
+            (placeOrder)="placeOrder($event)"
+            [isLoadPlace]="isLoadPlace"
+            ></app-stage-small>
+            <app-seance-order *ngIf="activeIndex==1"></app-seance-order>
+        </ng-container>
+        <div *ngIf="!isAvalaiblePlace">К сожалению на этот сеанс доступных мест нет(</div>
         <div class="delimeter"></div>
         <app-seance-rightbar 
          [timeLeft]="timeLeft"

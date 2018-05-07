@@ -23,8 +23,8 @@ export class SeanceOrderComponent implements OnInit {
       'phone': new FormControl('', [Validators.required, Validators.pattern('[0-9]+'),
                                    Validators.minLength(10),
                                    Validators.maxLength(10)]),
-      'checkboxRules': ['', Validators.required],
-      'checkboxReserve': ['', Validators.requiredTrue],
+      'checkboxRules': ['', Validators.requiredTrue],
+      'checkboxReserve': [false, Validators.required],
     });
   }
 
