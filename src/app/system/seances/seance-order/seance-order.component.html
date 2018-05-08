@@ -11,9 +11,12 @@
             <div class="error-form" *ngIf="!userform.controls['name'].valid&&userform.controls['name'].dirty">
                  - Поле "ФИО" обязательно к заполнению!
             </div>
-            <input type="text" formControlName="email" placeholder="Ваш email">
+            <input (input)="updateEmail()" type="text" formControlName="email" placeholder="Ваш email">
             <div class="error-form" *ngIf="!userform.controls['email'].valid&&userform.controls['email'].dirty">
                 - Поле "Email" некорректно!
+            </div>
+            <div class="error-form" *ngIf="errorEmail">
+                - Такой email уже существует!
             </div>
             <input type="text" formControlName="phone" placeholder="Ваш мобильный телефон 096...">
             <div class="error-form" *ngIf="!userform.controls['phone'].valid&&userform.controls['phone'].dirty">
@@ -31,8 +34,8 @@
             <div class="error-form" *ngIf="!userform.controls['checkboxRules'].untouched&&!userform.controls['checkboxRules'].value">
                 - Поле обязательно для выбора!
             </div> 
-            <button *ngIf="userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Забронировать</span></button>
-            <button *ngIf="!userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Оплатить</span></button>
+            <button [disabled]="errorEmail" *ngIf="userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Забронировать</span></button>
+            <button [disabled]="errorEmail" *ngIf="!userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Оплатить</span></button>
           </form>
         </div>
     </div>

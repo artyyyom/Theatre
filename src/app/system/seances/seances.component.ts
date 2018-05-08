@@ -53,6 +53,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   activeIndex: number = 0;
   isAvalaiblePlace: boolean;
   displayReserveDialog: boolean = false;
+  errorEmail: boolean = false;
   ticket = {
     is_avalaible: null
   };
@@ -246,21 +247,26 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   }
 
   createUser(value: any) {
+    this.errorEmail = false;
     let ticket = {user_id: null, status: null};
     let user = new Users(null, value.name, value.email, value.phone);
     this.sub6 = this.usersService.createUser(user)
       .subscribe(data => {
-        this.ticketsOrder.forEach(ticketOrder => {
-          ticket.status = value.checkboxReserve ? 1 : 2;
-          ticket.user_id = data;
-          this.ticketsService.updateTickets(ticketOrder.id, ticket)
-            .subscribe(data => {
-              this.displayReserveDialog = true;
-            });
-          
-        });
-        this.ticketsOrder = [];
-        
+        if(data.email) {
+          this.errorEmail = true;
+          console.log('tut');
+        } 
+        else {
+          this.ticketsOrder.forEach(ticketOrder => {
+            ticket.status = value.checkboxReserve ? 1 : 2;
+            ticket.user_id = data;
+            this.ticketsService.updateTickets(ticketOrder.id, ticket)
+              .subscribe(data => {
+                this.displayReserveDialog = true;
+              });   
+          }), 
+          this.ticketsOrder = [];       
+        }
       });
   }
   reserveRedirect() {

@@ -13,6 +13,7 @@
             [isLoadPlace]="isLoadPlace"
             ></app-stage-small>
             <app-seance-order *ngIf="activeIndex==1"
+            [errorEmail]="errorEmail"
             (createUser)="createUser($event)"
             >
             </app-seance-order>
@@ -42,7 +43,7 @@
         Бронирование успешно!
     </p-header>
     Бронирование билетов прошло успешно! <br>
-    На ваш email адрес отправлены данные для входа в личный кабинет.
+    На ваш email адрес отправлены данные для входа в личный кабинет. <br>
     Забронированные билеты потеряют свой статус за 30 минут до начала спектакля!
     <p-footer>
         <button type="button" pButton icon="fa-check" label="Перейти к просмотру спектаклей" (click)="reserveRedirect()"></button>
