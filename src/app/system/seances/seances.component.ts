@@ -124,22 +124,37 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   }
   placeOrder(order: Tickets) {
     this.isLoadPlace = false;
-    if(!order.is_avalaible) {
-      if(this.ticketsOrder.length < 3)
-        this.ticketsOrder.push(order);
-        this.ticketsOrder = this.ticketsOrder.slice();
-    } else {
-      this.ticketsOrder = this.ticketsOrder.filter(ticketOrder => {
-        return ticketOrder.id != order.id;
-      });
-    }
-
     this.ticket.is_avalaible = order.is_avalaible;
     // send data to server
+    this.disActiveClassId = 0;
     this.sub4 = this.ticketsService.updateTickets(order.id,  this.ticket)
     .subscribe(data => {
+      console.log(data);
+      if(data.status==="404") {
+        this.disActiveClassId = order.id;
+        this.confirmationService.confirm({
+          key: 'updatePageDialog',
+          header: 'Упс, а место уже заняли(',
+          message: 'Но ничего, есть шанс выбрать другие!', 
+          acceptLabel: 'Продолжить выбор мест',
+          rejectVisible: false,
+        });
+      }
+      else if(!order.is_avalaible) {
+        if(this.ticketsOrder.length < 3)
+          this.ticketsOrder.push(order);
+          this.ticketsOrder = this.ticketsOrder.slice();
+      } else {
+        this.ticketsOrder = this.ticketsOrder.filter(ticketOrder => {
+          return ticketOrder.id != order.id;
+        });
+      }
       this.isLoadPlace = true;
-    })
+    });
+    
+    
+
+    
   }
   changeSeance(id:number) {
     this.sub3 = this.ticketsService.getTickets('seances', id)
@@ -209,7 +224,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         this.activeIndex = 0;
         this.getSeances()
       }
-  });
+   });
   }
   ngOnDestroy(): void {
     if(this.sub1)
