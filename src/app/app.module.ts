@@ -14,12 +14,14 @@ import {ErrorsModule} from './shared/core/errors';
 import {NotificationService} from './shared/core/services/notification/notification.service';
 import { CoreModule } from './shared/core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './authentication/login/login.component';
 
 registerLocaleData(localeRU);
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

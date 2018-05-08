@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ConfirmationService } from 'primeng/api';
 import { ExitGuard } from '../guards/exit/exit.guard';
 import { Category_PlacesService } from '../services/category_places.service';
@@ -12,10 +11,12 @@ import { SeancesService } from '../services/seances.service';
 import { PerformancesService } from '../services/performances.service';
 import { PositionsService } from '../services/positions.service';
 import { EmployeesService } from '../services/employees.service';
+import { SharedModule } from '../shared.module';
+import { UsersService } from '../services/users.service';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule
   ],
   providers: [
     EmployeesService, 
@@ -29,7 +30,8 @@ import { EmployeesService } from '../services/employees.service';
     TicketsService,
     Category_PlacesService,
     ExitGuard,
-    ConfirmationService
+    ConfirmationService,
+    UsersService,
   ],
   declarations: []
 })

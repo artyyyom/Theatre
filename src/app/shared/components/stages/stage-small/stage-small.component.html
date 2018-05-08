@@ -9,8 +9,8 @@
       <ng-container *ngFor="let el of ticketsMap"> 
         
         <g>
-          <circle  [style.fill]="el.ticket?.is_avalaible || el.ticket?.status !=0 ? 'green' : 'grey'"
-            [style.cursor]="el.ticket?.is_avalaible || el.ticket?.status !=0 ? 'pointer' : 'not-allowed'"
+          <circle  [style.fill]="el.ticket?.is_avalaible ? 'green' : 'grey'"
+            [style.cursor]="el.ticket?.is_avalaible ? 'pointer' : 'not-allowed'"
             class="svg__circle"
             textContent="{{el.ticket?.id}}"
             [attr.cx]= el.map.cx [attr.cy] = el.map.cy r="8" stroke-width="0" stroke="#000000"

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Seances } from '../../shared/models/seances.model';
@@ -18,6 +18,8 @@ import {ConfirmationService} from 'primeng/api';
 import { Observer } from 'rxjs/Observer';
 import {StepsModule} from 'primeng/steps';
 import {MenuItem} from 'primeng/api';
+import { UsersService } from '../../shared/services/users.service';
+import { Users } from '../../shared/models/users.model';
 
 @Component({
   selector: 'app-seances',
@@ -34,6 +36,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   sub3: Subscription;
   sub4: Subscription;
   sub5: Subscription;
+  sub6: Subscription;
   performance_id: number;
   seance_id: number;
   stage_id: number;
@@ -49,16 +52,20 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   timeLeft: any;
   activeIndex: number = 0;
   isAvalaiblePlace: boolean;
+  displayReserveDialog: boolean = false;
   ticket = {
     is_avalaible: null
   };
   constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private performancesService: PerformancesService,
     private rowsplacesService: Rows_PlacesService,
     private ticketsService: TicketsService,
     private categoryplacesService: Category_PlacesService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private usersService: UsersService,
+  
     ) {
 
    }
@@ -87,8 +94,6 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     this.isAvalaiblePlace = this.tickets.some(ticket => {
       return ticket.is_avalaible===1;
     });
-    console.log(this.isAvalaiblePlace);
-    
   }
   getSeances() {
     
@@ -120,7 +125,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   placeOrder(order: Tickets) {
     this.isLoadPlace = false;
     if(!order.is_avalaible) {
-      if(this.ticketsOrder.length < 5)
+      if(this.ticketsOrder.length < 3)
         this.ticketsOrder.push(order);
         this.ticketsOrder = this.ticketsOrder.slice();
     } else {
@@ -157,11 +162,10 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     })
   }
   
-  @HostListener('gg')
+  @HostListener('window:beforeunload')
   canDeactivate() : boolean | Observable<boolean>{
      
     if(this.ticketsOrder.length) { 
-      console.log(this.ticketsOrder);
       this.ticket.is_avalaible = 1;
       return Observable.create((observer: Observer<boolean>) => {
         this.confirmationService.confirm({
@@ -213,14 +217,39 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     if(this.sub2)
       this.sub2.unsubscribe();
     if(this.sub3)
-      this.sub3.unsubscribe()
+      this.sub3.unsubscribe();
     if(this.sub4)
-      this.sub4.unsubscribe()
+      this.sub4.unsubscribe();
     if(this.sub5)
-      this.sub5.unsubscribe()
+      this.sub5.unsubscribe();
+    if(this.sub6)
+      this.sub6.unsubscribe()
   }
   orderTickets() {
     this.activeIndex = 1;
     this.timerStart();
   }
+
+  createUser(value: any) {
+    let ticket = {user_id: null, status: null};
+    let user = new Users(null, value.name, value.email, value.phone);
+    this.sub6 = this.usersService.createUser(user)
+      .subscribe(data => {
+        this.ticketsOrder.forEach(ticketOrder => {
+          ticket.status = value.checkboxReserve ? 1 : 2;
+          ticket.user_id = data;
+          this.ticketsService.updateTickets(ticketOrder.id, ticket)
+            .subscribe(data => {
+              this.displayReserveDialog = true;
+            });
+          
+        });
+        this.ticketsOrder = [];
+        
+      });
+  }
+  reserveRedirect() {
+    this.router.navigate(['/performances']);
+  }
+
 }

@@ -8,6 +8,7 @@ export class Tickets {
       public price: number = null,
       public is_avalaible: number = null,
       public status: number = null,
+      public user_id: number= null,
     ) {}
   
   }

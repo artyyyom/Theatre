@@ -1,4 +1,4 @@
-<div class="seance-order-block">
+<div class="seance-order-block" >
     <h3 class="first">Контактные данные</h3>
     <div class="contact__form">
         <div class="">
@@ -6,9 +6,9 @@
           [formGroup]="userform"
           (ngSubmit)="onSubmit(userform.value)"
           >
-            <input type="text" formControlName="FIO" placeholder="ФИО">
+            <input type="text" formControlName="name" placeholder="ФИО">
     
-            <div class="error-form" *ngIf="!userform.controls['FIO'].valid&&userform.controls['FIO'].dirty">
+            <div class="error-form" *ngIf="!userform.controls['name'].valid&&userform.controls['name'].dirty">
                  - Поле "ФИО" обязательно к заполнению!
             </div>
             <input type="text" formControlName="email" placeholder="Ваш email">

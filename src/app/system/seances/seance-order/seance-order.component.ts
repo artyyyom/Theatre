@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Validators,
         FormControl,
         FormGroup,
@@ -13,12 +13,14 @@ import {Validators,
 export class SeanceOrderComponent implements OnInit {
   userform: FormGroup;
   submitted: boolean;
+  visible: boolean = true;
+  @Output() createUser = new EventEmitter();
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.userform = this.fb.group({
-      'FIO': new FormControl('', Validators.required),
+      'name': new FormControl('', Validators.required),
       'email': new FormControl('', [Validators.required, Validators.email]),
       'phone': new FormControl('', [Validators.required, Validators.pattern('[0-9]+'),
                                    Validators.minLength(10),
@@ -29,7 +31,10 @@ export class SeanceOrderComponent implements OnInit {
   }
 
   onSubmit(value: string) {
-    alert("hello");
+    console.log(value);
+    this.userform.disabled;
+    this.userform.reset;
+    this.createUser.emit(value);
   }
 
 }

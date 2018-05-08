@@ -21,12 +21,10 @@ export class BaseApi {
 
   public post(url: string = '', data: any = {}): Observable<any> {
     return this.http.post(this.getUrl(url), data)
-      .map((response: Response) => response.json());
   }
 
   public put(url: string = '', data: any = {}): Observable<any> {
     return this.http.put(this.getUrl(url), data)
-      
   }
 
 }

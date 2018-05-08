@@ -12,7 +12,10 @@
             (placeOrder)="placeOrder($event)"
             [isLoadPlace]="isLoadPlace"
             ></app-stage-small>
-            <app-seance-order *ngIf="activeIndex==1"></app-seance-order>
+            <app-seance-order *ngIf="activeIndex==1"
+            (createUser)="createUser($event)"
+            >
+            </app-seance-order>
         </ng-container>
         <div *ngIf="!isAvalaiblePlace">К сожалению на этот сеанс доступных мест нет(</div>
         <div class="delimeter"></div>
@@ -33,5 +36,16 @@
     </div>
 </div>
 <p-confirmDialog key="closeConfirmation" appendTo="body" header="Подтверждение" icon="fa fa-question-circle" width="425"></p-confirmDialog>
-<p-confirmDialog key="updatePageDialog" appendTo="body" header="Обновление страницы" icon="fa fa-question-circle" width="425" #cd></p-confirmDialog>
+<p-confirmDialog key="updatePageDialog" appendTo="body" header="Обновление страницы" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+<p-dialog appendTo="body" modal="true" width="400" [(visible)]="displayReserveDialog">
+    <p-header>
+        Бронирование успешно!
+    </p-header>
+    Бронирование билетов прошло успешно! <br>
+    На ваш email адрес отправлены данные для входа в личный кабинет.
+    Забронированные билеты потеряют свой статус за 30 минут до начала спектакля!
+    <p-footer>
+        <button type="button" pButton icon="fa-check" label="Перейти к просмотру спектаклей" (click)="reserveRedirect()"></button>
+    </p-footer>
+</p-dialog>
 <div *ngIf="!isLoad">Загрузка...</div>
