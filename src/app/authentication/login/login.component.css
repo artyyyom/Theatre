@@ -11,3 +11,8 @@ input[type=password] {
     border: 1px solid #504e4c;
     background: #121212;
 }
+
+.login__form .error-login {
+    text-align: center;
+    margin-bottom: 10px;
+}

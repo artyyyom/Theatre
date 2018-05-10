@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', data.access_token);
         this.router.navigate(['/profile-order']);
       },
-      (error: HttpErrorResponse) => {
+      (error)=>{
         this.isLoginError = true;
       });
   }

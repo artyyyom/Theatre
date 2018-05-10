@@ -1,5 +1,6 @@
 <div class="login__form">
   <h3>Вход в систему</h3>
+  <div *ngIf="isLoginError" class="error-form error-login">Неправильный логин или пароль!</div>
   <form class="contact__form-fields" 
     [formGroup]="userform"
     (ngSubmit)="OnSubmit(userform.value)"

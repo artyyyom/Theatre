@@ -3,7 +3,7 @@ import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
-import { URLSearchParams } from '@angular/http';
+import { URLSearchParams, Response } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 
 export class BaseApi {
@@ -28,6 +28,15 @@ export class BaseApi {
   }
 
   public authPost(url: string = '', data: any = {}, header: any = {}): Observable<any> {
-    return this.authHttp.post(this.getUrl(url), data, header);
+    return this.authHttp.post(this.getUrl(url), data, header)
+           .map((data: Response) => {
+              return data.json();
+           })
+           .catch((e: any) => {
+              return Observable.throw(this.errorHandler(e));
+           });
+  }
+  errorHandler(error: any): void {
+    console.log(error)
   }
 }

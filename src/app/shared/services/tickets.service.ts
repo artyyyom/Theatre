@@ -19,4 +19,8 @@ export class TicketsService extends BaseApi {
       return this.put(`tickets/${id}`, data);
   }
 
+  getUserTickets(): Observable<Tickets[]>{
+    return this.authPost('getUserTickets');
+  }
+
 }

@@ -14,5 +14,11 @@ export class SeancesService extends BaseApi {
       let data = {filter: filter};
       return this.get('seances', {params: data})
     }
-
+  getUserActualSeances(): Observable<Seances[]> {
+    return this.authPost('getUserActualSeances');
+  }  
+  getUserHistorySeances(): Observable<Seances[]> {
+    return this.authPost('getUserHistorySeances');
+  }  
+  
 }

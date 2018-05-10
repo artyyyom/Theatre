@@ -32,8 +32,9 @@
     <li
     *ngIf="usersService.loggedIn()" 
     routerLinkActive="active">
-      <a [routerLink]="['/login']">Мой кабинет</a>
+      <a>Мой кабинет</a>
       <ul>
+        <li><a [routerLink]="['/profile-order']">Мои заказы</a></li>
         <li><a (click)="logout()">Выход</a></li>
       </ul>
     </li>
