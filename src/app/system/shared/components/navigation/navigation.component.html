@@ -24,5 +24,20 @@
     </li>
     <li routerLinkActive="active"><a [routerLink]="['/history']">История</a></li>
     <li routerLinkActive="active"><a [routerLink]="['/contacts']">Контакты</a></li>
+    <li
+    *ngIf="!usersService.loggedIn()" 
+    routerLinkActive="active">
+      <a [routerLink]="['/login']">Вход</a>
+    </li>
+    <li
+    *ngIf="usersService.loggedIn()" 
+    routerLinkActive="active">
+      <a [routerLink]="['/login']">Мой кабинет</a>
+      <ul>
+        <li><a (click)="logout()">Выход</a></li>
+      </ul>
+    </li>
+    
+    
   </ul>
 </nav>

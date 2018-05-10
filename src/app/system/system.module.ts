@@ -36,8 +36,6 @@ import {CheckboxModule} from 'primeng/checkbox';
 import { SeanceOrderComponent } from './seances/seance-order/seance-order.component';
 import { SharedModule } from '../shared/shared.module';
 
-
-
 @NgModule({
   declarations: [
     SystemComponent,

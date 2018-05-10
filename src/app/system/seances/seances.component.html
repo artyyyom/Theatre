@@ -14,9 +14,11 @@
             ></app-stage-small>
             <app-seance-order *ngIf="activeIndex==1"
             [errorEmail]="errorEmail"
-            (createUser)="createUser($event)"
+            (reserveTicket)="reserveTicket($event)"
+            (buyTicket)="buyTicket($event)"
             >
             </app-seance-order>
+            <div *ngIf="activeIndex==2">Оплата билетов</div>
         </ng-container>
         <div *ngIf="!isAvalaiblePlace">К сожалению на этот сеанс доступных мест нет(</div>
         <div class="delimeter"></div>

@@ -245,7 +245,13 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     this.activeIndex = 1;
     this.timerStart();
   }
-
+  reserveTicket(value: any) {
+    this.createUser(value);
+  }
+  buyTicket(value: any) {
+    this.activeIndex = 2;
+    this.createUser(value);
+  }
   createUser(value: any) {
     this.errorEmail = false;
     let ticket = {user_id: null, status: null};
@@ -258,14 +264,16 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         } 
         else {
           this.ticketsOrder.forEach(ticketOrder => {
-            ticket.status = value.checkboxReserve ? 1 : 2;
+            ticket.status = value.checkboxReserve ? 1 : -1;
             ticket.user_id = data;
             this.ticketsService.updateTickets(ticketOrder.id, ticket)
               .subscribe(data => {
-                this.displayReserveDialog = true;
+                if(ticket.status === 1)
+                  this.displayReserveDialog = true;
               });   
-          }), 
-          this.ticketsOrder = [];       
+          }); 
+          if(ticket.status === 1)
+            this.ticketsOrder = [];       
         }
       });
   }

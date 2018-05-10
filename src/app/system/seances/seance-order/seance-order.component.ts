@@ -15,7 +15,8 @@ export class SeanceOrderComponent implements OnInit {
   submitted: boolean;
   visible: boolean = true;
   @Input() errorEmail;
-  @Output() createUser = new EventEmitter();
+  @Output() reserveTicket = new EventEmitter();
+  @Output() buyTicket = new EventEmitter();
 
   constructor(private fb: FormBuilder) { }
 
@@ -33,11 +34,11 @@ export class SeanceOrderComponent implements OnInit {
   updateEmail() {
     this.errorEmail = false;
   }
-  onSubmit(value: string) {
-    console.log(value);
-    this.userform.disabled;
-    this.userform.reset;
-    this.createUser.emit(value);
+  _reserveTicket(value: string) {
+    this.reserveTicket.emit(value);
+  }
+  _buyTicket(value: string) {
+    this.buyTicket.emit(value);
   }
 
 }

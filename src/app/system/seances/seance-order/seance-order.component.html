@@ -4,7 +4,6 @@
         <div class="">
           <form class="contact__form-fields" 
           [formGroup]="userform"
-          (ngSubmit)="onSubmit(userform.value)"
           >
             <input type="text" formControlName="name" placeholder="ФИО">
     
@@ -34,8 +33,8 @@
             <div class="error-form" *ngIf="!userform.controls['checkboxRules'].untouched&&!userform.controls['checkboxRules'].value">
                 - Поле обязательно для выбора!
             </div> 
-            <button [disabled]="errorEmail" *ngIf="userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Забронировать</span></button>
-            <button [disabled]="errorEmail" *ngIf="!userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Оплатить</span></button>
+            <button (click)="_reserveTicket(userform.value)" [disabled]="errorEmail" *ngIf="userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Забронировать</span></button>
+            <button (click)="_buyTicket(userform.value)" [disabled]="errorEmail" *ngIf="!userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Оплатить</span></button>
           </form>
         </div>
     </div>
