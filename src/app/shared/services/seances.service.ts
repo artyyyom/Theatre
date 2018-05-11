@@ -4,11 +4,14 @@ import {BaseApi} from '../core/base-api';
 import {Observable} from 'rxjs/Observable';
 import { Seances } from '../models/seances.model';
 import { AuthHttp } from 'angular2-jwt';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class SeancesService extends BaseApi {
-  constructor (public http: HttpClient, public authHttp: AuthHttp) {
-    super(http, authHttp);
+  constructor (public http: HttpClient, 
+    public authHttp: AuthHttp,
+    public router: Router) {
+    super(http, authHttp, router);
   }
   getSeances(filter: string = 'false'): Observable<Seances[]> {
       let data = {filter: filter};

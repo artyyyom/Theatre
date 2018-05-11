@@ -20,6 +20,7 @@ import {StepsModule} from 'primeng/steps';
 import {MenuItem} from 'primeng/api';
 import { UsersService } from '../../shared/services/users.service';
 import { Users } from '../../shared/models/users.model';
+import { SeancesService } from '../../shared/services/seances.service';
 
 @Component({
   selector: 'app-seances',
@@ -54,6 +55,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   isAvalaiblePlace: boolean;
   displayReserveDialog: boolean = false;
   errorEmail: boolean = false;
+  authCountTickets: number = 0;
   ticket = {
     is_avalaible: null
   };
@@ -65,8 +67,8 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     private ticketsService: TicketsService,
     private categoryplacesService: Category_PlacesService,
     private confirmationService: ConfirmationService,
-    private usersService: UsersService,
-  
+    public usersService: UsersService,
+    public seancesService: SeancesService,
     ) {
 
    }
@@ -119,6 +121,8 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         this.seances = this.performance.seances;
         this.timerStart();
         this.avalaiblePlace();
+        if(this.usersService.loggedIn()) 
+          this.getActiveUserTickets();
         this.isLoad = true; 
     });
 
@@ -142,7 +146,8 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         });
       }
       else if(!order.is_avalaible) {
-        if(this.ticketsOrder.length < 3)
+        console.log(this.authCountTickets);
+        if(this.ticketsOrder.length < (3-this.authCountTickets))
           this.ticketsOrder.push(order);
           this.ticketsOrder = this.ticketsOrder.slice();
       } else {
@@ -162,6 +167,8 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       .subscribe((data: Tickets[]) => {
         this.tickets = data;
         this.avalaiblePlace();
+        if(this.usersService.loggedIn()) 
+          this.getActiveUserTickets();
       });
   }
   closeTicket(order: Tickets) {
@@ -246,11 +253,17 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     this.timerStart();
   }
   reserveTicket(value: any) {
-    this.createUser(value);
+    if(!this.usersService.loggedIn())
+      this.createUser(value);
+    else
+      this.updateTicketsAuth(value);
   }
   buyTicket(value: any) {
     this.activeIndex = 2;
-    this.createUser(value);
+    if(!this.usersService.loggedIn())
+      this.createUser(value);
+    else 
+      this.updateTicketsAuth(value); 
   }
   createUser(value: any) {
     this.errorEmail = false;
@@ -280,5 +293,32 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   reserveRedirect() {
     this.router.navigate(['/performances']);
   }
-
+  getActiveUserTickets() {
+    this.seancesService.getUserActualSeances()
+      .subscribe(data => {
+        data.forEach(e => {
+          console.log(e);
+          if(e.id==this.seance_id) {
+            this.authCountTickets = e.tickets.length;
+          }
+        });
+      });
+  }
+  updateTicketsAuth(value) {
+    this.displayReserveDialog = false;
+    let ticket = {status: null};
+    this.ticketsOrder.forEach(ticketOrder => {
+      ticket.status = value.checkboxReserve ? 1 : -1;
+      this.ticketsService.updateTicketsAuth(ticketOrder.id, ticket)
+        .subscribe(data => {
+          if(ticket.status === 1) {
+            console.log('hello');
+            this.displayReserveDialog = true;
+            this.ticketsOrder = [];
+          }
+            
+        });   
+    }); 
+        
+  }
 }

@@ -4,11 +4,14 @@ import {BaseApi} from '../core/base-api';
 import {Observable} from 'rxjs/Observable';
 import { Performances } from '../models/performances.model';
 import { AuthHttp } from 'angular2-jwt';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class PerformancesService extends BaseApi {
-  constructor (public http: HttpClient, public authHttp: AuthHttp) {
-    super(http, authHttp);
+  constructor (public http: HttpClient, 
+    public authHttp: AuthHttp,
+    public router: Router) {
+    super(http, authHttp, router);
   }
   getPerformances(): Observable<Performances[]> {
       return this.get('performances');

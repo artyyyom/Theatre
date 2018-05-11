@@ -3,13 +3,16 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BaseApi} from '../core/base-api';
 import {Observable} from 'rxjs/Observable';
 import { tokenNotExpired, AuthHttp } from 'angular2-jwt';
+import { Router } from '@angular/router';
 
 
 @Injectable()
 export class UsersService extends BaseApi {
   headers: HttpHeaders;
-  constructor (public http: HttpClient, public authHttp: AuthHttp) {
-    super(http, authHttp);
+  constructor (public http: HttpClient, 
+               public authHttp: AuthHttp,
+               public router: Router) {
+    super(http, authHttp, router);
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
   }
   

@@ -43,9 +43,6 @@ export class ProfileOrderComponent implements OnInit, OnDestroy {
         this.paginateActual(event);
         this.paginateHistory(event);
         console.log(data);
-      },
-      (error) => {
-        console.log(error);
       });
   }
   paginateActual(event) {

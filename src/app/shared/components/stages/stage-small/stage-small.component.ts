@@ -16,6 +16,7 @@ export class StageSmallComponent implements OnInit, AfterViewInit {
     this.isLoadPlace = value;
   }
   @Input() stageMap;
+  @Input() authCountTickets;
   @Input('tickets') set _megreMapTickets(value) {
       this.tickets = value;
       if(this.stageMap  && this.tickets) {
@@ -65,7 +66,7 @@ export class StageSmallComponent implements OnInit, AfterViewInit {
   clickPlace(event: any, id, place_id, row_id, category_id, seance_id, price, is_avalaible) {
     if(is_avalaible) {
       if(event.target.className.animVal !== 'svg__circle svg__circle_active')  {
-        if(this.countTickets < 3) {
+        if(this.countTickets < (3-this.authCountTickets)) {
           this.render.addClass(event.target, 'svg__circle_active');
           this.ticket = new Tickets(id, row_id, place_id, category_id, seance_id, price, 0, null);
           this.placeOrder.emit(this.ticket);

@@ -22,8 +22,11 @@ export class ServerErrorsInterceptor implements HttpInterceptor {
     private errorsService: ErrorsService,
   ) { }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
-    return next.handle(request);
+    return next.handle(request).do(event => {}, err => {
+      if(err instanceof HttpErrorResponse && err.status == 401) {
+        console.log('hello guys');
+      }
+    });
 
   }
 }

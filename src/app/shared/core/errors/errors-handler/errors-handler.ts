@@ -19,8 +19,9 @@ export class ErrorsHandler implements ErrorHandler {
     const notificationService = this.injector.get(NotificationService);
     const errorsService = this.injector.get(ErrorsService);
     const router = this.injector.get(Router);
-
+    
     if (error instanceof HttpErrorResponse) {
+      console.log(error);
       // Server error happened
       if (!navigator.onLine) {
         // No Internet connection

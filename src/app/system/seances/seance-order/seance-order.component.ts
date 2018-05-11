@@ -4,6 +4,7 @@ import {Validators,
         FormGroup,
         FormBuilder, 
         } from '@angular/forms';
+import { UsersService } from '../../../shared/services/users.service';
 
 @Component({
   selector: 'app-seance-order',
@@ -18,18 +19,26 @@ export class SeanceOrderComponent implements OnInit {
   @Output() reserveTicket = new EventEmitter();
   @Output() buyTicket = new EventEmitter();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public usersService: UsersService) { }
 
   ngOnInit() {
-    this.userform = this.fb.group({
-      'name': new FormControl('', Validators.required),
-      'email': new FormControl('', [Validators.required, Validators.email]),
-      'phone': new FormControl('', [Validators.required, Validators.pattern('[0-9]+'),
-                                   Validators.minLength(10),
-                                   Validators.maxLength(10)]),
-      'checkboxRules': ['', Validators.requiredTrue],
-      'checkboxReserve': [false, Validators.required],
-    });
+    if(!this.usersService.loggedIn()) {
+      this.userform = this.fb.group({
+        'name': new FormControl('', Validators.required),
+        'email': new FormControl('', [Validators.required, Validators.email]),
+        'phone': new FormControl('', [Validators.required, Validators.pattern('[0-9]+'),
+                                    Validators.minLength(10),
+                                    Validators.maxLength(10)]),
+        'checkboxRules': ['', Validators.requiredTrue],
+        'checkboxReserve': [false, Validators.required],
+      });
+    }
+    else {
+      this.userform = this.fb.group({
+        'checkboxRules': ['', Validators.requiredTrue],
+        'checkboxReserve': [false, Validators.required],
+      });
+    }
   }
   updateEmail() {
     this.errorEmail = false;

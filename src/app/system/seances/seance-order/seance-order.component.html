@@ -5,23 +5,25 @@
           <form class="contact__form-fields" 
           [formGroup]="userform"
           >
-            <input type="text" formControlName="name" placeholder="ФИО">
-    
-            <div class="error-form" *ngIf="!userform.controls['name'].valid&&userform.controls['name'].dirty">
-                 - Поле "ФИО" обязательно к заполнению!
-            </div>
-            <input (input)="updateEmail()" type="text" formControlName="email" placeholder="Ваш email">
-            <div class="error-form" *ngIf="!userform.controls['email'].valid&&userform.controls['email'].dirty">
-                - Поле "Email" некорректно!
-            </div>
-            <div class="error-form" *ngIf="errorEmail">
-                - Такой email уже существует!
-            </div>
-            <input type="text" formControlName="phone" placeholder="Ваш мобильный телефон 096...">
-            <div class="error-form" *ngIf="!userform.controls['phone'].valid&&userform.controls['phone'].dirty">
-                - Поле "Мобильный телефон" некорректно!
-            </div>
-            <div>
+            <ng-container *ngIf="!usersService.loggedIn()">
+                <input type="text" formControlName="name" placeholder="ФИО">
+        
+                <div class="error-form" *ngIf="!userform.controls['name'].valid&&userform.controls['name'].dirty">
+                    - Поле "ФИО" обязательно к заполнению!
+                </div>
+                <input (input)="updateEmail()" type="text" formControlName="email" placeholder="Ваш email">
+                <div class="error-form" *ngIf="!userform.controls['email'].valid&&userform.controls['email'].dirty">
+                    - Поле "Email" некорректно!
+                </div>
+                <div class="error-form" *ngIf="errorEmail">
+                    - Такой email уже существует!
+                </div>
+                <input type="text" formControlName="phone" placeholder="Ваш мобильный телефон 096...">
+                <div class="error-form" *ngIf="!userform.controls['phone'].valid&&userform.controls['phone'].dirty">
+                    - Поле "Мобильный телефон" некорректно!
+                </div>
+            </ng-container>
+            <div>    
               <input formControlName="checkboxReserve" type="checkbox" class="checkbox checkbox--orange"/>Забронировать билет
             </div>
             <div *ngIf="userform.controls['checkboxReserve'].value">

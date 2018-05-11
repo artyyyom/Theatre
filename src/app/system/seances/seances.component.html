@@ -11,6 +11,7 @@
             [tickets]="tickets"
             (placeOrder)="placeOrder($event)"
             [isLoadPlace]="isLoadPlace"
+            [authCountTickets]="authCountTickets"
             ></app-stage-small>
             <app-seance-order *ngIf="activeIndex==1"
             [errorEmail]="errorEmail"
@@ -45,7 +46,9 @@
         Бронирование успешно!
     </p-header>
     Бронирование билетов прошло успешно! <br>
+    <ng-container *ngIf="!usersService.loggedIn()">
     На ваш email адрес отправлены данные для входа в личный кабинет. <br>
+    </ng-container>
     Забронированные билеты потеряют свой статус за 30 минут до начала спектакля!
     <p-footer>
         <button type="button" pButton icon="fa-check" label="Перейти к просмотру спектаклей" (click)="reserveRedirect()"></button>

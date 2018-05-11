@@ -5,10 +5,13 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 import { URLSearchParams, Response } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
+import { Router } from '@angular/router';
 
 export class BaseApi {
   private baseUrl = 'http://127.0.0.1:8000/api/';
-  constructor(public http: HttpClient, public authHttp: AuthHttp) {}
+  constructor(public http: HttpClient, 
+              public authHttp: AuthHttp, 
+              public router: Router) {}
 
   private getUrl(url: string = '') {
     return this.baseUrl + url;
@@ -33,7 +36,11 @@ export class BaseApi {
               return data.json();
            })
            .catch((e: any) => {
-              return Observable.throw(this.errorHandler(e));
+              if(e.status == 401) {
+                localStorage.removeItem('token');
+                this.router.navigate(['/login']);
+              }
+                return Observable.throw(this.errorHandler(e));
            });
   }
   errorHandler(error: any): void {
