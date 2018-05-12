@@ -7,7 +7,7 @@
             <div class="table-header">Дата сеанса: {{actualSeance?.datetime | date:"dd MMMM"}}</div>
             <div class="description__text">
                 <div class="column-2">
-                    <img class="seance__img" src="./assets/uploads/{{performance?.photo_main}}" alt="" />
+                    <img class="seance__img" src="./assets/uploads/{{actualSeance.performance?.photo_main}}" alt="" />
                     <div class="delimeter"></div>
                     <div class="seance__description">
                         <div class="seance__time-header"><h5>Название спектакля:</h5></div>
@@ -53,6 +53,9 @@
                   </div>
                   <div class="ticket__price"><b>{{ticketOrder?.price/1000 | currency:'UAH'}}
                   </b></div>
+                  <div class="close" (click)="clickReturn(ticketOrder.id)">
+                    <i class="fas fa-minus-circle"></i>   
+                  </div>
               </div>
             </div>
         </div>
@@ -73,7 +76,7 @@
             <div class="table-header">Дата сеанса: {{actualSeance?.datetime | date:"dd MMMM"}}</div>
             <div class="description__text">
                 <div class="column-2">
-                    <img class="seance__img" src="./assets/uploads/{{performance?.photo_main}}" alt="" />
+                    <img class="seance__img" src="./assets/uploads/{{actualSeance.performance?.photo_main}}" alt="" />
                     <div class="delimeter"></div>
                     <div class="seance__description">
                         <div class="seance__time-header"><h5>Название спектакля:</h5></div>
@@ -128,4 +131,31 @@
     </ng-container>
   </div>
 </div>
+<p-dialog appendTo="body" modal="true" [(visible)]="display" width="400">
+    <p-header>
+       Возврат билета
+    </p-header>
+        <form class="contact__form-return" 
+        [formGroup]="cardform"        
+        >
+            <input id="cc-number" formControlName="cc-number" type="visa" autocomplete="cc-number" placeholder="XXXX-XXXX-XXXX-XXXX" ccNumber>
+            <input id="cc-exp-date" formControlName="cc-exp-date" type="tel" autocomplete="cc-exp" placeholder="MM/YYYY" ccExp>
+            <input id="cc-cvc" formControlName="cc-cvc" type="tel" autocomplete="off"  placeholder="XXXX" ccCVC>
+        </form>
+    <p-footer>
+        <button (click)="updateTicketStatus()" [disabled]="cardform.invalid" type="button" pButton icon="fa-check" label="Подтвердить"></button>
+        <button type="button" pButton icon="fa-close" label="Закрыть" (click)="display=false"></button>
+    </p-footer>
+</p-dialog>
+<p-dialog appendTo="body" modal="true" [(visible)]="displayAnswer" width="400">
+    <p-header>
+       Данные отправлены успешно!
+    </p-header>
+        Ожидайте выполнение операции в течение 24 часов!.
+    <p-footer>
+          <button type="button" pButton icon="fa-close" label="Закрыть" (click)="displayAnswer=false"></button>
+    </p-footer>
+</p-dialog>
+
+
 <div *ngIf="!isLoading">Загрузка...</div>
