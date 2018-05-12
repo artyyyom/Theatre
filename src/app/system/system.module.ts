@@ -35,6 +35,7 @@ import {StepsModule} from 'primeng/steps';
 import {CheckboxModule} from 'primeng/checkbox';
 import { SeanceOrderComponent } from './seances/seance-order/seance-order.component';
 import { SharedModule } from '../shared/shared.module';
+import { SeancePayComponent } from './seances/seance-pay/seance-pay.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { SharedModule } from '../shared/shared.module';
     StageSmallComponent,
     MergeArrayPipe,
     SeanceOrderComponent,
+    SeancePayComponent,
   ],
   imports: [
     SharedModule,

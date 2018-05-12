@@ -19,7 +19,11 @@
             (buyTicket)="buyTicket($event)"
             >
             </app-seance-order>
-            <div *ngIf="activeIndex==2">Оплата билетов</div>
+            <app-seance-pay 
+            *ngIf="activeIndex==2"
+            (updateTicketPayStatus)="updateTicketPayStatus()"
+            >
+            </app-seance-pay>
         </ng-container>
         <div *ngIf="!isAvalaiblePlace">К сожалению на этот сеанс доступных мест нет(</div>
         <div class="delimeter"></div>
@@ -50,6 +54,19 @@
     На ваш email адрес отправлены данные для входа в личный кабинет. <br>
     </ng-container>
     Забронированные билеты потеряют свой статус за 30 минут до начала спектакля!
+    <p-footer>
+        <button type="button" pButton icon="fa-check" label="Перейти к просмотру спектаклей" (click)="reserveRedirect()"></button>
+    </p-footer>
+</p-dialog>
+<p-dialog appendTo="body" modal="true" width="400" [(visible)]="displayPayDialog">
+    <p-header>
+        Покупка успешна!
+    </p-header>
+    Покупка билетов прошло успешно! <br>
+    <ng-container *ngIf="!usersService.loggedIn()">
+    На ваш email адрес отправлены данные для входа в личный кабинет. <br>
+    </ng-container>
+    Ждем вас на спектакле!
     <p-footer>
         <button type="button" pButton icon="fa-check" label="Перейти к просмотру спектаклей" (click)="reserveRedirect()"></button>
     </p-footer>

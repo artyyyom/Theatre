@@ -38,6 +38,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   sub4: Subscription;
   sub5: Subscription;
   sub6: Subscription;
+  sub7: Subscription;
   performance_id: number;
   seance_id: number;
   stage_id: number;
@@ -54,6 +55,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
   activeIndex: number = 0;
   isAvalaiblePlace: boolean;
   displayReserveDialog: boolean = false;
+  displayPayDialog: boolean = false;
   errorEmail: boolean = false;
   authCountTickets: number = 0;
   ticket = {
@@ -246,7 +248,9 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     if(this.sub5)
       this.sub5.unsubscribe();
     if(this.sub6)
-      this.sub6.unsubscribe()
+      this.sub6.unsubscribe();
+    if(this.sub7)
+      this.sub7.unsubscribe();
   }
   orderTickets() {
     this.activeIndex = 1;
@@ -258,12 +262,15 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     else
       this.updateTicketsAuth(value);
   }
+  
   buyTicket(value: any) {
     this.activeIndex = 2;
     if(!this.usersService.loggedIn())
       this.createUser(value);
-    else 
+    else {
       this.updateTicketsAuth(value); 
+      console.log('istme');
+    }
   }
   createUser(value: any) {
     this.errorEmail = false;
@@ -312,13 +319,23 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       this.ticketsService.updateTicketsAuth(ticketOrder.id, ticket)
         .subscribe(data => {
           if(ticket.status === 1) {
-            console.log('hello');
             this.displayReserveDialog = true;
             this.ticketsOrder = [];
           }
-            
         });   
     }); 
-        
+  }
+
+  updateTicketPayStatus() {
+    this.displayPayDialog = false;
+    let ticket = {status: null};
+    this.ticketsOrder.forEach(ticketOrder => {
+      ticket.status = 2;
+      this.ticketsService.updateTickets(ticketOrder.id, ticket)
+        .subscribe(data => {
+          this.displayPayDialog = true;
+        });   
+    });
+    this.ticketsOrder = [];
   }
 }

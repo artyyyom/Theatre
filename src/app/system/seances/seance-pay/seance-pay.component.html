@@ -1,0 +1,15 @@
+<div class="seance-pay-block" >
+  <h3 class="first">Реквизиты кредитной карты</h3>
+  <div class="pay__form">
+      <div class="">
+        <form class="contact__form-fields" 
+        [formGroup]="cardform"        
+        >
+        <input id="cc-number" formControlName="cc-number" type="visa" autocomplete="cc-number" placeholder="XXXX-XXXX-XXXX-XXXX" ccNumber>
+        <input id="cc-exp-date" formControlName="cc-exp-date" type="tel" autocomplete="cc-exp" placeholder="MM/YYYY" ccExp>
+        <input id="cc-cvc" formControlName="cc-cvc" type="tel" autocomplete="off"  placeholder="XXXX" ccCVC>
+        <button (click)="_updateTicketPayStatus()" type="submit" class="btn btn-contacts" [disabled]="cardform.invalid"><span>Оплатить</span></button>
+        </form>
+      </div>
+  </div>
+</div>

@@ -36,7 +36,7 @@
                 - Поле обязательно для выбора!
             </div> 
             <button (click)="_reserveTicket(userform.value)" [disabled]="errorEmail" *ngIf="userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Забронировать</span></button>
-            <button (click)="_buyTicket(userform.value)" [disabled]="errorEmail" *ngIf="!userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Оплатить</span></button>
+            <button (click)="_buyTicket(userform.value)" [disabled]="errorEmail" *ngIf="!userform.controls['checkboxReserve'].value" type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Перейти к оплате</span></button>
           </form>
         </div>
     </div>

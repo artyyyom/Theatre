@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {DialogModule} from 'primeng/dialog';
 import {PaginatorModule} from 'primeng/paginator';
+import { CreditCardDirectivesModule } from 'angular-cc-library';
+
 
 @NgModule({
   imports: [
@@ -16,7 +18,8 @@ import {PaginatorModule} from 'primeng/paginator';
     ReactiveFormsModule,
     FormsModule,
     DialogModule,
-    PaginatorModule
+    PaginatorModule,
+    CreditCardDirectivesModule
   ]
   
 })

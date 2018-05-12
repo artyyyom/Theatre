@@ -17,8 +17,8 @@ export class SeanceOrderComponent implements OnInit {
   visible: boolean = true;
   @Input() errorEmail;
   @Output() reserveTicket = new EventEmitter();
+  @Output() changeStep = new EventEmitter();
   @Output() buyTicket = new EventEmitter();
-
   constructor(private fb: FormBuilder, public usersService: UsersService) { }
 
   ngOnInit() {
@@ -49,5 +49,6 @@ export class SeanceOrderComponent implements OnInit {
   _buyTicket(value: string) {
     this.buyTicket.emit(value);
   }
+
 
 }

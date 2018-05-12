@@ -1,6 +1,7 @@
 .login__form .contact__form-fields {
     max-width: 500px;
     margin: 0 auto;
+    grid-template-rows: 32px 32px 32px 51px
 }
 
 input[type=password] {
