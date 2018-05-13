@@ -31,7 +31,8 @@
       ],
       "scripts": [
         "assets/js/jsmin/scripts.min.js",
-        "assets/js/jsmin/svg-pan-zoom.min.js"
+        "assets/js/jsmin/svg-pan-zoom.min.js",
+        "../node_modules/jspdf/dist/jspdf.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

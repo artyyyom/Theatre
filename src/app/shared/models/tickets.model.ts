@@ -1,3 +1,5 @@
+import { Category_Places } from "./category_places.model";
+
 export class Tickets {
     constructor(
       public id: number = null,
@@ -9,6 +11,7 @@ export class Tickets {
       public is_avalaible: number = null,
       public status: number = null,
       public user_id: number= null,
+      public category_place: Category_Places = null,
     ) {}
   
   }

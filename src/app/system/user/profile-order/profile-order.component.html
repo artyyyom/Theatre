@@ -1,5 +1,5 @@
 <div class="column-2" *ngIf="isLoading">
-  <div class="contact__address" >
+  <div class="ticket-profile" >
     <h3>Текущие заказы</h3>
     <div *ngIf="actualSeances.length">
       <div class="seance__order" *ngFor="let actualSeance of actualSeancesChunk">
@@ -40,15 +40,18 @@
               <div class="ticket" *ngFor="let ticketOrder of actualSeance.tickets"
               id="{{ticketOrder?.id}}">
                   <div class="ticket__position">
-                      <ng-container *ngFor="let category_place of category_places">
-                          <div class="ticket__sector" *ngIf="category_place.id==ticketOrder.category_id"><b>Сектор {{category_place?.name}}</b></div>
-                      </ng-container>
-                      <div class="ticket__row-place">
+                        <div class="ticket__sector"><b>Сектор {{ticketOrder?.category_place?.name}}</b></div>
+                        <div class="ticket__row-place">
                           <span>Ряд <b>{{ticketOrder?.row_id}}</b></span>
                           <span>Место <b>{{ticketOrder?.place_id}}</b></span>
                           <span *ngIf="ticketOrder.status===-1"><b style="color: red">Подтверждается оплата</b></span>
                           <span *ngIf="ticketOrder.status===1"><b style="color: red">Забронирован</b></span>
                           <span *ngIf="ticketOrder.status===2"><b style="color: red">Оплачен</b></span>   
+                        </div>
+                        <div class="ticket__save">
+                            <div  (click)="pdfGenerator(actualSeance, ticketOrder)">
+                                <i class="far fa-save"></i><span><u>Сохранить билет</u></span> 
+                              </div>
                         </div>
                   </div>
                   <div class="ticket__price"><b>{{ticketOrder?.price/1000 | currency:'UAH'}}
@@ -109,9 +112,7 @@
                 <div class="ticket" *ngFor="let ticketOrder of actualSeance.tickets"
                 id="{{ticketOrder?.id}}">
                     <div class="ticket__position">
-                        <ng-container *ngFor="let category_place of category_places">
-                            <div class="ticket__sector" *ngIf="category_place.id==ticketOrder.category_id"><b>Сектор {{category_place?.name}}</b></div>
-                        </ng-container>
+                            <div class="ticket__sector"><b>Сектор {{ticketOrder?.category_place?.name}}</b></div>
                         <div class="ticket__row-place">
                             <span>Ряд <b>{{ticketOrder?.row_id}}</b></span>
                             <span>Место <b>{{ticketOrder?.place_id}}</b></span>

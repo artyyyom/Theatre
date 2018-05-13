@@ -10,7 +10,9 @@ import { Category_Places } from '../../../shared/models/category_places.model';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import {DialogModule} from 'primeng/dialog';
 import { TicketsService } from '../../../shared/services/tickets.service';
-
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-profile-order',
@@ -35,7 +37,11 @@ export class ProfileOrderComponent implements OnInit, OnDestroy {
               private seancesService: SeancesService, 
               private router: Router,
               private fb: FormBuilder,
-              private ticketsService: TicketsService) { }
+              private ticketsService: TicketsService,
+              ) { 
+
+                
+              }
 
   ngOnInit() {
     this.cardform = this.fb.group({
@@ -45,17 +51,15 @@ export class ProfileOrderComponent implements OnInit, OnDestroy {
     });
     this.sub1 = Observable.combineLatest(
       this.seancesService.getUserActualSeances(),
-      this.categoryPlacesService.getCategoryPlaces(),
       this.seancesService.getUserHistorySeances()
-    ).subscribe((data:[Seances[], Category_Places[], Seances[]]) => {
+    ).subscribe((data:[Seances[], Seances[]]) => {
         this.actualSeances = data[0];
-        this.category_places = data[1];
-        this.historySeances = data[2];
+        this.historySeances = data[1];
         this.isLoading = true;
         let event = {"first": 0, "rows": 1};
         this.paginateActual(event);
         this.paginateHistory(event);
-        console.log(data);
+        console.log(this.actualSeances);
       });
   }
   paginateActual(event) {
@@ -92,4 +96,56 @@ export class ProfileOrderComponent implements OnInit, OnDestroy {
       })
     });
   }
+  pdfGenerator(seance: Seances, ticket: Tickets) {
+    let pipe = new DatePipe('ru'); // Use your own locale
+    let datetime = new Date(seance.datetime);
+    let formattedDate = pipe.transform(datetime, 'dd MMMM yy');
+    let formattedTime = pipe.transform(datetime, 'HH:ss')
+    let code = Math.random();
+    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+    var dd = { 
+      content: [ 
+        {text: 'Рады приветствовать вас в мариупольском драматическом театре. Спасибо за покупку!', margin: [20, 20, 20, 20]}, 
+          { 
+            style: 'tableExample', 
+            table: { 
+            widths: [70, 300, 150], 
+            body: [ 
+              [{ 
+              height: 150, 
+              alignment: 'center', 
+              text: 'Билет в Драматический театр г.Мариуполя', 
+              bold: true, 
+              fontSize: 15, 
+              colSpan: 3, 
+              border: [true, true, true, true]}, 
+              {}, 
+              {}], 
+          [{text: `№${code}`},
+           {alignment: 'center', fontSize: 17, colSpan: 2, text: `${seance.performance.name}  (${seance.performance.age_restrict}+)`,bold: true,  border: [true, true, true, false]}, 
+           {}
+          ], 
+          [{text: `Длительность: ${seance.performance.duration}`,bold: true, colSpan: 3, border: [true, false, true, false]}], 
+          [{text: `Автор: ${seance.performance.author}`,bold: true, colSpan: 3, border: [true, false, true, true]}], 
+          [{text: `Название сцены: ${seance.stage.name}`,bold: true, colSpan:2, border: [true, false, false, false]}, 
+            {}, 
+            {text: `Дата: ${formattedDate} `, border: [true, true, true, false]
+          }], 
+          [{text: `Категория: ${ticket.category_place.name}`, colSpan:2, bold: true, border: [true, false, false, false]}, 
+          {}, 
+          {text: `Время: ${formattedTime}`, border: [true, false, true, false]}], 
+          [{text: `Ряд: ${ticket.row_id}`, colSpan:2, bold: true, border: [true, false, false, false]},
+          {},
+          {text: `Цена: ${ticket.price/1000}`, border: [true, false, true, false]}], 
+          [{text: `Место: ${ticket.place_id}`,bold: true, colSpan:2, border: [true, false, false, true]},
+          {},  
+          {text: '', border: [true, false, true, true]}], 
+          ] 
+          }, 
+        }, 
+     ] 
+}
+    pdfMake.createPdf(dd).download(`ticket${ticket.id}${seance.datetime}.pdf`);
+  }
+
 }
