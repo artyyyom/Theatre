@@ -136,7 +136,7 @@ export class ProfileOrderComponent implements OnInit, OnDestroy {
           {text: `Время: ${formattedTime}`, border: [true, false, true, false]}], 
           [{text: `Ряд: ${ticket.row_id}`, colSpan:2, bold: true, border: [true, false, false, false]},
           {},
-          {text: `Цена: ${ticket.price/1000}`, border: [true, false, true, false]}], 
+          {text: `Цена: ${ticket.price/1000} грн.`, border: [true, false, true, false]}], 
           [{text: `Место: ${ticket.place_id}`,bold: true, colSpan:2, border: [true, false, false, true]},
           {},  
           {text: '', border: [true, false, true, true]}], 

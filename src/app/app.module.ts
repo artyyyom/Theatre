@@ -16,6 +16,7 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthModule } from './authentication/auth.module';
 import { HttpModule } from '@angular/http';
+import { AdminModule } from './admin/admin.module';
 
 
 registerLocaleData(localeRU);
@@ -31,6 +32,7 @@ registerLocaleData(localeRU);
     HttpClientModule,
     HttpModule,
     SystemModule,
+    AdminModule,
     ErrorsModule,
     CoreModule,
     SharedModule,
