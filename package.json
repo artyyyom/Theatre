@@ -4,11 +4,16 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start-admin": "ng serve --proxy-config=proxy.conf.json --app=admin --base-href=/admin/ --port=4201",
+    "start-default": "ng serve --proxy-config=proxy.conf.json --app=default",
+    "start": "concurrently --kill-others 'npm run start-default' 'npm run start-admin'",
+    "build-admin": "ng build --app=admin --base-href=/admin/",
+    "build-default": "ng build --app=default",
+    "build": "concurrently 'npm run build-default' 'npm run build-admin'",
+    "build-prod": "concurrently 'npm run build-default -- -prod' 'npm run build-admin -- -prod'"
   },
   "private": true,
   "dependencies": {
@@ -21,12 +26,12 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
-    "@ng-bootstrap/ng-bootstrap": "^2.0.0",
     "@ng-select/ng-select": "^1.1.0",
     "@types/jspdf": "^1.1.31",
     "angular-cc-library": "^1.2.3",
     "angular-lightgallery": "^1.0.8",
     "angular2-jwt": "^0.2.3",
+    "concurrently": "^3.5.1",
     "core-js": "^2.4.1",
     "ngx-countdown-timer": "^0.1.9",
     "ngx-credit-cards": "^1.0.9",

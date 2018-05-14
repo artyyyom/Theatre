@@ -1,10 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "project": {
-    "name": "theatre"
-  },
   "apps": [
     {
+      "name": "default",
       "root": "src",
       "outDir": "dist",
       "assets": [
@@ -31,9 +29,33 @@
       ],
       "scripts": [
         "assets/js/jsmin/scripts.min.js",
-        "assets/js/jsmin/svg-pan-zoom.min.js",
-        "../node_modules/jspdf/dist/jspdf.min.js"
+        "assets/js/jsmin/svg-pan-zoom.min.js"
       ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "admin",
+      "root": "src",
+      "outDir": "ci/dist-admin",
+      "assets": [
+        { "glob": "favicon.ico", "input": "./", "output": "./" },
+        { "glob": "**/!(node_modules/*)", "input": "./assets/", "output": "assets" },
+        { "glob": "**/images/*", "input": "./assets/", "output": "./assets/" },
+        { "glob": "**/uploads/*", "input": "./assets/", "output": "./assets/" }
+      ],
+      "index": "index-admin.html",
+      "main": "main-admin.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

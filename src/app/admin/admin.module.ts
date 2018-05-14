@@ -12,9 +12,11 @@ import { AdminComponent } from './admin.component';
 import { SharedModule } from 'primeng/components/common/shared';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminAuthenticationComponent } from './admin-authentication/admin-authentication.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
+    BrowserModule,
     SharedModule,
     AdminRoutingModule,
   ],
@@ -28,6 +30,7 @@ import { AdminAuthenticationComponent } from './admin-authentication/admin-authe
                  AdminHeaderComponent, 
                  AdminFooterComponent, 
                  AdminNavComponent, 
-                 AdminAuthenticationComponent]
+                 AdminAuthenticationComponent],
+  bootstrap: [AdminComponent]
 })
 export class AdminModule { }

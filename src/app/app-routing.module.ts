@@ -4,7 +4,6 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminAuthenticationComponent } from './admin/admin-authentication/admin-authentication.component';
 
 const routes = [{path: '', redirectTo: '/', pathMatch: 'full'},
-                {path:'admin', component: AdminHomeComponent},
                 {path: 'auth', component: AdminAuthenticationComponent}
                ];
 

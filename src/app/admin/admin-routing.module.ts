@@ -7,10 +7,7 @@ import { AuthGuard } from '../shared/guards/auth/auth.guard';
 import { AdminComponent } from './admin.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 
-const routes = [{path: 'admin', component: AdminComponent, children: [
-      {path: '', component: AdminHomeComponent}
-
-      ]}];
+const routes = [{path: '', component: AdminComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
