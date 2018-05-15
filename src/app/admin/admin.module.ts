@@ -35,10 +35,12 @@ import { AdminUnitsEditComponent } from './admin-units/admin-units-edit/admin-un
 import { AdminPositionsComponent } from './admin-positions/admin-positions.component';
 import { AdminPositionsCreateComponent } from './admin-positions/admin-positions-create/admin-positions-create.component';
 import { AdminPositionsEditComponent } from './admin-positions/admin-positions-edit/admin-positions-edit.component';
+import { CoreModule } from '../shared/core/core.module';
 
 @NgModule({
   imports: [
     BrowserModule,
+    CoreModule,
     SharedModule,
     AdminRoutingModule,
   ],

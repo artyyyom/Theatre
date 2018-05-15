@@ -43,6 +43,32 @@ export class BaseApi {
                 return Observable.throw(this.errorHandler(e));
            });
   }
+  public authPut(url: string = '', data: any = {}, header: any = {}): Observable<any> {
+    return this.authHttp.put(this.getUrl(url), data, header)
+           .map((data: Response) => {
+              return data.json();
+           })
+           .catch((e: any) => {
+              if(e.status == 401) {
+                localStorage.removeItem('token');
+                this.router.navigate(['/login']);
+              }
+                return Observable.throw(this.errorHandler(e));
+           });
+  }
+  public authDelete(url: string = ''): Observable<any> {
+    return this.authHttp.delete(this.getUrl(url))
+           .map((data: Response) => {
+              return data.json();
+           })
+           .catch((e: any) => {
+              if(e.status == 401) {
+                localStorage.removeItem('token');
+                this.router.navigate(['/login']);
+              }
+                return Observable.throw(this.errorHandler(e));
+           });
+  }
   errorHandler(error: any): void {
     console.log(error)
   }
