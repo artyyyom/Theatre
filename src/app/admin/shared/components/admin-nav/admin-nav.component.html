@@ -1,45 +1,46 @@
 <nav class="navbar-default navbar-side" role="navigation">
   <div class="sidebar-collapse">
     <ul class="nav" id="main-menu">
-      <li class="active-link">
-        <a href="index.html">
-          <i class="fa fa-desktop "></i>Dashboard
-          <span class="badge">Included</span>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/']">
+          <i class="fa fa-desktop" ></i>Главная
+          <!--<span class="badge">Included</span>-->
         </a>
       </li>
-      <li>
-        <a href="ui.html">
-          <i class="fa fa-table "></i>UI Elements
-          <span class="badge">Included</span>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/seances']">
+          <i class="fa fa-table "></i>Сеансы
         </a>
       </li>
-      <li>
-        <a href="blank.html">
-          <i class="fa fa-edit "></i>Blank Page
-          <span class="badge">Included</span>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/employees']">
+          <i class="fa fa-edit "></i>Персонал театра
         </a>
       </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-qrcode "></i>My Link One</a>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/performances']">
+          <i class="fa fa-qrcode "></i>Cпектакли</a>
       </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-bar-chart-o"></i>My Link Two</a>
+      <li routerLinkActive="active">
+          <a [routerLink]="['/stages']">
+            <i class="fa fa-qrcode "></i>Сцены</a>
       </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-edit "></i>My Link Three </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-table "></i>My Link Four</a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-edit "></i>My Link Five </a>
+      <li routerLinkActive="active">
+          <a [routerLink]="['/category']">
+            <i class="fa fa-qrcode "></i>Категории</a>
+      <li routerLinkActive="active">
+          <a [routerLink]="['/seasons']">
+            <i class="fa fa-qrcode "></i>Сезоны</a>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/positions']">
+          <i class="fa fa-qrcode "></i>Должности</a>
+      <li routerLinkActive="active">
+          <a [routerLink]="['/units']">
+            <i class="fa fa-qrcode "></i>Подразделения</a>      
+          <li routerLinkActive="active">
+        <a [routerLink]="['/users']">
+          <i class="fa fa-bar-chart-o"></i>Пользователи</a>
       </li>
     </ul>
   </div>
-
 </nav>

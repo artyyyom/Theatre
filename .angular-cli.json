@@ -54,7 +54,11 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [],
+      "styles": [
+        "assets/admin/assets/css/bootstrap.css",
+        "assets/css/fontawesome-all.min.css",
+        "assets/admin/assets/css/custom.css"
+      ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
