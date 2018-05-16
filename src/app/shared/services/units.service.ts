@@ -16,6 +16,17 @@ export class UnitsService extends BaseApi {
   getUnits(filter: string = 'false', id: number = 0): Observable<Units[]> {
       let data = {filter: filter, id: id};
       return this.get('units', {params: data})
-    }
-
+  }
+  getUnit(id): Observable<Units> {
+    return this.get(`units/${id}`)
+  }
+  addUnit(data: any = {}) {
+    return this.authPost('units', data);
+  }
+  updateUnit(id: number, data: any = {}) {
+    return this.authPut(`units/${id}`, data);
+  }
+  deleteUnit(id:number) {
+    return this.authDelete(`units/${id}`);
+  }
 }

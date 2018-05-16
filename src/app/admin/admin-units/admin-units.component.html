@@ -2,26 +2,38 @@
   <div class="col-lg-12">
     <h2>Подразделения</h2>
   </div>
-  </div>
-  <div class="row">
+</div>
+<div class="row" *ngIf="isLoad">
   <div class="col-lg-12">
     <p>
-      <a [routerLink]="['/units/create']"><button class="btn btn-primary">Добавить</button></a>
+      <a [routerLink]="['/units/create']">
+        <button class="btn btn-primary">Добавить</button>
+      </a>
     </p>
+    <div class="alert alert-success" *ngIf="isSuccess" role="alert">Удаление записи прошло успешно!</div>  
+    <div class="alert alert-danger" *ngIf="isError" role="alert">Нельзя удалить эту запись!</div>    
     <table class="table table-bordered">
       <tr>
         <th>№</th>
         <th>Название подразделения</th>
         <th>Действие</th>
       </tr>
-      <tr>
-        <th>1</th>
-        <td>Актерский состав</td>
+      <tr *ngFor="let unit of units; let i = index">
+        <th>{{i+1}}</th>
+        <td>{{unit.name}}</td>
         <td>
-            <a><button class="btn btn-success">Изменить</button></a>
-            <a><button class="btn btn-danger">Удалить</button></a>
+          <a [routerLink]="['/units/edit', unit.id]">
+            <button  class="btn btn-success">Изменить</button>
+          </a>
+          <a>
+            <button (click)="deleteUnits(unit.id)" 
+            class="btn btn-danger">
+              Удалить
+           </button>
+          </a>
         </td>
       </tr>
     </table>
   </div>
 </div>
+<div *ngIf="!isLoad">Загрузка...</div>

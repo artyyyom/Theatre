@@ -36,14 +36,26 @@ import { AdminPositionsComponent } from './admin-positions/admin-positions.compo
 import { AdminPositionsCreateComponent } from './admin-positions/admin-positions-create/admin-positions-create.component';
 import { AdminPositionsEditComponent } from './admin-positions/admin-positions-edit/admin-positions-edit.component';
 import { CoreModule } from '../shared/core/core.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { AuthModule } from '../authentication/auth.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AuthService } from './shared/services/auth.service';
+import { AuthGuard } from '../shared/guards/auth/auth.guard';
 
 @NgModule({
   imports: [
     BrowserModule,
-    CoreModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
+    HttpClientModule,
+    HttpModule,
+    CoreModule,
     AdminRoutingModule,
+    AuthModule,
   ],
+  providers: [AuthService, AuthGuard],
   declarations: [AdminPerformancesComponent, 
                  AdminHomeComponent, 
                  AdminPerformancesComponent, 

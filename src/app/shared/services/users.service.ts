@@ -26,7 +26,13 @@ export class UsersService extends BaseApi {
     return this.post('login', data, {headers: this.headers});
   }
   loggedIn() {
+    try {
     return tokenNotExpired();
+    }
+    catch(e) {
+      console.log(e);
+      this.router.navigate['/login'];
+    }
   }
   logout(): Observable<any> {
     return this.authPost('logout');

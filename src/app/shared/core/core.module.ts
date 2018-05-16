@@ -13,7 +13,7 @@ import { PositionsService } from '../services/positions.service';
 import { EmployeesService } from '../services/employees.service';
 import { SharedModule } from '../shared.module';
 import { UsersService } from '../services/users.service';
-import { PdfService } from '../services/pdf.service';
+import { SharedService } from '../shared.service';
 
 @NgModule({
   imports: [
@@ -33,7 +33,7 @@ import { PdfService } from '../services/pdf.service';
     ExitGuard,
     ConfirmationService,
     UsersService,
-    PdfService,
+    SharedService,
   ],
   declarations: []
 })

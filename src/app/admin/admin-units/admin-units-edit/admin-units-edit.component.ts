@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UnitsService } from '../../../shared/services/units.service';
+import { Subscription } from 'rxjs';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Units } from '../../../shared/models/units.model';
 
 @Component({
   selector: 'app-admin-units-edit',
@@ -6,10 +11,47 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-units-edit.component.css']
 })
 export class AdminUnitsEditComponent implements OnInit {
-
-  constructor() { }
+  routeId: number;
+  sub2: Subscription;
+  sub1: Subscription;
+  dataform: FormGroup;
+  isSuccess: boolean = false;
+  unit: Units;
+  isLoad: boolean = false;
+  isError: boolean = false;
+  constructor(private unitService: UnitsService,
+              private fb: FormBuilder,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.routeId = this.route.snapshot.params.id;
+    this.dataform = this.fb.group({
+      'name': new FormControl('', Validators.required),
+      'order': new FormControl('', Validators.required),
+    });
+    this.sub2 = this.unitService.getUnit(this.routeId)
+      .subscribe((data: Units) => {
+        this.unit = data;
+        this.isLoad = true;
+      });
+  }
+
+  OnSubmit(value) {
+    let data = {name: value.name, order: value.order};
+    this.sub1 = this.unitService.updateUnit(this.routeId, data)
+      .subscribe(data => {
+        this.isSuccess = true;
+        setTimeout(() => this.isSuccess = false, 4000);
+      }, error => {
+        this.isError = true;
+      });
+  }
+
+  ngOnDestroy() {
+    if(this.sub1) 
+      this.sub1.unsubscribe();
+    if(this.sub2) 
+      this.sub2.unsubscribe();
   }
 
 }

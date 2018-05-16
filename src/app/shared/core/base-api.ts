@@ -3,6 +3,7 @@ import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/throw';
 import { URLSearchParams, Response } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { Router } from '@angular/router';
@@ -66,7 +67,8 @@ export class BaseApi {
                 localStorage.removeItem('token');
                 this.router.navigate(['/login']);
               }
-                return Observable.throw(this.errorHandler(e));
+
+              return Observable.throw(this.errorHandler(e));
            });
   }
   errorHandler(error: any): void {
