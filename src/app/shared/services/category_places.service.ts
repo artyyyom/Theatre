@@ -16,6 +16,17 @@ export class Category_PlacesService extends BaseApi {
   }
   getCategoryPlaces(): Observable<Category_Places[]> {
       return this.get('category_places')
-    }
-
+  }
+  getCategoryPlace(id): Observable<Category_Places> {
+    return this.get(`category_places/${id}`);
+  }
+  addCategoryPlace(data: any = {}) {
+    return this.authPost('category_places', data);
+  }
+  updateCategoryPlace(id: number, data: any = {}) {
+    return this.authPut(`category_places/${id}`, data);
+  }
+  deleteCategoryPlace(id:number) {
+    return this.authDelete(`category_places/${id}`);
+  }
 }

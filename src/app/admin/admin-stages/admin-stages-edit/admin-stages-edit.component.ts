@@ -37,7 +37,7 @@ export class AdminStagesEditComponent implements OnInit {
   }
 
   OnSubmit(value) {
-    let data = {name: value.name, order: value.order};
+    let data = {name: value.name};
     this.sub1 = this.stagesService.updateStage(this.routeId, data)
       .subscribe(data => {
         this.isSuccess = true;

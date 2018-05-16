@@ -8,18 +8,20 @@
     <p>
       <a [routerLink]="['/category/create']"><button class="btn btn-primary">Добавить</button></a>
     </p>
+    <div class="alert alert-success" *ngIf="isSuccess" role="alert">Удаление записи прошло успешно!</div>  
+    <div class="alert alert-danger" *ngIf="isError" role="alert">Нельзя удалить эту запись!</div>    
     <table class="table table-bordered">
       <tr>
         <th>№</th>
         <th>Название категории</th>
         <th>Действие</th>
       </tr>
-      <tr>
-        <th>1</th>
-        <td>Партер</td>
+      <tr *ngFor="let category of category_places; let i = index">
+        <th>{{i+1}}</th>
+        <td>{{category?.name}}</td>
         <td>
-            <a><button class="btn btn-success">Изменить</button></a>
-            <a><button class="btn btn-danger">Удалить</button></a>
+            <a [routerLink]="['/category/edit', category.id]"><button class="btn btn-success">Изменить</button></a>
+            <a (click)="deleteCategoryPlace(category.id)"><button class="btn btn-danger">Удалить</button></a>
         </td>
       </tr>
     </table>
