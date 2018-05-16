@@ -31,6 +31,7 @@ export class AdminUnitsCreateComponent implements OnInit, OnDestroy {
         setTimeout(() => this.isSuccess = false, 4000);
       }, error => {
         this.isError = true;
+        setTimeout(() => this.isError = false, 4000);
       });
   }
 

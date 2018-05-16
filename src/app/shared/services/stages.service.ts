@@ -17,4 +17,19 @@ export class StagesService extends BaseApi {
       return this.get('stages')
     }
 
+  getStage(id): Observable<Stages> {
+    return this.get(`stages/${id}`);
+  }
+  updateStage(id, data) {
+    return this.authPut(`stages/${id}`, data);
+  }
+  addStage(data) {
+    return this.authPost('stages', data);
+  }
+  deleteStage(id) {
+    return this.authDelete(`stages/${id}`);
+  }
+
+
+
 }
