@@ -34,9 +34,11 @@ export class AdminCategoryPlacesComponent implements OnInit {
         this.category_places = this.sharedService.delElArray(this.category_places, id);
         this.isSuccess = true;
         this.isLoad = true;
+        setTimeout(() => this.isSuccess = false, 4000);
       },error =>{
         this.isError = true;
         this.isLoad = true;
+        setTimeout(() => this.isError = false, 4000);
       });
     
   }

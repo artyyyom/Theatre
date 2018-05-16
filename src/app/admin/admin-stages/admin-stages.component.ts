@@ -30,9 +30,11 @@ export class AdminStagesComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         this.isSuccess = true;
         this.isLoaded = true;
+        setTimeout(() => this.isSuccess = false, 4000);
       }, error => {
         this.isError = true;
         this.isLoaded = true;
+        setTimeout(() => this.isError = false, 4000);
       })
   }
   ngOnDestroy() {

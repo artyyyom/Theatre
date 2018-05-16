@@ -3,7 +3,7 @@
       <h2>Категории мест</h2>
     </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="isLoad">
   <div class="col-lg-12">
     <p>
       <a [routerLink]="['/category/create']"><button class="btn btn-primary">Добавить</button></a>
@@ -27,3 +27,4 @@
     </table>
   </div>
 </div>
+<div *ngIf="!isLoad"></div>

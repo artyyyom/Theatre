@@ -3,11 +3,13 @@
       <h2>Сезоны</h2>
     </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="isLoaded">
   <div class="col-lg-12">
     <p>
       <a [routerLink]="['/seasons/create']"><button class="btn btn-primary">Добавить</button></a>
     </p>
+    <div class="alert alert-success" *ngIf="isSuccess" role="alert">Удаление записи прошло успешно!</div>  
+    <div class="alert alert-danger" *ngIf="isError" role="alert">Нельзя удалить эту запись!</div>    
     <table class="table table-bordered">
       <tr>
         <th>№</th>
@@ -15,15 +17,17 @@
         <th>Дата</th>
         <th>Действие</th>
       </tr>
-      <tr>
-        <th>1</th>
-        <td>Бархатный сезон</td>
-        <td>март 2017- март2018</td>
+      <tr *ngFor="let season of seasons; let i = index">
+        <th>{{i+1}}</th>
+        <td>{{season?.name}}</td>
+        <td>{{season.start_date | date:"dd.MM.yy"}} - 
+          {{season.end_date | date:"dd.MM.yy"}} </td>
         <td>
-            <a><button class="btn btn-success">Изменить</button></a>
-            <a><button class="btn btn-danger">Удалить</button></a>
+            <a [routerLink]="['/seasons/edit', season?.id]"><button class="btn btn-success">Изменить</button></a>
+            <a (click)="deleteSeason(season?.id)"><button class="btn btn-danger">Удалить</button></a>
         </td>
       </tr>
     </table>
   </div>
 </div>
+<div *ngIf="!isLoaded">Загрузка...</div>

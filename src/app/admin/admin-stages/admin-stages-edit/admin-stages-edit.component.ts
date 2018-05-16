@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Stages } from '../../../shared/models/stages.model';
 import { StagesService } from '../../../shared/services/stages.service';
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './admin-stages-edit.component.html',
   styleUrls: ['./admin-stages-edit.component.css']
 })
-export class AdminStagesEditComponent implements OnInit {
+export class AdminStagesEditComponent implements OnInit, OnDestroy {
 
   routeId: number;
   sub2: Subscription;

@@ -25,14 +25,14 @@ export class AdminUnitsEditComponent implements OnInit {
 
   ngOnInit() {
     this.routeId = this.route.snapshot.params.id;
-    this.dataform = this.fb.group({
-      'name': new FormControl('', Validators.required),
-      'order': new FormControl('', Validators.required),
-    });
     this.sub2 = this.unitService.getUnit(this.routeId)
       .subscribe((data: Units) => {
         this.unit = data;
         this.isLoad = true;
+        this.dataform = this.fb.group({
+          'name': new FormControl(this.unit.name, Validators.required),
+          'order': new FormControl(this.unit.order, Validators.required),
+        });    
       });
   }
 

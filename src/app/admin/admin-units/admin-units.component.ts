@@ -33,9 +33,11 @@ export class AdminUnitsComponent implements OnInit, OnDestroy {
         this.units = this.sharedService.delElArray(this.units, id);
         this.isSuccess = true;
         this.isLoad = true;
+        setTimeout(() => this.isSuccess = false, 4000);
       },error =>{
         this.isError = true;
         this.isLoad = true;
+        setTimeout(() => this.isError = false, 4000);
       });
     
   }

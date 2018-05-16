@@ -17,5 +17,16 @@ export class SeasonsService extends BaseApi {
       let data = {filter: filter};
       return this.get('seasons', {params: data});
     }
-
+  getSeason(id): Observable<Seasons> {
+    return this.get(`seasons/${id}`)
+  }
+  addSeason(data: any = {}) {
+    return this.authPost('seasons', data);
+  }
+  updateSeason(id: number, data: any = {}) {
+    return this.authPut(`seasons/${id}`, data);
+  }
+  deleteSeason(id:number) {
+    return this.authDelete(`seasons/${id}`);
+  }  
 }
