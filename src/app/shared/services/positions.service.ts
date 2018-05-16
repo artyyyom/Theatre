@@ -16,5 +16,17 @@ export class PositionsService extends BaseApi {
   }
   getPositions(): Observable<Positions[]> {
       return this.get('positions')
-    }
+  }
+  getPosition(id): Observable<Positions> {
+    return this.get(`positions/${id}`)
+  }
+  addPosition(data: any = {}) {
+    return this.authPost('positions', data);
+  }
+  updatePosition(id: number, data: any = {}) {
+    return this.authPut(`positions/${id}`, data);
+  }
+  deletePosition(id:number) {
+    return this.authDelete(`positions/${id}`);
+  }
 }
