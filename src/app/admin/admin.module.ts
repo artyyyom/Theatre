@@ -42,6 +42,8 @@ import { AuthModule } from '../authentication/auth.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from '../shared/guards/auth/auth.guard';
+import { RolesService } from '../shared/services/role.service';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 @NgModule({
   imports: [
@@ -54,8 +56,12 @@ import { AuthGuard } from '../shared/guards/auth/auth.guard';
     CoreModule,
     AdminRoutingModule,
     AuthModule,
+    MultiSelectModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, 
+              AuthGuard, 
+              RolesService
+            ],
   declarations: [AdminPerformancesComponent, 
                  AdminHomeComponent, 
                  AdminPerformancesComponent, 

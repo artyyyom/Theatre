@@ -10,7 +10,7 @@ import { Units } from '../../../shared/models/units.model';
   templateUrl: './admin-units-edit.component.html',
   styleUrls: ['./admin-units-edit.component.css']
 })
-export class AdminUnitsEditComponent implements OnInit {
+export class AdminUnitsEditComponent implements OnInit, OnDestroy {
   routeId: number;
   sub2: Subscription;
   sub1: Subscription;

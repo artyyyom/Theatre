@@ -37,4 +37,20 @@ export class UsersService extends BaseApi {
   logout(): Observable<any> {
     return this.authPost('logout');
   }
+  getUsersByRole(filter: string = 'false') {
+    let data = {filter: filter};
+    return this.authPost('getUsersByRole', data);
+  }
+  deleteUser(id: number) {
+    return this.authDelete(`users/${id}`);
+  }
+  addSuperUser(data: any = {}) {
+    return this.authPost('addSuperUser', data)
+  }
+  getUserById(id: number) {
+    return this.authPost(`getUserById/${id}`);
+  }
+  updateUser(id: number, data: any = {}) {
+    return this.authPost(`updateUser/${id}`, data);
+  }
 }
