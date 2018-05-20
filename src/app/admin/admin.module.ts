@@ -47,6 +47,8 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {FileUploadModule} from 'primeng/fileupload';
 import {DropdownModule} from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminSeancesCreateComponent } from './admin-seances/admin-seances-create/admin-seances-create.component';
+import { AdminSeancesEditComponent } from './admin-seances/admin-seances-edit/admin-seances-edit.component';
 
 
 @NgModule({
@@ -101,7 +103,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
                  AdminUnitsEditComponent,
                  AdminPositionsComponent,
                  AdminPositionsCreateComponent,
-                 AdminPositionsEditComponent],
+                 AdminPositionsEditComponent,
+                 AdminSeancesCreateComponent,
+                 AdminSeancesEditComponent],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }

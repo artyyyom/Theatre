@@ -31,6 +31,8 @@ import { AdminPositionsEditComponent } from './admin-positions/admin-positions-e
 import { AdminUnitsComponent } from './admin-units/admin-units.component';
 import { AdminUnitsCreateComponent } from './admin-units/admin-units-create/admin-units-create.component';
 import { AdminUnitsEditComponent } from './admin-units/admin-units-edit/admin-units-edit.component';
+import { AdminSeancesEditComponent } from './admin-seances/admin-seances-edit/admin-seances-edit.component';
+import { AdminSeancesCreateComponent } from './admin-seances/admin-seances-create/admin-seances-create.component';
 
 const routes = [{path: '', component: AdminHomeComponent, canActivate: [AuthGuard]},
                 {path: 'performances', component: AdminPerformancesComponent, canActivate: [AuthGuard]},
@@ -44,6 +46,8 @@ const routes = [{path: '', component: AdminHomeComponent, canActivate: [AuthGuar
                 {path: 'employees/edit/:id', component: AdminEmployeesEditComponent, canActivate: [AuthGuard]},
                 {path: 'login', component: AdminLoginComponent},
                 {path: 'seances', component: AdminSeancesComponent, canActivate: [AuthGuard]},
+                {path: 'seances/create', component: AdminSeancesCreateComponent, canActivate: [AuthGuard]},
+                {path: 'seances/edit/:id', component: AdminSeancesEditComponent, canActivate: [AuthGuard]},
                 {path: 'stages', component: AdminStagesComponent, canActivate: [AuthGuard]},
                 {path: 'stages/create', component: AdminStagesCreateComponent, canActivate: [AuthGuard]},
                 {path: 'stages/edit/:id', component: AdminStagesEditComponent, canActivate: [AuthGuard]},

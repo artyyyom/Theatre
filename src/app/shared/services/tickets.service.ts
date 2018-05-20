@@ -29,5 +29,11 @@ export class TicketsService extends BaseApi {
   updateTicketsAuth(id: number, data: any): Observable<Tickets[]> {
     return this.authPost(`updateTicketsStatus/${id}`, data)
   }
+  updateRootTicketsAuth(id: number, data: any) {
+    return this.authPost(`updateRootTickets/${id}`, data);
+  }
+  addTickets(data: any) {
+    return this.authPost('tickets', data);
+  }
 
 }

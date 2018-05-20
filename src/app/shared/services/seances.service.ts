@@ -16,12 +16,24 @@ export class SeancesService extends BaseApi {
   getSeances(filter: string = 'false'): Observable<Seances[]> {
       let data = {filter: filter};
       return this.get('seances', {params: data})
-    }
+  }
+  getSeance(id: number) {
+    return this.get(`seances/${id}`);
+  }
   getUserActualSeances(): Observable<Seances[]> {
     return this.authPost('getUserActualSeances');
   }  
   getUserHistorySeances(): Observable<Seances[]> {
     return this.authPost('getUserHistorySeances');
   }  
+  addSeance(data: any) {
+    return this.authPost('seances', data);
+  }
+  updateSeance(id: number, data: any) {
+    return this.authPut(`seances/${id}`, data);
+  }
+  deleteSeance(id: number) {
+    return this.authDelete(`seances/${id}`);
+  }
   
 }

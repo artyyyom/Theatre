@@ -124,9 +124,11 @@ export class AdminPerformancesEditComponent implements OnInit, OnDestroy {
       this.employeesService.upload(formData)
       .subscribe(data => {
         this.isSuccessPhoto = true;
+        setTimeout(() => this.isSuccessPhoto = false, 4000);
       },
       error => {
         this.isErrorPhoto = true;
+        setTimeout(() => this.isErrorPhoto = false, 4000);
       });
     }
 
@@ -140,8 +142,10 @@ export class AdminPerformancesEditComponent implements OnInit, OnDestroy {
     this.employeesService.upload(formData)
     .subscribe(data => {
       this.isSuccessPhotos = true;
+      setTimeout(() => this.isSuccessPhotos = false, 4000);
     }, error => {
       this.isErrorPhotos = true;
+      setTimeout(() => this.isErrorPhotos = false, 4000);
     });
   }
 
