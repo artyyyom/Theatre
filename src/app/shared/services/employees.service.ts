@@ -20,4 +20,16 @@ export class EmployeesService extends BaseApi {
   getEmployee(id: number): Observable<Employees> {
     return this.get(`employees/${id}`)  
   }
+  addEmployee(data: any = {}) {
+    return this.authPost('employees', data);
+  }
+  updateEmployee(id: number, data: any = {}) {
+    return this.authPut(`employees/${id}`, data);
+  }
+  deleteEmployee(id: number) {
+    return this.authDelete(`employees/${id}`);
+  }
+  upload(data) {
+    return this.authPost('uploadEmployeePhotos', data);
+  }
 }

@@ -1,5 +1,6 @@
 import { Employees_Performances } from "./Employees_Performances.model";
 import { Units } from "./units.model";
+import { Positions } from "./positions.model";
 
 export class Employees {
   constructor(
@@ -17,8 +18,9 @@ export class Employees {
     public position_id: number,
     public performances: Array<any>,
     public role: string,
-    public pivot: Employees_Performances,
-    public unit: Units
+    public pivot: any,
+    public unit: Units,
+    public positions: Positions[]
   ) {}
 
 }

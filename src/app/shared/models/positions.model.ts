@@ -4,6 +4,8 @@ export class Positions {
       public name: string,
       public order: number,
       public is_parent: boolean,  
+      public pivot: Object,
+      public employees: Object,
     ) {}
   
   }

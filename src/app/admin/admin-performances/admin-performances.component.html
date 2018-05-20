@@ -3,11 +3,13 @@
       <h2>Спектакли</h2>
     </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="isLoad">
   <div class="col-lg-12">
     <p>
       <a [routerLink]="['/performances/create']"><button class="btn btn-primary">Добавить</button></a>
     </p>
+    <div class="alert alert-success" *ngIf="isSuccess" role="alert">Удаление записи прошло успешно!</div>  
+    <div class="alert alert-danger" *ngIf="isError" role="alert">Нельзя удалить эту запись!</div>    
     <table class="table table-bordered">
       <tr>
         <th>№</th>
@@ -15,15 +17,16 @@
         <th>Автор</th>
         <th>Действие</th>
       </tr>
-      <tr>
-        <th>1</th>
-        <td>Мой спектакль</td>
-        <td>Иванов И.И</td>
+      <tr *ngFor="let performance of performances; let i = index">
+        <th>{{i+1}}</th>
+        <td>{{performance?.name}}</td>
+        <td>{{performance?.author}}</td>
         <td>
-            <a><button class="btn btn-success">Изменить</button></a>
-            <a><button class="btn btn-danger">Удалить</button></a>
+            <a [routerLink]="['/performances/edit', performance?.id]"><button class="btn btn-success">Изменить</button></a>
+            <a (click)="deletePerformance(performance?.id)"><button class="btn btn-danger">Удалить</button></a>
           </td>
       </tr>
     </table>
   </div>
 </div>
+<div *ngIf="!isLoad">Загрузка...</div>

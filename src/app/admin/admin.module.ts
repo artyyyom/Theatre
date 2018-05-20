@@ -44,10 +44,15 @@ import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from '../shared/guards/auth/auth.guard';
 import { RolesService } from '../shared/services/role.service';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {FileUploadModule} from 'primeng/fileupload';
+import {DropdownModule} from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
@@ -56,7 +61,9 @@ import {MultiSelectModule} from 'primeng/multiselect';
     CoreModule,
     AdminRoutingModule,
     AuthModule,
-    MultiSelectModule
+    MultiSelectModule,
+    FileUploadModule,
+    DropdownModule,
   ],
   providers: [AuthService, 
               AuthGuard, 

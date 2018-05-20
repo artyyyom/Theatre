@@ -20,4 +20,17 @@ export class PerformancesService extends BaseApi {
     let data = {filter: filter, seance_id: seance_id};
     return this.get(`performances/${id}`,{params: data})  
   }
+  addPerformance(data: any = {}) {
+    return this.authPost('performances', data);
+  }
+  updatePerformance(id: number, data: any = {}) {
+    return this.authPut(`performances/${id}`, data);
+  }
+  deletePerformance(id: number) {
+    return this.authDelete(`performances/${id}`);
+  }
+  upload(data) {
+    return this.authPost('uploadPerformancePhotos', data);
+  }
+
 }

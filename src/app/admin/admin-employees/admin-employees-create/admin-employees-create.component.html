@@ -1,84 +1,95 @@
 <div class="row">
-    <div class="col-lg-12">
-        <h2>Добавление персонала</h2>
-    </div>
-    <div class="col-lg-12">
-    <form>
-        <div class="form-group">
-          <label for="inputSurname">Фамилия</label>
-          <input type="text" class="form-control" id="inputSurname" placeholder="Фамилия">
-        </div>
-        <div class="form-group">
-          <label for="inputName">Имя</label>
-          <input type="text" class="form-control" id="inputName" placeholder="Имя">
-        </div>
-        <div class="form-group">
-          <label for="inputMiddleName">Отчество</label>
-          <input type="text" class="form-control" id="inputMiddleName" placeholder="Отчество">
-        </div>
-        <div class="form-group">
-          <label for="inputAddress">Адрес</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="Адрес">
-        </div>
-        <div class="form-group">
-          <label for="inputBirthday">День рождение</label>
-          <input type="text" class="form-control" id="inputBirthday" placeholder="День рождение">
-        </div>
-        <div class="form-group">
-          <label for="inputBiography">Биография</label>
-          <textarea class="form-control" id="inputBiography" rows="14"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="inputBiographyShort">Короткая биография</label>
-          <textarea class="form-control" id="inputBiographyShort" rows="3"></textarea>
-        </div>           
-        <div class="form-group">
-            <label for="inputMobile">Мобильный номер</label>
-            <input type="number" class="form-control" id="inputMobile" placeholder="Мобильный номер">
-        </div>
-        <div class="form-group">
-          <label for="inputUnit">Подразделение</label>
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownUnit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Подразделения
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownUnit">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div>  
-        </div>
-        <div class="form-group">
-          <label for="inputPosition">Должность</label>
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownPosition" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Роли
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownPosition">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPhoto">Главное фото</label>
-          <input type="file" id="inputPhoto">
-          <p class="help-block">Example block-level help text here.</p>
-        </div>  
-        <div class="form-group">
-          <label for="inputPhotos">Фотографии</label>
-          <input type="file" id="inputPhotos">
-          <p class="help-block">Example block-level help text here.</p>
-        </div>         
-        <button type="submit" class="btn btn-default">Добавить</button>
-      </form>
-    </div>
+  <div class="col-lg-12">
+      <h2>Добавление персонала</h2>
   </div>
+  <div class="col-lg-12" *ngIf="isLoad">
+  <div class="alert alert-success" *ngIf="isSuccess" role="alert">Добавление записи прошло успешно!</div>  
+  <div class="alert alert-danger" *ngIf="isError" role="alert">Ошибка при добавлении записи!</div>  
+  <div class="alert alert-success" *ngIf="isSuccessPhoto" role="alert">Добавление главного фото прошло успешно!</div>  
+  <div class="alert alert-danger" *ngIf="isErrorPhoto" role="alert">Ошибка при добавлении фото!</div>  
+  <div class="alert alert-success" *ngIf="isSuccessPhotos" role="alert">Добавление фотографий прошло успешно!</div>  
+  <div class="alert alert-danger" *ngIf="isErrorPhotos" role="alert">Ошибка при добавлении фотографий!</div>  
+   
+  <form [formGroup]="dataform"  (ngSubmit)="OnSubmit(dataform.value)">
+      <div class="form-group">
+        <label for="inputSurName">Фамилия</label>
+        <input type="text" formControlName="surname" class="form-control" id="inputSurName" placeholder="Фамилия">
+        <div class="error-form" *ngIf="!dataform.controls['surname'].valid&&dataform.controls['surname'].dirty">
+          - Поле "Фамилия" некорректно!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputName">Имя</label>
+        <input type="text" formControlName="name" class="form-control" id="inputName" placeholder="Имя">
+        <div class="error-form" *ngIf="!dataform.controls['name'].valid&&dataform.controls['name'].dirty">
+          - Поле "Имя" некорректно!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputMidName">Отчество</label>
+        <input type="text" formControlName="middlename" class="form-control" id="inputMidName" placeholder="Отчество">
+        <div class="error-form" *ngIf="!dataform.controls['middlename'].valid&&dataform.controls['middlename'].dirty">
+          - Поле "Отчество" некорректно!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Адрес</label>
+        <input type="text" formControlName="address" class="form-control" id="inputAddress" placeholder="Адрес">
+        <div class="error-form" *ngIf="!dataform.controls['address'].valid&&dataform.controls['address'].dirty">
+          - Поле "Адрес" некорректно!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputBirthday">День рождение</label>
+        <input type="date" formControlName="birthday" class="form-control" id="inputBirthday" placeholder="День рождение">
+        <div class="error-form" *ngIf="!dataform.controls['birthday'].valid&&dataform.controls['birthday'].dirty">
+          - Поле "День Рождение" некорректно!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputBiography">Биография</label>
+        <textarea formControlName="bio" class="form-control" id="inputBiography" rows="14"></textarea>
+        <div class="error-form" *ngIf="!dataform.controls['bio'].valid&&dataform.controls['bio'].dirty">
+          - Поле "Биография" некорректно!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputBiographyShort">Короткая биография</label>
+        <textarea formControlName="bioshort" class="form-control" id="inputBiographyShort" rows="3"></textarea>
+        <div class="error-form" *ngIf="!dataform.controls['bioshort'].valid&&dataform.controls['bioshort'].dirty">
+          - Поле "Коротка биография" некорректно!
+        </div>
+      </div>           
+      <div class="form-group">
+        <label for="inputMobile">Мобильный номер</label>
+        <input type="number" formControlName="phone" class="form-control" id="inputMobile" placeholder="Мобильный номер">
+        <div class="error-form" *ngIf="!dataform.controls['phone'].valid&&dataform.controls['phone'].dirty">
+          - Поле "Телефон" некорректно!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputUnit">Должность</label>
+        <div>
+          <p-multiSelect defaultLabel="Выберите должность" optionLabel="name" [ngModelOptions]="{standalone: true}" [options]="positions" [(ngModel)]="positionsSelect"></p-multiSelect>
+        </div>  
+      </div>
+      <div class="form-group">
+        <label for="inputPosition">Подразделение</label>
+        <div>
+          <p-dropdown  [ngModelOptions]="{standalone: true}" [options]="units" optionLabel="name" [(ngModel)]="unitSelect"></p-dropdown>
+        </div>  
+      </div>
+      <div class="form-group">
+        <label for="inputPhoto">Главное фото</label>
+        <p-fileUpload  accept="image/*" maxFileSize="1000000" #fileInputPhoto [files]="fileName" [showUploadButton]="false"></p-fileUpload>
+      </div>  
+      <div class="form-group">
+        <label for="inputPhotos">Фотографии</label>
+        <p-fileUpload  accept="image/*" maxFileSize="1000000" #fileInputPhotos [multiple]="true" [showUploadButton]="false"></p-fileUpload>
+      </div>         
+      
+      <button type="submit" class="btn btn-default">Добавить</button>
+    </form>
+  </div>
+  <div *ngIf="!isLoad">Загрузка...</div>
+</div>
