@@ -65,8 +65,6 @@ export class AdminEmployeesEditComponent implements OnInit, OnDestroy {
       });
       this.unitSelect = this.employee.unit;
       this.deletePositionEmployeePivot();
-      console.log(this.unitSelect);
-      console.log(this.units);
       this.isLoad = true;
     });
   
@@ -147,7 +145,7 @@ export class AdminEmployeesEditComponent implements OnInit, OnDestroy {
                 positions: this.positionsSelect,
                 unit: this.unitSelect.id,
                 };
-    console.log(data);
+
     this.sub1 = this.employeesService.updateEmployee(this.routeId, data)
       .subscribe(data => {
         this.isSuccess = true;

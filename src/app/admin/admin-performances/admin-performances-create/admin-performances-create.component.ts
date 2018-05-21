@@ -100,7 +100,7 @@ export class AdminPerformancesCreateComponent implements OnInit, OnDestroy {
       let file: File = this.fileInputPhoto.files[0];
       let formData: FormData = new FormData();
       formData.append('photo', file, file.name);
-      this.employeesService.upload(formData)
+      this.performancesService.upload(formData)
       .subscribe(data => {
         this.isSuccessPhoto = true;
       },
@@ -116,7 +116,7 @@ export class AdminPerformancesCreateComponent implements OnInit, OnDestroy {
     this.fileInputPhotos.files.forEach(file => {
       formData.append('photos[]', file, file.name);
     })
-    this.employeesService.upload(formData)
+    this.performancesService.upload(formData)
     .subscribe(data => {
       this.isSuccessPhotos = true;
     }, error => {

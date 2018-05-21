@@ -76,13 +76,8 @@
       </div>
       <div class="form-group">
         <label for="inputPhoto">Главное фото</label>
-        <p-fileUpload #fileInputPhoto name="myfile[]" url="./upload.php" multiple="multiple"
-        accept="image/*" maxFileSize="1000000">
-          <ng-template let-file pTemplate="file">
-              <div>d;klj;sdf'f</div>
-          </ng-template>  
-        </p-fileUpload>
-      </div>  
+        <p-fileUpload  accept="image/*" maxFileSize="1000000" #fileInputPhoto [files]="fileName" [showUploadButton]="false"></p-fileUpload>
+      </div>
       <div class="form-group">
         <label for="inputPhotos">Фотографии</label>
         <p-fileUpload #fileInputPhotos [multiple]="true" (click)="uploadPhotos()" [showUploadButton]="false"></p-fileUpload>

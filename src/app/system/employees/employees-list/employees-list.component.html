@@ -5,7 +5,7 @@
         <ng-container *ngFor="let employee of employees">
           <div class="employees__card" *ngIf='employee.unit_id === unit.id' >
             <a [routerLink]="['/employee', employee.id]">
-              <img src="./assets/uploads/{{employee.photo_main}}" alt="{{employee.photo_main}}" style="width:100%">
+              <img src="http://127.0.0.1:8000/images/employees/{{employee.photo_main}}" alt="{{employee.photo_main}}" style="width:100%">
               <div class="employees__container">
                 <h2><b>{{employee.name}} {{employee.surname}}</b></h2>
                 <p><span *ngFor="let position of employee.positions">{{position.name}}</span></p>

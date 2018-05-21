@@ -1,7 +1,7 @@
 <div class="column-1">
   <ng-container *ngIf="isLoaded">
     <div class="performance__img">
-      <img src="./assets/uploads/{{performance?.photo_main}}" alt="">
+      <img src="http://127.0.0.1:8000/images/performances/{{performance?.photo_main}}" alt="">
       <div class="performance__title-block">
         <div class="performance__title">{{performance?.name}}</div>
         <div class="performance__subtitle">{{performance?.author}}</div>
@@ -25,7 +25,7 @@
                     data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
                     data-sub-html="<h4>Фото</h4><p>g.text</p>">
                   <a href="">
-                    <img class="img-responsive" src="./assets/uploads/{{g.photo}}" alt="photo">
+                    <img class="img-responsive" src="http://127.0.0.1:8000/images/performances/{{g}}" alt="photo">
                     <div class="demo-gallery-poster">
                       <img src="./assets/images/zoom.png" alt="photo">
                     </div>

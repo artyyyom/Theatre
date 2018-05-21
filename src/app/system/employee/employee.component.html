@@ -4,7 +4,7 @@
       
       <div class="employee__description">
         <div class="employee__photo">
-          <img src="assets/images/actors.jpg" alt="">
+          <img src="http://127.0.0.1:8000/images/employees/{{employee.photo_main}}" alt="">
         </div>
         <div class="employee__name">
           <h5>{{employee?.surname}} {{employee?.name}} {{employee?.middlename}}</h5>
@@ -21,10 +21,10 @@
             <ul id="lightgallery">
               <li *ngFor="let g of galleryImages?.photosStandart"  
                   data-responsive="uploads/g.photo 375, uploads/g.photo 480, uploads/g.photo 800" 
-                  data-src="uploads/g.photo"
+                  data-src="uploads/g"
                   data-sub-html="<h4>Фото</h4><p>g.text</p>">
                 <a href="">
-                  <img class="img-responsive" src="./assets/uploads/{{g.photo}}" alt="photo">
+                  <img class="img-responsive" src="http://127.0.0.1:8000/images/employees/{{g}}" alt="photo">
                   <div class="demo-gallery-poster">
                     <img src="./assets/images/zoom.png" alt="photo">
                   </div>

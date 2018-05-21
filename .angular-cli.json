@@ -57,6 +57,7 @@
       "styles": [
         "../node_modules/primeng/resources/themes/omega/theme.css",
         "../node_modules/primeng/resources/primeng.min.css",
+        "../node_modules/chart.js/dist/Chart.js",
         "assets/admin/assets/css/bootstrap.css",
         "assets/css/fontawesome-all.min.css",
         "assets/admin/assets/css/custom.css"
