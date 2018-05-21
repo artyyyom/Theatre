@@ -62,28 +62,25 @@ export class AdminPerformancesCreateComponent implements OnInit, OnDestroy {
   initRoles(value: any = {}) {
     return this.fb.group({
       id: value.id,
-      name: '',
+      name: value.pivot,
       surname: value.surname,
       nam: value.name
     });
   }
-  change(event) {
-    this.selectItem.push(event.itemValue);
-    let i = 0;
-    let pos = 0;
-    event.value.forEach((value, index) => {
-      if(event.itemValue.id == value.id) {
-        i++;
-        pos = index;
-      }    
+  change(event, employee_roles) {
+    this.employees.map(employee => {
+      employee_roles.forEach(employee_role => {
+        if(employee.id == employee_role.id) {
+          return employee.pivot = employee_role.name;
+        }
+      })
     });
-    console.log(i);
-    if(!i) {
-      this.removeRoles(pos);
-    }
-    else {
-      this.addRoles(event.itemValue);
-    }
+  
+    this.removeRoles();
+    event.value.forEach(val => {
+      this.selectItem.push(val);
+      this.addRoles(val);
+    })
   }
   addRoles(value) {
     (<FormArray>this.dataform.get('employee_roles')).push(
@@ -91,8 +88,12 @@ export class AdminPerformancesCreateComponent implements OnInit, OnDestroy {
     )   
   }
 
-  removeRoles(i: number) {
-    (<FormArray>this.dataform.get('employee_roles')).removeAt(i);
+  removeRoles() {
+    let length: number = (<FormArray>this.dataform.get('employee_roles')).length;
+    for(let i = 0; i < length + 1; i++) { 
+      (<FormArray>this.dataform.get('employee_roles')).removeAt(0);
+      this.selectItem.pop();
+    }
   }
 
   uploadPhoto() {

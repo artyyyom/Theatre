@@ -54,7 +54,7 @@
           </tr>
 
           <tr *ngFor="let p of performances">
-            <td><img src="./assets/uploads/{{p.photo_main}}" alt="" /></td>
+            <td><img src="http://127.0.0.1:8000/images/performances/{{p.photo_main}}" alt="" /></td>
             <td><a [ngStyle]="{'color': 'black'}" [routerLink]="['/performance', p.id]">{{p.name}}</a></td>
             <td>{{p.pivot.role}}</td>
           </tr>

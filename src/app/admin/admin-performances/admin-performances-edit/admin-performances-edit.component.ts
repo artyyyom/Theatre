@@ -83,32 +83,32 @@ export class AdminPerformancesEditComponent implements OnInit, OnDestroy {
     });
   
   }
-  change(event) {
-    this.selectItem.push(event.itemValue);
-    let i = 0;
-    let pos = 0;
-    event.value.forEach((value, index) => {
-      if(event.itemValue.id == value.id) {
-        i++;
-        pos = index;
-      }    
-    });
-    console.log(i);
-    if(!i) {
-      this.removeRoles(pos);
-    }
-    else {
-      this.addRoles(event.itemValue);
-    }
+  change(event, employee_roles) {
+    this.employees.map(employee => {
+      employee_roles.forEach(employee_role => {
+        if(employee.id == employee_role.id) {
+          return employee.pivot.role = employee_role.name;
+        }
+      })
+    })
+    this.removeRoles();
+    event.value.forEach(val => {
+      this.selectItem.push(val);
+      this.addRoles(val);
+    })
   }
   addRoles(value) {
     (<FormArray>this.dataform.get('employee_roles')).push(
       this.initRoles(value)
     )   
   }
-  
-  removeRoles(i: number) {
-    (<FormArray>this.dataform.get('employee_roles')).removeAt(i);
+
+  removeRoles() {
+    let length: number = (<FormArray>this.dataform.get('employee_roles')).length;
+    for(let i = 0; i < length + 1; i++) { 
+      (<FormArray>this.dataform.get('employee_roles')).removeAt(0);
+      this.selectItem.pop();
+    }
   }
   initRoles(value: any = {}) {
     return this.fb.group({

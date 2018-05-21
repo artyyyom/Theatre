@@ -56,7 +56,7 @@
         <div class="form-group">
             <label for="inputUnit">Актеры</label>
             <div>
-              <p-multiSelect (onChange)="change($event)" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeesSelect" defaultLabel="Выберите должность" optionLabel="surname"  [options]="employees"></p-multiSelect>
+              <p-multiSelect (onChange)="change($event, dataform.value.employee_roles)" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeesSelect" defaultLabel="Выберите должность" optionLabel="surname"  [options]="employees"></p-multiSelect>
             </div>
             <div formArrayName="employee_roles">
                 <div class="form-group" *ngFor="let phone of dataform.controls['employee_roles'].controls; let i = index" [formGroupName]="i">

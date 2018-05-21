@@ -55,7 +55,7 @@
               </tr>
               <ng-container *ngFor="let employee of performance.employees">
                 <tr *ngIf="employee.unit.id === unit.id">
-                  <td><img src="./assets/uploads/{{employee.photo_main}}" alt="" /></td>
+                  <td><img src="http://127.0.0.1:8000/images/employees/{{employee.photo_main}}" alt="" /></td>
                   <td>{{employee.pivot.role}}</td>
                   <td><a 
                     [ngStyle]="{'color': 'black'}" 
