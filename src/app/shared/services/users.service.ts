@@ -56,4 +56,7 @@ export class UsersService extends BaseApi {
   getUserByTicketId(id: number) {
     return this.authPost(`getUserByTicketId/${id}`);
   }
+  reset(data: any) {
+    return this.post('recover', data);
+  }
 }

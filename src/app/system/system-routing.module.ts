@@ -14,6 +14,7 @@ import { SeancesComponent } from './seances/seances.component';
 import { ExitGuard } from '../shared/guards/exit/exit.guard';
 import { LoginComponent } from '../authentication/login/login.component';
 import { AuthGuard } from '../shared/guards/auth/auth.guard';
+import { ResetComponent } from '../authentication/reset/reset.component';
 
 const routes = [{path: '', component: SystemComponent, children: [
     {path: '', component: HomeComponent},
@@ -25,6 +26,7 @@ const routes = [{path: '', component: SystemComponent, children: [
     {path: 'contacts', component: ContactsComponent},
     {path: 'seances', component: SeancesComponent, canDeactivate: [ExitGuard]},
     {path: 'login', component: LoginComponent},
+    {path: 'reset', component: ResetComponent},
     {path: 'profile-order',
      loadChildren: 'app/system/user/user.module#UserModule',
      

@@ -13,6 +13,9 @@
       <div class="error-form" *ngIf="!userform.controls['password'].valid&&userform.controls['password'].dirty">
           - Поле "пароль" обязательно к заполнению!
       </div>
+      <div>
+          <a  [routerLink]="['/reset']">Забыли пароль?</a>
+      </div>
       <button  type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Войти</span></button>
   </form>
 </div> 

@@ -17,6 +17,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { AuthModule } from './authentication/auth.module';
 import { HttpModule } from '@angular/http';
 import { AdminModule } from './admin/admin.module';
+import { ResetComponent } from './authentication/reset/reset.component';
 
 
 registerLocaleData(localeRU);
@@ -25,6 +26,7 @@ registerLocaleData(localeRU);
   declarations: [
     AppComponent,
     LoginComponent,
+    ResetComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<div class="login__form">
+  <h3>Восстановление пароля</h3>
+  <div *ngIf="isLoginError" class="error-form error-login">Неправильный email!</div>
+  <form class="contact__form-fields" 
+    [formGroup]="userform"
+    (ngSubmit)="OnSubmit(userform.value)"
+    >
+      <input  type="text" formControlName="email" placeholder="Ваш email">
+      <div class="error-form" *ngIf="!userform.controls['email'].valid&&userform.controls['email'].dirty">
+          - Поле "Email" некорректно!
+      </div>
+      <button  type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Восстановить</span></button>
+  </form>
+</div> 
+<p-dialog appendTo="body" modal="true" width="400" header="Восстановление пароля" [(visible)]="display">
+  <div>Новый пароль выслан на ваш email адрес!</div>
+  <p-footer>
+    <button type="button" pButton icon="fa-check" label="Перейти к просмотру спектаклей" [routerLink]="['/performances']"></button>
+  </p-footer>
+</p-dialog>
