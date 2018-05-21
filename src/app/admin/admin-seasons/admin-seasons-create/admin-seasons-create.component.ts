@@ -14,6 +14,7 @@ export class AdminSeasonsCreateComponent implements OnInit {
   dataform: FormGroup;
   isSuccess: boolean = false;
   isError: boolean = false;
+  isActive: boolean;
   constructor(private seasonsService: SeasonsService,
               private fb: FormBuilder) { }
 
@@ -26,9 +27,11 @@ export class AdminSeasonsCreateComponent implements OnInit {
   }
 
   OnSubmit(value) {
+
     let data = {name: value.name, 
                 start_date: value.start_date, 
-                end_date: value.end_date};
+                end_date: value.end_date,
+                isActive: this.isActive};
     this.sub1 = this.seasonsService.addSeason(data)
       .subscribe(data => {
         this.isSuccess = true;

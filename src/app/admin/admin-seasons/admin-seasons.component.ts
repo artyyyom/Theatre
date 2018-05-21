@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Seasons } from '../../shared/models/seasons.model';
 import { SeasonsService } from '../../shared/services/seasons.service';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-admin-seasons',
@@ -16,7 +17,8 @@ export class AdminSeasonsComponent implements OnInit, OnDestroy {
   isLoaded: boolean = false;
   isSuccess: boolean = false;
   isError:boolean = false;
-  constructor(private seasonsService: SeasonsService) { }
+  constructor(private seasonsService: SeasonsService,
+              private sharedService: SharedService) { }
 
   ngOnInit() {
     this.sub1 = this.seasonsService.getSeasons() 
@@ -29,6 +31,7 @@ export class AdminSeasonsComponent implements OnInit, OnDestroy {
     this.isLoaded = false;
     this.sub2 = this.seasonsService.deleteSeason(id)
       .subscribe(data => {
+        this.seasons = this.sharedService.delElArray(this.seasons, id);
         this.isSuccess = true;
         this.isLoaded = true;
         setTimeout(() => this.isSuccess = false, 4000);

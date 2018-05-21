@@ -21,6 +21,7 @@ export class AdminSeasonsEditComponent implements OnInit {
   season: Seasons;
   isLoad: boolean = false;
   isError: boolean = false;
+  isActive: boolean;
   constructor(private seasonsService: SeasonsService,
               private fb: FormBuilder,
               private route: ActivatedRoute) { }
@@ -30,6 +31,7 @@ export class AdminSeasonsEditComponent implements OnInit {
     this.sub2 = this.seasonsService.getSeason(this.routeId)
       .subscribe((data: Seasons) => {
         this.season = data;
+        this.isActive = this.season.isActive;
         this.isLoad = true;
         this.dataform = this.fb.group({
           'name': new FormControl(this.season.name, Validators.required),
@@ -44,7 +46,8 @@ export class AdminSeasonsEditComponent implements OnInit {
 
     let data = {name: value.name, 
       start_date: value.start_date, 
-      end_date: value.end_date};
+      end_date: value.end_date,
+      isActive: this.isActive};
     this.sub1 = this.seasonsService.updateSeason(this.routeId, data)
       .subscribe(data => {
         this.isSuccess = true;

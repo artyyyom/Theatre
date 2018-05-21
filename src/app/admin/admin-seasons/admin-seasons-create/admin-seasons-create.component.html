@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <h2>Добавление сезона</h2>
     </div>
-    <div class="col-lg-12">.
+    <div class="col-lg-12">
     <div class="alert alert-success" *ngIf="isSuccess" role="alert">Добавление записи прошло успешно!</div>  
     <div class="alert alert-danger" *ngIf="isError" role="alert">Ошибка при добавлении записи!</div>  
     <form [formGroup]="dataform"  (ngSubmit)="OnSubmit(dataform.value)">
@@ -26,6 +26,9 @@
             <div class="error-form" *ngIf="!dataform.controls['end_date'].valid&&dataform.controls['end_date'].dirty">
                 - Поле "Дата конца сезона" некорректно!
             </div>
+        </div>
+        <div>
+            <p-checkbox [(ngModel)]="isActive" label="Активный сезон" [ngModelOptions]="{standalone: true}" binary="true"></p-checkbox>
         </div>
         <button type="submit" [disabled]="dataform.invalid" class="btn btn-default">Добавить</button>
     </form>

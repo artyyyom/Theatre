@@ -15,6 +15,7 @@
         <th>№</th>
         <th>Название сезона</th>
         <th>Дата</th>
+        <th>Активный</th>
         <th>Действие</th>
       </tr>
       <tr *ngFor="let season of seasons; let i = index">
@@ -22,6 +23,10 @@
         <td>{{season?.name}}</td>
         <td>{{season.start_date | date:"dd.MM.yy"}} - 
           {{season.end_date | date:"dd.MM.yy"}} </td>
+        <td>
+          <div *ngIf="season.isActive">+</div>
+          <div *ngIf="!season.isActive">-</div>
+        </td>
         <td>
             <a [routerLink]="['/seasons/edit', season?.id]"><button class="btn btn-success">Изменить</button></a>
             <a (click)="deleteSeason(season?.id)"><button class="btn btn-danger">Удалить</button></a>

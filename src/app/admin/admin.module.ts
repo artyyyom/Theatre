@@ -52,6 +52,7 @@ import { AdminSeancesEditComponent } from './admin-seances/admin-seances-edit/ad
 import { AdminSeancesViewComponent } from './admin-seances/admin-seances-view/admin-seances-view.component';
 import {DialogModule} from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     FileUploadModule,
     DropdownModule,
     DialogModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    CheckboxModule
   ],
   providers: [AuthService, 
               AuthGuard, 

@@ -27,6 +27,9 @@
                 - Поле "Дата конца сезона" некорректно!
             </div>
         </div>
+        <div>
+                <p-checkbox [(ngModel)]="isActive" label="Активный сезон" [ngModelOptions]="{standalone: true}" binary="true"></p-checkbox>
+        </div>
         <button type="submit" class="btn btn-default">Изменить</button>
     </form>
     </div>
