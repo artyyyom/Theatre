@@ -24,6 +24,9 @@
         <td>{{seance?.datetime}}</td>
         <td>{{seance?.performance?.name}}</td>
         <td>
+          <a [routerLink]="['/seances/view', seance?.id]">
+            <button  class="btn btn-info">Просмотреть</button>
+          </a>
           <a [routerLink]="['/seances/edit', seance?.id]">
             <button  class="btn btn-success">Изменить</button>
           </a>

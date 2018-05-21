@@ -53,4 +53,7 @@ export class UsersService extends BaseApi {
   updateUser(id: number, data: any = {}) {
     return this.authPost(`updateUser/${id}`, data);
   }
+  getUserByTicketId(id: number) {
+    return this.authPost(`getUserByTicketId/${id}`);
+  }
 }

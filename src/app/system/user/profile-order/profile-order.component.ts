@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { Tickets } from '../../../shared/models/tickets.model';
 import { SeancesService } from '../../../shared/services/seances.service';

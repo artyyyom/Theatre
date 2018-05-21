@@ -1,0 +1,26 @@
+<div>
+    <h2>Билеты</h2>
+    <h4>Дата и время сеанса: {{seance?.datetime}}</h4>
+    <h4>Сцена: {{seance?.stage?.name}}</h4>
+    <h4>Спектакль: {{seance?.performance?.name}}</h4>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let ticket of tickets; let i = index">
+        <div class="ticket-card" >
+          <div class="form-group">
+            <div>Билет №{{i+1}} 
+              <span (click)="showUser(ticket.id)" *ngIf="ticket.status==1" style="color: yellow; cursor: pointer">Забронирован</span>
+              <span (click)="showUser(ticket.id)" *ngIf="ticket.status==2" style="color: red; cursor: pointer;">Куплен</span>
+            </div>
+            <div>Место <b>{{ticket.place_id}}</b></div>
+            <div>Категория <b>{{ticket.category_place.name}}</b></div>
+            <div> Цена <b>{{ticket.price}}</b></div>
+          </div>             
+        </div>  
+      </div>
+    </div>
+</div>
+<p-dialog appendTo="body" modal="true" width="400" header="Сведения о покупателе" [(visible)]="display">
+    <h4>ФИО: <b>{{user?.name}}</b></h4>
+    <h4>Телефон: <b>{{user?.phone}}</b></h4>
+    <h4>Email: <b>{{user?.email}}</b></h4>
+</p-dialog>

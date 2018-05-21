@@ -49,6 +49,9 @@ import {DropdownModule} from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminSeancesCreateComponent } from './admin-seances/admin-seances-create/admin-seances-create.component';
 import { AdminSeancesEditComponent } from './admin-seances/admin-seances-edit/admin-seances-edit.component';
+import { AdminSeancesViewComponent } from './admin-seances/admin-seances-view/admin-seances-view.component';
+import {DialogModule} from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 @NgModule({
@@ -66,6 +69,8 @@ import { AdminSeancesEditComponent } from './admin-seances/admin-seances-edit/ad
     MultiSelectModule,
     FileUploadModule,
     DropdownModule,
+    DialogModule,
+    ConfirmDialogModule
   ],
   providers: [AuthService, 
               AuthGuard, 
@@ -105,7 +110,8 @@ import { AdminSeancesEditComponent } from './admin-seances/admin-seances-edit/ad
                  AdminPositionsCreateComponent,
                  AdminPositionsEditComponent,
                  AdminSeancesCreateComponent,
-                 AdminSeancesEditComponent],
+                 AdminSeancesEditComponent,
+                 AdminSeancesViewComponent],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }

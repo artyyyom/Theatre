@@ -51,9 +51,9 @@
               <div class="ticket-card" formArrayName="tickets">
                 <div class="form-group" formGroupName={{i}}>
                   <div>Билет №{{i+1}}</div>
-                  <div>Ряд <input type="text" class="form-control" formControlName="row_id"></div>
-                  <div>Место <input type="text" class="form-control" formControlName="place_id"></div>
-                  <div>Категория <input type="text" class="form-control" formControlName="category_name"></div>
+                  <div>Ряд <input disabled type="text" class="form-control" formControlName="row_id"></div>
+                  <div>Место <input disabled type="text" class="form-control" formControlName="place_id"></div>
+                  <div>Категория <input disabled type="text" class="form-control" formControlName="category_name"></div>
                   <div> Цена
                     <input type="number" class="form-control" formControlName="price" />
                   </div>
@@ -63,9 +63,9 @@
           </div>
           <button type="submit" class="btn btn-default">Редактировать</button>
         </form>
-        </div>
+      </div>
         <div>
-        </div>  
+      </div>  
       
     </div>
     <div *ngIf="!isLoad">Загрузка...</div>

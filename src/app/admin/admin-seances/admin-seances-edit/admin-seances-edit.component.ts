@@ -129,7 +129,6 @@ export class AdminSeancesEditComponent implements OnInit, OnDestroy {
       });
   }
   changeStage(event) {
-    console.log(event);
     this.getRowsPlaces();
   }
  
@@ -157,7 +156,6 @@ export class AdminSeancesEditComponent implements OnInit, OnDestroy {
       season_id: this.seasonsSelect.id,
       performance_id: this.performancesSelect.id
     }
-    console.log(data);
     this.sub1 = this.seancesService.updateSeance(this.routeId, data)
       .subscribe(data => {
         this.isSuccess = true;
