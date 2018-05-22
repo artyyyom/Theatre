@@ -10,12 +10,15 @@ import { Tickets } from '../../../models/tickets.model';
 export class StageSmallComponent implements OnInit, AfterViewInit {
   active: boolean = false;
   ticketsMap: Array<any> = [];
+  stageMap;
   tickets;
   isLoadPlace: boolean;
   @Input('isLoadPlace') set _isLoadPlace(value) {
     this.isLoadPlace = value;
   }
-  @Input() stageMap;
+  @Input('stageMap') set _stageMap(value) {
+    this.stageMap = value;
+  }
   @Input() authCountTickets;
   @Input('tickets') set _megreMapTickets(value) {
       this.tickets = value;
@@ -31,6 +34,8 @@ export class StageSmallComponent implements OnInit, AfterViewInit {
             } 
           });
         });
+        console.log(this.stageMap);
+        console.log(this.tickets);
       }
   }
   @Output() placeOrder = new EventEmitter();

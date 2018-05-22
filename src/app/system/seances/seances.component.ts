@@ -121,6 +121,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         this.tickets = data[2];
         this.category_places = data[3];
         this.seances = this.performance.seances;
+        console.log(this.seances);
         this.timerStart();
         this.avalaiblePlace();
         if(this.usersService.loggedIn()) 
@@ -164,14 +165,25 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
 
     
   }
-  changeSeance(id:number) {
-    this.sub3 = this.ticketsService.getTickets('seances', id)
+  changeSeance(value) {
+    this.sub3 = Observable.combineLatest(
+      this.ticketsService.getTickets('seances', value.id),
+      this.rowsplacesService.getRowsPlaces(value.stage_id),
+    )
+    .subscribe((data: [Tickets[], Rows_Places[]]) => {
+      this.tickets = data[0];
+      this.rows_places = data[1];
+      this.avalaiblePlace();
+      if(this.usersService.loggedIn()) 
+        this.getActiveUserTickets();
+    });
+    /*this.sub3 = this.ticketsService.getTickets('seances', value.id)
       .subscribe((data: Tickets[]) => {
         this.tickets = data;
         this.avalaiblePlace();
         if(this.usersService.loggedIn()) 
           this.getActiveUserTickets();
-      });
+      });*/
   }
   closeTicket(order: Tickets) {
     this.isLoadPlace = false;

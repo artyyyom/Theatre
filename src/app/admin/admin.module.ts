@@ -54,6 +54,7 @@ import {DialogModule} from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import {CheckboxModule} from 'primeng/checkbox';
 import {ChartModule} from 'primeng/chart';
+import { SearchPipe } from './shared/pipes/search.pipe';
 
 
 @NgModule({
@@ -115,7 +116,8 @@ import {ChartModule} from 'primeng/chart';
                  AdminPositionsEditComponent,
                  AdminSeancesCreateComponent,
                  AdminSeancesEditComponent,
-                 AdminSeancesViewComponent],
+                 AdminSeancesViewComponent,
+                 SearchPipe],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }

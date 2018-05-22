@@ -17,6 +17,7 @@ export class AdminSeancesComponent implements OnInit, OnDestroy {
   sub1: Subscription;
   sub2: Subscription;
   isLoad: boolean = false;
+  search: string = '';
   constructor(private seancesService: SeancesService,
               private sharedService: SharedService) { }
 

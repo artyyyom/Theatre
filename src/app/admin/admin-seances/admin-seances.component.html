@@ -10,6 +10,13 @@
         <button class="btn btn-primary">Добавить</button>
       </a>
     </p>
+    <div class="row">
+        <div class="col-md-3">
+          <p>
+            <input type="text" class="form-control" placeholder="Поиск" [(ngModel)]="search">
+          </p>
+        </div>
+    </div>
     <div class="alert alert-success" *ngIf="isSuccess" role="alert">Удаление записи прошло успешно!</div>  
     <div class="alert alert-danger" *ngIf="isError" role="alert">Нельзя удалить эту запись!</div>    
     <table class="table table-bordered">
@@ -19,7 +26,7 @@
         <th>Спектакль</th>
         <th>Действие</th>
       </tr>
-      <tr *ngFor="let seance of seances; let i = index">
+      <tr *ngFor="let seance of seances | search:search:'date'; let i = index">
         <th>{{i+1}}</th>
         <td>{{seance?.datetime}}</td>
         <td>{{seance?.performance?.name}}</td>

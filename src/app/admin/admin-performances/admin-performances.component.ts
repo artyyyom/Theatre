@@ -16,6 +16,7 @@ export class AdminPerformancesComponent implements OnInit, OnDestroy {
   sub1: Subscription;
   sub2: Subscription;
   isLoad: boolean = false;
+  search: string = '';
   constructor(private performancesService: PerformancesService,
               private sharedService: SharedService) { }
 

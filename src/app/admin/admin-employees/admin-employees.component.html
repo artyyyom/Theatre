@@ -10,6 +10,13 @@
         <button class="btn btn-primary">Добавить</button>
       </a>
     </p>
+    <div class="row">
+        <div class="col-md-3">
+          <p>
+            <input type="text" class="form-control" placeholder="Поиск" [(ngModel)]="search">
+          </p>
+        </div>
+    </div>
     <div class="alert alert-success" *ngIf="isSuccess" role="alert">Удаление записи прошло успешно!</div>  
     <div class="alert alert-danger" *ngIf="isError" role="alert">Нельзя удалить эту запись!</div>    
     <table class="table table-bordered">
@@ -20,7 +27,7 @@
         <th>Подразделение</th>
         <th>Действие</th>
       </tr>
-      <tr *ngFor="let employee of employees; let i = index">
+      <tr *ngFor="let employee of employees | search:search:'name'; let i = index">
         <th>{{i+1}}</th>
         <td>{{employee?.name}} {{employee?.surname}}</td>
         <td><span *ngFor="let position of employee.positions">{{position?.name}} </span></td>

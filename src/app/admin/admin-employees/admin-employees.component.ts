@@ -16,6 +16,7 @@ export class AdminEmployeesComponent implements OnInit, OnDestroy {
   sub1: Subscription;
   sub2: Subscription;
   isLoad: boolean = false;
+  search: string = '';
   constructor(private employeesService: EmployeesService,
               private sharedService: SharedService) { }
 

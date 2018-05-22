@@ -64,12 +64,12 @@ export class SeanceRightbarComponent implements OnInit{
       this.placeOrder.emit(ticket);
     });
   }
-  changeSeance(id: number) {
+  changeSeance(id: number, stage_id:number) {
     if(this.seance_id !== id) {
       this.timeLeft = new Date(new Date().getTime() + 15*60000);
       this.seance_id = id;
       this.removeTickets();
-      this._changeSeance.emit(id);
+      this._changeSeance.emit({id: id, stage_id: stage_id});
     }
   }
   closeTicket(id: number) {
