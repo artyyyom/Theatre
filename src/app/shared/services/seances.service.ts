@@ -35,6 +35,8 @@ export class SeancesService extends BaseApi {
   deleteSeance(id: number) {
     return this.authDelete(`seances/${id}`);
   }
-  
+  getReportSalesMonth(data) {
+    return this.authPost('reportSalesSeanceMonth', data);
+  }
   
 }

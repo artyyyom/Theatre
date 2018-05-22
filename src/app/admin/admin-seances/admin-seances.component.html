@@ -5,6 +5,14 @@
 </div>
 <div class="row" *ngIf="isLoad">
   <div class="col-lg-12">
+      <hr>
+      <h4 (click)="displayMonthReport=true" style="cursor: pointer;"><i class="far fa-save"></i>
+        Сформировать месячный отчет
+      </h4>
+      <h4 (click)="pdfGeneratorReportMonth('')" style="cursor: pointer;"><i class="far fa-save"></i>
+        Сформировать годовой отчет
+      </h4>
+      <hr>
     <p>
       <a [routerLink]="['/seances/create']">
         <button class="btn btn-primary">Добавить</button>
@@ -49,3 +57,16 @@
   </div>
 </div>
 <div *ngIf="!isLoad">Загрузка...</div>
+<p-dialog appendTo="body" modal="true" width="400" height="300" header="Месячный отчет" [(visible)]="displayMonthReport">
+    <div>
+      <h5>Выберите месяц</h5>
+      <p>
+        <p-dropdown [options]="months" width="100" appendTo="body" optionLabel="name" placeholder="Выберите месяц" [(ngModel)]="monthSelect"></p-dropdown>
+      </p>  
+    </div>
+    <div>
+      <p>
+        <button (click)="pdfGeneratorReportMonth()" class="btn btn-default">Сформировать</button>
+      </p>
+    </div>  
+  </p-dialog>

@@ -38,6 +38,7 @@ export class AdminSeancesViewComponent implements OnInit, OnDestroy {
   routeId: number;
   display: boolean = false;
   user: Users;
+  
   constructor(private seancesService: SeancesService,
               private rowplacesService: Rows_PlacesService,
               private ticketsService: TicketsService,
@@ -87,7 +88,7 @@ export class AdminSeancesViewComponent implements OnInit, OnDestroy {
           let pipe = new DatePipe('ru'); // Use your own locale
           let datetime = new Date(seance.datetime);
           let formattedDate = pipe.transform(datetime, 'dd MMMM yyyy');
-          let formattedTime = pipe.transform(datetime, 'HH:ss')
+          let formattedTime = pipe.transform(datetime, 'HH:ss');
           let code = Math.random();
           pdfMake.vfs = pdfFonts.pdfMake.vfs;
           var dd = { 
