@@ -58,7 +58,11 @@ import { SearchPipe } from './shared/pipes/search.pipe';
 import { AdminBuyersComponent } from './admin-buyers/admin-buyers.component';
 import { AdminBuyersViewComponent } from './admin-buyers/admin-buyers-view/admin-buyers-view.component';
 import {PaginatorModule} from 'primeng/paginator';
+import localeRU from '@angular/common/locales/ru';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
 
+registerLocaleData(localeRU);
 
 @NgModule({
   imports: [

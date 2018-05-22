@@ -3,6 +3,8 @@
     <h4>Дата и время сеанса: {{seance?.datetime}}</h4>
     <h4>Сцена: {{seance?.stage?.name}}</h4>
     <h4>Спектакль: {{seance?.performance?.name}}</h4>
+    <hr>
+    <h4 (click)="pdfGenerator(seance)" style="cursor: pointer;"><i class="far fa-save"></i>Сохранить отчет по продаже билетов</h4>
     <div class="row">
       <div class="col-md-3" *ngFor="let ticket of tickets; let i = index">
         <div class="ticket-card" >
@@ -13,7 +15,7 @@
             </div>
             <div>Место <b>{{ticket.place_id}}</b></div>
             <div>Категория <b>{{ticket.category_place.name}}</b></div>
-            <div> Цена <b>{{ticket.price}}</b></div>
+            <div> Цена <b>{{ticket.price/1000}}</b></div>
           </div>             
         </div>  
       </div>

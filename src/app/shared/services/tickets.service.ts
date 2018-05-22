@@ -35,5 +35,8 @@ export class TicketsService extends BaseApi {
   addTickets(data: any) {
     return this.authPost('tickets', data);
   }
+  getReportSalesSeance(data: any) {
+    return this.authPost('reportSalesSeance', data);
+  }
 
 }

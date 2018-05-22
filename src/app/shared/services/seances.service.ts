@@ -36,4 +36,5 @@ export class SeancesService extends BaseApi {
     return this.authDelete(`seances/${id}`);
   }
   
+  
 }
