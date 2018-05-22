@@ -36,6 +36,8 @@ import {CheckboxModule} from 'primeng/checkbox';
 import { SeanceOrderComponent } from './seances/seance-order/seance-order.component';
 import { SharedModule } from '../shared/shared.module';
 import { SeancePayComponent } from './seances/seance-pay/seance-pay.component';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+
 
 @NgModule({
   declarations: [
@@ -75,6 +77,7 @@ import { SeancePayComponent } from './seances/seance-pay/seance-pay.component';
     ConfirmDialogModule,
     StepsModule,
     CheckboxModule,
+    ProgressSpinnerModule,
   ],
   providers: [
     

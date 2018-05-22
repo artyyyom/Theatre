@@ -34,6 +34,8 @@ import { AdminUnitsEditComponent } from './admin-units/admin-units-edit/admin-un
 import { AdminSeancesEditComponent } from './admin-seances/admin-seances-edit/admin-seances-edit.component';
 import { AdminSeancesCreateComponent } from './admin-seances/admin-seances-create/admin-seances-create.component';
 import { AdminSeancesViewComponent } from './admin-seances/admin-seances-view/admin-seances-view.component';
+import { AdminBuyersViewComponent } from './admin-buyers/admin-buyers-view/admin-buyers-view.component';
+import { AdminBuyersComponent } from './admin-buyers/admin-buyers.component';
 
 const routes = [{path: '', component: AdminHomeComponent, canActivate: [AuthGuard]},
                 {path: 'performances', component: AdminPerformancesComponent, canActivate: [AuthGuard]},
@@ -65,6 +67,8 @@ const routes = [{path: '', component: AdminHomeComponent, canActivate: [AuthGuar
                 {path: 'units', component: AdminUnitsComponent, canActivate: [AuthGuard]},
                 {path: 'units/create', component: AdminUnitsCreateComponent, canActivate: [AuthGuard]},
                 {path: 'units/edit/:id', component: AdminUnitsEditComponent, canActivate: [AuthGuard]},
+                {path: 'buyers', component: AdminBuyersComponent, canActivate: [AuthGuard]},
+                {path: 'buyers/view/:id', component: AdminBuyersViewComponent, canActivate: [AuthGuard]}
               ];
 
 @NgModule({

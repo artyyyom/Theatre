@@ -55,6 +55,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import {CheckboxModule} from 'primeng/checkbox';
 import {ChartModule} from 'primeng/chart';
 import { SearchPipe } from './shared/pipes/search.pipe';
+import { AdminBuyersComponent } from './admin-buyers/admin-buyers.component';
+import { AdminBuyersViewComponent } from './admin-buyers/admin-buyers-view/admin-buyers-view.component';
+import {PaginatorModule} from 'primeng/paginator';
 
 
 @NgModule({
@@ -75,7 +78,8 @@ import { SearchPipe } from './shared/pipes/search.pipe';
     DialogModule,
     ConfirmDialogModule,
     CheckboxModule,
-    ChartModule
+    ChartModule,
+    PaginatorModule
   ],
   providers: [AuthService, 
               AuthGuard, 
@@ -117,7 +121,9 @@ import { SearchPipe } from './shared/pipes/search.pipe';
                  AdminSeancesCreateComponent,
                  AdminSeancesEditComponent,
                  AdminSeancesViewComponent,
-                 SearchPipe],
+                 SearchPipe,
+                 AdminBuyersComponent,
+                 AdminBuyersViewComponent],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }

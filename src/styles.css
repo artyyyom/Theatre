@@ -67,3 +67,10 @@ a {
   .checkbox--orange:checked:before {
     border-color: #ff9800;
   }
+  :host >>> .ui-progress-spinner {
+    position: relative;
+    margin: 0 auto;
+    width: 100% !important;
+    height: 300px !important;
+    display: inline-block;
+}

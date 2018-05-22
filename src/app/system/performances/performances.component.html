@@ -43,4 +43,4 @@
   </ng-container>
   <ng-template #message>Нет данных</ng-template>
 </div>
-<div *ngIf="!isLoaded">Загрузка...</div>
+<p-progressSpinner class="spinner" *ngIf="!isLoaded"></p-progressSpinner>

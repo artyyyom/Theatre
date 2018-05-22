@@ -1,0 +1,116 @@
+<h3>Текущие заказы</h3>
+    <div *ngIf="actualSeances.length">
+      <div class="seance__order" *ngFor="let actualSeance of actualSeancesChunk">
+        <div class="seance__shedule">
+            <div class="table-header"><b>Дата сеанса:</b> {{actualSeance?.date}}</div>
+            <div class="description__text">
+                <div class="column-2">
+                    <div class="seance__description">
+                        <div class="seance__time-header"><h5><b>Название спектакля:</b> {{actualSeance.performance?.name}}</h5></div>
+                        <div class="seance__time-header"><h5><b>Название сцены:</b> {{actualSeance.stage?.name}}</h5></div>
+                        <div class="seance__time">
+                            <ng-container>
+                                <div class="seance__time-header">
+                                    <h5><b>Время сеанса:</b>
+                                        <span>
+                                            {{actualSeance?.datetime | date:"H:mm"}}
+                                        </span>
+                                    </h5>
+                                </div>      
+                            </ng-container>
+                        </div>
+                    </div>
+                    
+                </div>    
+            </div>
+        </div>
+        <hr>
+        <div class="seance__tickets">
+            <div class="table-header">
+                <div class="column-2">
+                    <span>Заказанные билеты</span>
+                </div>
+            </div>
+            <div class="description__text">
+              <div class="ticket" *ngFor="let ticketOrder of actualSeance.tickets"
+              id="{{ticketOrder?.id}}">
+                  <div class="ticket__position">
+                        <div class="ticket__sector"><b>Сектор {{ticketOrder?.category_place?.name}}</b></div>
+                        <div class="ticket__row-place">
+                          <span>Ряд <b>{{ticketOrder?.row_id}}</b></span>
+                          <span>Место <b>{{ticketOrder?.place_id}}</b></span>
+                          <span *ngIf="ticketOrder.status===-1"><b style="color: red">Подтверждается оплата</b></span>
+                          <span *ngIf="ticketOrder.status===1"><b style="color: red">Забронирован</b></span>
+                          <span *ngIf="ticketOrder.status===2"><b style="color: red">Оплачен</b></span>   
+                        </div>
+                  </div>
+                  <div class="ticket__price"><b>{{ticketOrder?.price/1000 | currency:'UAH'}}
+                  </b></div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <p-paginator (onPageChange)="paginateActual($event)" [rows]="1" [totalRecords]="actualSeances.length">
+      </p-paginator>
+    </div>
+    <ng-container *ngIf="!actualSeances.length">
+      <div>Заказов нет</div>
+    </ng-container>
+    <hr>
+    <h3>История заказов</h3>
+    <div *ngIf="historySeances.length">
+        <div class="seance__order" *ngFor="let actualSeance of historySeancesChunk">
+          <div class="seance__shedule">
+              <div class="table-header"><b>Дата сеанса:</b> {{actualSeance?.datetime}}</div>
+              <div class="description__text">
+                  <div class="column-2">
+                      <div class="seance__description">
+                          <div class="seance__time-header"><h5><b>Название спектакля:</b> {{actualSeance.performance?.name}}</h5></div>
+                          <div class="seance__time-header"><h5><b>Название сцены:</b> {{actualSeance.stage?.name}}</h5></div>
+                          <div class="seance__time">
+                              <ng-container>
+                                  <div class="seance__time-header">
+                                      <h5><b>Время сеанса:</b>
+                                          <span>
+                                              {{actualSeance?.datetime | date:"H:mm"}}
+                                          </span>
+                                      </h5>
+                                  </div>      
+                              </ng-container>
+                          </div>
+                      </div>
+                      
+                  </div>    
+              </div>
+          </div>
+          <div class="seance__tickets">
+              <div class="table-header">
+                  <div class="column-2">
+                      <span>Заказанные билеты</span>
+                  </div>
+              </div>
+              <div class="description__text">
+                <div class="ticket" *ngFor="let ticketOrder of actualSeance.tickets"
+                id="{{ticketOrder?.id}}">
+                    <div class="ticket__position">
+                          <div class="ticket__sector"><b>Сектор {{ticketOrder?.category_place?.name}}</b></div>
+                          <div class="ticket__row-place">
+                            <span>Ряд <b>{{ticketOrder?.row_id}}</b></span>
+                            <span>Место <b>{{ticketOrder?.place_id}}</b></span>
+                            <span *ngIf="ticketOrder.status===-1"><b style="color: red">Подтверждается оплата</b></span>
+                            <span *ngIf="ticketOrder.status===1"><b style="color: red">Забронирован</b></span>
+                            <span *ngIf="ticketOrder.status===2"><b style="color: red">Оплачен</b></span>   
+                          </div>
+                    </div>
+                    <div class="ticket__price"><b>{{ticketOrder?.price/1000 | currency:'UAH'}}
+                    </b></div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <p-paginator (onPageChange)="paginateActual($event)" [rows]="1" [totalRecords]="actualSeances.length">
+        </p-paginator>
+      </div>
+      <ng-container *ngIf="!historySeances.length">
+        <div>Истории заказов нет</div>
+      </ng-container>
