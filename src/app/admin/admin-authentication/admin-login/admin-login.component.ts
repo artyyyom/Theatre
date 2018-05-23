@@ -27,7 +27,7 @@ export class AdminLoginComponent implements OnInit {
     this.authService.userAuthentication(value.email, value.password)
       .subscribe(data => {
         localStorage.setItem('token', data.access_token);
-        this.router.navigate(['/seances']);
+        this.router.navigate(['']);
       },
       (error)=>{
         this.isLoginError = true;

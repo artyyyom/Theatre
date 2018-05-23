@@ -1,34 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TicketsService } from '../../shared/services/tickets.service';
+import { SeancesService } from '../../shared/services/seances.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
   styleUrls: ['./admin-home.component.css']
 })
-export class AdminHomeComponent implements OnInit {
+export class AdminHomeComponent implements OnInit, OnDestroy {
+  sub1: Subscription;
+  rowData = [];
   data: any;
-  constructor() { 
-    this.data = {
-      labels: ['A','B','C'],
-      datasets: [
-          {
-              data: [300, 50, 100],
-              backgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
-              ],
-              hoverBackgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
-              ]
-          }]    
-      };
+  constructor(private seancesService: SeancesService) { 
 
   }
 
   ngOnInit() {
-  }
+   let data = {date: 2018};
+   this.sub1 = this.seancesService.getReportSalesYear(data)
+        .subscribe(data => {
+           for(var d in data) {
+               if(data[d].buy != undefined)
+                this.rowData.push(data[d].buy);
+           }
+           this.data = {
+            labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль',
+                     'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            datasets: [
+                {
+                    label: 'Количество посетителей',
+                    data: this.rowData,
+                    fill: false,
+                    borderColor: '#4bc0c0'
+                },
+            ]
+        }
+        });
+    }
+
+ ngOnDestroy() {
+    if(this.sub1)
+        this.sub1.unsubscribe();
+ }
 
 }

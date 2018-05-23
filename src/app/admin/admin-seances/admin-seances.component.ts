@@ -263,8 +263,8 @@ export class AdminSeancesComponent implements OnInit, OnDestroy {
               
             },
           },
-          {text: `Количество забронированных билетов за ${this.year} год: ${data.buy}`, margin: [0, 10, 0, 5]},
-                {text: `Количество купленных билетов за ${this.year} год: ${data.order}`, margin: [0, 10, 0, 5]},
+          {text: `Количество забронированных билетов за ${this.year} год: ${data.order}`, margin: [0, 10, 0, 5]},
+                {text: `Количество купленных билетов за ${this.year} год: ${data.buy}`, margin: [0, 10, 0, 5]},
                 {text: `Общая выручка за ${this.year} год: ${data.sum}`, margin: [0, 10, 0, 5]},
                 {text:'Отчет составил _________________',  margin: [0, 10, 0, 5]},
                 {text: 'Подпись ___________', margin: [0, 10, 0, 5]},
