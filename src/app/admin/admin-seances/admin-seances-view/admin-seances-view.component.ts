@@ -107,7 +107,7 @@ export class AdminSeancesViewComponent implements OnInit, OnDestroy {
                   body: [
                     ['Количество забронированных билетов', `${data.order}`],
                     ['Количество проданных билетов', `${data.buy}`],
-                    ['Общая сумма выручки', `${data.sum/1000} грн.`],
+                    ['Общая сумма выручки', `${data.sum} грн.`],
                   ]
                 }
               },

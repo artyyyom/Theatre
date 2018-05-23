@@ -9,7 +9,7 @@
       <h4 (click)="displayMonthReport=true" style="cursor: pointer;"><i class="far fa-save"></i>
         Сформировать месячный отчет
       </h4>
-      <h4 (click)="pdfGeneratorReportMonth('')" style="cursor: pointer;"><i class="far fa-save"></i>
+      <h4 (click)="displayYearReport=true" style="cursor: pointer;"><i class="far fa-save"></i>
         Сформировать годовой отчет
       </h4>
       <hr>
@@ -69,4 +69,17 @@
         <button (click)="pdfGeneratorReportMonth()" class="btn btn-default">Сформировать</button>
       </p>
     </div>  
-  </p-dialog>
+</p-dialog>
+<p-dialog appendTo="body" modal="true" width="400" height="300" header="Месячный отчет" [(visible)]="displayYearReport">
+  <div>
+    <div class="form-group">
+      <label for="inputName">Введите год</label>
+      <input type="number" [(ngModel)]="year" class="form-control" id="inputName" placeholder="Год">
+    </div>
+  </div>
+  <div>
+    <p>
+      <button (click)="pdfGeneratorReportYear()" class="btn btn-default">Сформировать</button>
+    </p>
+  </div>  
+</p-dialog>

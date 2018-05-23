@@ -38,5 +38,8 @@ export class SeancesService extends BaseApi {
   getReportSalesMonth(data) {
     return this.authPost('reportSalesSeanceMonth', data);
   }
+  getReportSalesYear(data) {
+    return this.authPost('reportSalesSeanceYear', data);  
+  }
   
 }
