@@ -17,6 +17,7 @@ export class AdminPerformancesComponent implements OnInit, OnDestroy {
   sub2: Subscription;
   isLoad: boolean = false;
   search: string = '';
+  sort: boolean = false;
   constructor(private performancesService: PerformancesService,
               private sharedService: SharedService) { }
 
@@ -25,7 +26,9 @@ export class AdminPerformancesComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         this.performances = data;
         this.isLoad = true;
+        this.sortBy();
       });
+
   }
   deletePerformance(id) {
     this.isLoad = false;
@@ -41,6 +44,16 @@ export class AdminPerformancesComponent implements OnInit, OnDestroy {
         setTimeout(() => this.isError = false, 4000);
       });
     
+  }
+  sortBy() {
+    if(!this.sort) {
+      this.performances.sort((a,b)=>a.name.localeCompare(b.name));
+      this.sort = true;
+    }
+    else {
+      this.performances.sort((a,b)=>b.name.localeCompare(a.name));
+      this.sort = false;
+    }
   }
   ngOnDestroy() {
     if(this.sub1)

@@ -70,7 +70,7 @@ export class AdminSeancesComponent implements OnInit, OnDestroy {
   monthSelect;
   displayMonthReport: boolean = false;
   displayYearReport: boolean = false;
-
+  sort: boolean = false;
   isSuccess: boolean = false;
   isError:boolean = false;
   seances: Seances[];
@@ -295,6 +295,16 @@ export class AdminSeancesComponent implements OnInit, OnDestroy {
       });
      
     
+  }
+  sortBy() {
+    if(!this.sort) {
+      this.seances.sort((a,b)=>a.datetime.localeCompare(b.datetime));
+      this.sort = true;
+    }
+    else {
+      this.seances.sort((a,b)=>b.datetime.localeCompare(a.datetime));
+      this.sort = false;
+    }
   }
   ngOnDestroy() {
     if(this.sub1)

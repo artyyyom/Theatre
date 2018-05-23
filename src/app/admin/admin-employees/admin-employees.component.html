@@ -16,6 +16,11 @@
             <input type="text" class="form-control" placeholder="Поиск" [(ngModel)]="search">
           </p>
         </div>
+        <div class="col-md-3">
+            <p>
+              <button (click)="sortBy()" class="btn btn-primary">Сортировка</button>
+            </p>
+        </div>
     </div>
     <div class="alert alert-success" *ngIf="isSuccess" role="alert">Удаление записи прошло успешно!</div>  
     <div class="alert alert-danger" *ngIf="isError" role="alert">Нельзя удалить эту запись!</div>    

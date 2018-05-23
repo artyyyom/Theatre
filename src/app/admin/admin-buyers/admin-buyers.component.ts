@@ -18,6 +18,7 @@ export class AdminBuyersComponent implements OnInit, OnDestroy {
   sub2: Subscription;
   isLoad: boolean = false;
   search: string = '';
+  sort: boolean = false;
   constructor(private usersService: UsersService,
               private sharedService: SharedService) { }
 
@@ -42,6 +43,16 @@ export class AdminBuyersComponent implements OnInit, OnDestroy {
         setTimeout(() => this.isError = false, 4000);
       });
     
+  }
+  sortBy() {
+    if(!this.sort) {
+      this.users.sort((a,b)=>a.name.localeCompare(b.name));
+      this.sort = true;
+    }
+    else {
+      this.users.sort((a,b)=>b.name.localeCompare(a.name));
+      this.sort = false;
+    }
   }
   ngOnDestroy() {
     if(this.sub1)

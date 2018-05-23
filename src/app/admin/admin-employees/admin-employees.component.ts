@@ -17,6 +17,7 @@ export class AdminEmployeesComponent implements OnInit, OnDestroy {
   sub2: Subscription;
   isLoad: boolean = false;
   search: string = '';
+  sort: boolean = false;
   constructor(private employeesService: EmployeesService,
               private sharedService: SharedService) { }
 
@@ -42,6 +43,16 @@ export class AdminEmployeesComponent implements OnInit, OnDestroy {
         setTimeout(() => this.isError = false, 4000);
       });
     
+  }
+  sortBy() {
+    if(!this.sort) {
+      this.employees.sort((a,b)=>a.surname.localeCompare(b.name));
+      this.sort = true;
+    }
+    else {
+      this.employees.sort((a,b)=>b.surname.localeCompare(a.name));
+      this.sort = false;
+    }
   }
   ngOnDestroy() {
     if(this.sub1)
