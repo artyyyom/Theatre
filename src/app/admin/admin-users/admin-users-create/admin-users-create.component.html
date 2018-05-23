@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Добавление пользователя</h2>
+    </div>
+    <div class="col-lg-12">.
+    <div class="alert alert-success" *ngIf="isSuccess" role="alert">Добавление пользователя прошло успешно!</div>  
+    <div class="alert alert-danger" *ngIf="isError" role="alert">Ошибка при добавлении пользователя!</div>  
+    <form [formGroup]="dataform"  (ngSubmit)="OnSubmit(dataform.value)">
+        <div class="form-group">
+          <label for="inputName">ФИО</label>
+          <input type="text" formControlName="name" class="form-control" id="inputName" placeholder="ФИО">
+          <div class="error-form" *ngIf="!dataform.controls['name'].valid&&dataform.controls['name'].dirty">
+            - Поле "ФИО" некорректно!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="email" formControlName="email" class="form-control" id="inputEmail" placeholder="Email">
+          <div class="error-form" *ngIf="!dataform.controls['email'].valid&&dataform.controls['email'].dirty">
+            - Поле "Email" некорректно!
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPhone">Телефон</label>
+            <input type="text" formControlName="phone" class="form-control" id="inputPhone" placeholder="Телефон">
+            <div class="error-form" *ngIf="!dataform.controls['phone'].valid&&dataform.controls['phone'].dirty">
+              - Поле "Телефон" некорректно!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputRoles">Роли</label>
+            <div *ngIf="isLoad">
+                <p-multiSelect defaultLabel="Выберите роль" optionLabel="display_name" [ngModelOptions]="{standalone: true}" [options]="roles" [(ngModel)]="rolesSelect"></p-multiSelect>
+            </div>
+            <div *ngIf="!isLoad">Загрузка...</div>
+        </div>
+        <button type="submit" [disabled]="dataform.invalid" class="btn btn-default">Добавить</button>
+    </form>
+    </div>
+  </div>

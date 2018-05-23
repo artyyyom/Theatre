@@ -1,0 +1,67 @@
+<div class="employee-block">
+  <ng-container *ngIf="isLoaded">
+    <div class="column-2">
+      
+      <div class="employee__description">
+        <div class="employee__photo">
+          <img src="http://127.0.0.1:8000/images/employees/{{employee.photo_main}}" alt="">
+        </div>
+        <div class="employee__name">
+          <h5>{{employee?.surname}} {{employee?.name}} {{employee?.middlename}}</h5>
+        </div>
+        <div class="employee__birthday">
+          <h5>{{employee?.birthday | date:'d MMMM y'}}</h5>
+        </div>
+      </div>
+      <div class="delimeter"></div>
+      <div class="employee__gallery" *ngIf="galleryImages">
+        <div class="table-header">Галлерея</div>
+        <div class="description__text">
+          <div class="demo-gallery">
+            <ul id="lightgallery">
+              <li *ngFor="let g of galleryImages?.photosStandart"  
+                  data-responsive="uploads/g.photo 375, uploads/g.photo 480, uploads/g.photo 800" 
+                  data-src="uploads/g"
+                  data-sub-html="<h4>Фото</h4><p>g.text</p>">
+                <a href="">
+                  <img class="img-responsive" src="http://127.0.0.1:8000/images/employees/{{g}}" alt="photo">
+                  <div class="demo-gallery-poster">
+                    <img src="./assets/images/zoom.png" alt="photo">
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="show-more">Показать больше...</div>
+        </div>
+      </div>
+    </div>
+    <div class="column-1">
+      <div class="employee__bio" *ngIf="employee?.biography">
+        <div class="table-header">Биография</div>
+        <div class="description__text">
+          <p>{{employee?.biography}}</p>
+        </div>
+      </div>
+      <div class="table" *ngIf="performances?.length">
+        <div class="table-header">Деятельность в спектаклях</div>
+        
+        <table cellspacing="0">
+          <tr>
+            <th>Фото</th>
+            <th>Спектакль</th>
+            <th width="230">Роль</th>
+          </tr>
+
+          <tr *ngFor="let p of performances">
+            <td><img src="http://127.0.0.1:8000/images/performances/{{p.photo_main}}" alt="" /></td>
+            <td><a [ngStyle]="{'color': 'black'}" [routerLink]="['/performance', p.id]">{{p.name}}</a></td>
+            <td>{{p.pivot.role}}</td>
+          </tr>
+        </table>
+      </div>
+    
+    </div>
+</ng-container>
+<p-progressSpinner class="spinner" *ngIf="!isLoaded"></p-progressSpinner>
+</div>

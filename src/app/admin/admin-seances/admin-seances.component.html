@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h2>Сеансы</h2>
+  </div>
+</div>
+<div class="row" *ngIf="isLoad">
+  <div class="col-lg-12">
+      <hr>
+      <h4 (click)="displayMonthReport=true" style="cursor: pointer;"><i class="far fa-save"></i>
+        Сформировать месячный отчет
+      </h4>
+      <h4 (click)="displayYearReport=true" style="cursor: pointer;"><i class="far fa-save"></i>
+        Сформировать годовой отчет
+      </h4>
+      <hr>
+    <p>
+      <a [routerLink]="['/seances/create']">
+        <button class="btn btn-primary">Добавить</button>
+      </a>
+    </p>
+    <div class="row">
+        <div class="col-md-3">
+          <p>
+            <input type="text" class="form-control" placeholder="Поиск" [(ngModel)]="search">
+          </p>
+        </div>
+        <div class="col-md-3">
+            <p>
+              <button (click)="sortBy()" class="btn btn-primary">Сортировка</button>
+            </p>
+        </div>
+    </div>
+    <div class="alert alert-success" *ngIf="isSuccess" role="alert">Удаление записи прошло успешно!</div>  
+    <div class="alert alert-danger" *ngIf="isError" role="alert">Нельзя удалить эту запись!</div>    
+    <table class="table table-bordered">
+      <tr>
+        <th>№</th>
+        <th>Дата</th>
+        <th>Спектакль</th>
+        <th>Действие</th>
+      </tr>
+      <tr *ngFor="let seance of seances | search:search:'date'; let i = index">
+        <th>{{i+1}}</th>
+        <td>{{seance?.datetime}}</td>
+        <td>{{seance?.performance?.name}}</td>
+        <td>
+          <a [routerLink]="['/seances/view', seance?.id]">
+            <button  class="btn btn-info">Просмотреть</button>
+          </a>
+          <a [routerLink]="['/seances/edit', seance?.id]">
+            <button  class="btn btn-success">Изменить</button>
+          </a>
+          <a>
+            <button (click)="deleteSeance(seance.id)" 
+            class="btn btn-danger">
+              Удалить
+           </button>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div *ngIf="!isLoad">Загрузка...</div>
+<p-dialog appendTo="body" modal="true" width="400" height="300" header="Месячный отчет" [(visible)]="displayMonthReport">
+    <div>
+      <h5>Выберите месяц</h5>
+      <p>
+        <p-dropdown [options]="months" width="100" appendTo="body" optionLabel="name" placeholder="Выберите месяц" [(ngModel)]="monthSelect"></p-dropdown>
+      </p>  
+    </div>
+    <div>
+      <p>
+        <button (click)="pdfGeneratorReportMonth()" class="btn btn-default">Сформировать</button>
+      </p>
+    </div>  
+</p-dialog>
+<p-dialog appendTo="body" modal="true" width="400" height="300" header="Месячный отчет" [(visible)]="displayYearReport">
+  <div>
+    <div class="form-group">
+      <label for="inputName">Введите год</label>
+      <input type="number" [(ngModel)]="year" class="form-control" id="inputName" placeholder="Год">
+    </div>
+  </div>
+  <div>
+    <p>
+      <button (click)="pdfGeneratorReportYear()" class="btn btn-default">Сформировать</button>
+    </p>
+  </div>  
+</p-dialog>

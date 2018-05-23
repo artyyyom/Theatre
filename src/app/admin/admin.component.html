@@ -1,0 +1,8 @@
+<app-admin-header *ngIf="authService.loggedIn()"></app-admin-header>
+<app-admin-nav *ngIf="authService.loggedIn()"></app-admin-nav>
+<div id="page-wrapper" [style.margin]="!authService.loggedIn() ? 0 : '0 0 0 260px'">
+  <div id="page-inner">
+    <router-outlet></router-outlet>
+  </div>  
+</div>  
+<app-admin-footer></app-admin-footer>  

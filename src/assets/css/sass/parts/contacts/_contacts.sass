@@ -1,0 +1,48 @@
+.contact
+    &__address, &__form
+        width: 100%
+        font-size: 1.6 + $base-unit
+        h3
+            text-align: left
+    &__form-fields
+        display: grid
+        grid-template-rows: 32px 32px 120px 51px
+        grid-row-gap: 10px
+
+        button
+            margin-top: 5px
+
+    &__information
+        margin-top: 10px
+
+        &-title
+            font-family: $base-font-bold
+            color: $subtitle-color-h4
+        &-address
+            margin-top: 10px
+            color: $base-color
+
+            p
+                margin-top: 3px
+                margin-bottom: 0
+                margin-left: 0
+
+    &__map
+        iframe
+            width: 100%
+            height: 262px
+
+.contact__form .btn:after
+    width: 140%
+    height: 325%
+
+.google_map
+    margin: 0
+    border-radius: 3px
+    background: #FFFFFF
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.75)
+    border: 5px solid #94887a
+
+.btn-contacts
+    width: 149px !important
+    height: 51px !important

@@ -1,0 +1,109 @@
+<div class="column-1">
+  <ng-container *ngIf="isLoaded">
+    <div class="performance__img">
+      <img src="http://127.0.0.1:8000/images/performances/{{performance?.photo_main}}" alt="">
+      <div class="performance__title-block">
+        <div class="performance__title">{{performance?.name}}</div>
+        <div class="performance__subtitle">{{performance?.author}}</div>
+        <div class="performance__age">{{performance?.age_restrict}}+</div>
+      </div>
+      <div class="performance__buy">
+        <a [routerLink]="['/seances']" 
+        [queryParams]="{performance_id: performance.id, seance_id: seance_id, stage_id: stage_id}" class="btn">
+          <span>Купить билет</span>
+        </a>
+      </div>
+    </div>
+    <div class="performance__block">
+      <div class="performance__block-main">
+        <div class="performance__block-gallery" *ngIf="galleryImages">
+          <div class="table-header">Галерея</div>
+          <div class="performance__description-text">
+            <div class="demo-gallery">
+              <ul id="lightgallery">
+                <li *ngFor="let g of galleryImages?.photosStandart"
+                    data-responsive="images/old_theatre.jpg 375, images/old_theatre.jpg 480, images/old_theatre.jpg 800" data-src="images/old_theatre.jpg"
+                    data-sub-html="<h4>Фото</h4><p>g.text</p>">
+                  <a href="">
+                    <img class="img-responsive" src="http://127.0.0.1:8000/images/performances/{{g}}" alt="photo">
+                    <div class="demo-gallery-poster">
+                      <img src="./assets/images/zoom.png" alt="photo">
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="show-more">Показать больше...</div>
+          </div>
+        </div>
+        <div class="performance__block-description">
+          <div class="table-header">Описание</div>
+          <div class="performance__description-text">
+            <!--<div class="performance__description-header"><h5>Lorem ipsum dolor.</h5></div>-->
+            <p>{{performance?.description}}</p>
+          </div>
+        </div>
+        <ng-container *ngFor="let unit of units">
+          <div class="table" *ngIf="unit.is_parent">
+            <div class="table-header">{{unit.name}}</div>
+
+            <table cellspacing="0">
+              <tr>
+                <th>Фото</th>
+                <th>Роль</th>
+                <th width="230">Исполнитель</th>
+              </tr>
+              <ng-container *ngFor="let employee of performance.employees">
+                <tr *ngIf="employee.unit.id === unit.id">
+                  <td><img src="http://127.0.0.1:8000/images/employees/{{employee.photo_main}}" alt="" /></td>
+                  <td>{{employee.pivot.role}}</td>
+                  <td><a 
+                    [ngStyle]="{'color': 'black'}" 
+                    [routerLink]="['/employee', employee.id]"
+                    >{{employee.name}} {{employee.surname}}</a></td>
+                </tr>
+              </ng-container>
+            </table>
+          </div>
+        <!-- <div class="table">
+            <div class="table-header">Действующие лица и исполнители</div>
+
+            <table cellspacing="0">
+              <tr>
+                <th>Фото</th>
+                <th>Должность</th>
+                <th width="230">Исполнитель</th>
+              </tr>
+
+              <tr>
+                <td><img src="images/old_theatre.jpg" alt="" /></td>
+                <td>Lorem ipsum dolor lorem.</td>
+                <td>Lorem ipsum dolor.</td>
+              </tr>
+
+              <tr>
+                <td><img src="images/old_theatre.jpg" alt="" /></td>
+                <td>John Doe</td>
+                <td>Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo ducimus neque, nesciunt rerum perferendis, inventore.</td>
+              </tr>
+
+              <tr>
+                <td><img src="images/old_theatre.jpg" alt="" /></td>
+                <td>Jane Smith</td>
+                <td> Culpa praesentium unde pariatur fugit eos recusandae voluptas.</td>
+              </tr>
+
+              <tr>
+                <td><img src="images/old_theatre.jpg" alt="" /></td>
+                <td>John Smith</td>
+                <td>Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci consequatur maxime temporibus quas, dolorem impedit.</td>
+              </tr>
+            </table>
+          </div>-->
+      </ng-container>
+      </div>
+    </div>
+    </ng-container>
+    <p-progressSpinner class="spinner" *ngIf="!isLoaded"></p-progressSpinner>
+</div>
+

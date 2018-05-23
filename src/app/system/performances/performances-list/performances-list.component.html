@@ -1,0 +1,58 @@
+
+  <div class="performances">
+    <div class="column-2">
+      <ng-container *ngFor="let key of keys 
+      | filterPerformancesSeasons:seances:seasonSelectId
+      | filterPerformancesStage:seances:stageSelectId
+      | filterPerformancsesMonths:monthSelectId">
+          <div class="performances-date" >
+                <div class="performances-date__day">{{key | date: "dd"}}</div>
+                <div class="performances-date__month">{{key | date: "MMMM"}}</div>
+                <div class="performances-date__week">{{key | date: "E"}}</div>
+          </div>
+          <div class="delimeter"></div>
+          <div class="performances-block"> 
+                <div class="up-event-slide items-x1"  
+                *ngFor="let seance of seances[key] 
+                | filterItems2:['stage', 'id']:stageSelectId" 
+                >
+                  <div class="event-group" >
+                    <div class="a-face">
+                      <img src="http://127.0.0.1:8000/images/performances/{{seance.performance?.photo_main}}" alt="">
+                      <div class="a-face__content">
+                        <div class="a-face__title">{{seance.performance.name}}</div>
+                        <div class="a-face__subtitle">{{seance.performance.author}}</div>
+                        <div class="a-face__buttons">
+                          <div>
+                            <a href="#"[routerLink]="['/seances']" 
+                            [queryParams]="{performance_id: seance.performance.id,
+                                            seance_id: seance.id,
+                                            stage_id: seance.stage.id}" class="btn">
+                              <span>Купить</span>
+                            </a>
+                          </div>
+                          <div><a 
+                            [routerLink]="['/performance', seance.performance.id]" 
+                            [queryParams]="{seance_id: seance.id, stage_id: seance.stage.id}"
+                            class="btn"><span>Подробнее</span></a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="up-event-info">
+                    <div class="up-event-info__day">{{key | date: "dd MMMM"}}</div>
+                    <div class="up-event-info__date"></div>
+                    <div class="up-event-info__time">
+                      {{ seance.datetime | date:"H:mm"}}
+                      <span class="pipe">|</span>
+                      200-1200 грн
+                    </div>
+                    <div class="up-event-info__type">
+                      {{seance.stage.name}}
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </ng-container>
+    </div>
+  </div>

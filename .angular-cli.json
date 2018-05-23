@@ -1,0 +1,101 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "apps": [
+    {
+      "name": "default",
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        { "glob": "favicon.ico", "input": "./", "output": "./" },
+        { "glob": "**/!(node_modules/*)", "input": "./assets/", "output": "assets" },
+        { "glob": "**/images/*", "input": "./assets/", "output": "./assets/" },
+        { "glob": "**/uploads/*", "input": "./assets/", "output": "./assets/" }
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css",
+        "styles.css",
+        "assets/css/base64-fonts.css",
+        "assets/css/lightgallery.min.css",
+        "assets/css/fontawesome-all.min.css",
+        "assets/css/main-style.css"
+      ],
+      "scripts": [
+        "assets/js/jsmin/scripts.min.js",
+        "assets/js/jsmin/svg-pan-zoom.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "admin",
+      "root": "src",
+      "outDir": "ci/dist-admin",
+      "assets": [
+        { "glob": "favicon.ico", "input": "./", "output": "./" },
+        { "glob": "**/!(node_modules/*)", "input": "./assets/", "output": "assets" },
+        { "glob": "**/images/*", "input": "./assets/", "output": "./assets/" },
+        { "glob": "**/uploads/*", "input": "./assets/", "output": "./assets/" }
+      ],
+      "index": "index-admin.html",
+      "main": "main-admin.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css",
+        "../node_modules/chart.js/dist/Chart.js",
+        "assets/admin/assets/css/bootstrap.css",
+        "assets/css/fontawesome-all.min.css",
+        "assets/admin/assets/css/custom.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}

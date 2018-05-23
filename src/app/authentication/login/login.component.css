@@ -1,0 +1,19 @@
+.login__form .contact__form-fields {
+    max-width: 500px;
+    margin: 0 auto;
+    grid-template-rows: 32px 32px 32px 51px
+}
+
+input[type=password] {
+    width: calc(100% - 5px); 
+    padding-left: 5px;
+
+    color: #b9b0a1;
+    border: 1px solid #504e4c;
+    background: #121212;
+}
+
+.login__form .error-login {
+    text-align: center;
+    margin-bottom: 10px;
+}

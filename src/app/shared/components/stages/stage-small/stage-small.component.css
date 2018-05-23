@@ -1,0 +1,32 @@
+.svg-container {
+    position: relative;
+}
+.svg-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#stage-main-map {
+    width: 100%;
+    height: 500px;
+    border: 1px solid red;
+}
+
+.svg__point_text {
+    padding: 0px;
+    font-family: Verdana, sans-serif;
+    color: white;
+    cursor: pointer;
+    font-size: 10px;
+    white-space: pre;
+    z-index: 110;
+    pointer-events: none;
+    transform: translate(-1%, 1.2%) rotate(360deg);
+}
+
+.svg__circle_active {
+    stroke: white;
+    stroke-width: 2 !important;
+}

@@ -1,0 +1,4 @@
+апр 26, 2018 5:53:23 PM com.genuitec.pulse.client.deliverypackage.runtime.internal.Activator initializeLoggers
+INFO: Package starting up at Thu Apr 26 17:53:23 MSK 2018
+апр 26, 2018 5:53:26 PM com.genuitec.pulse.client.deliverypackage.runtime.UpdatesService checkForWorkspaceUpdates
+INFO: Latest version of package has already been enabled in the workspace; check finished in 5ms

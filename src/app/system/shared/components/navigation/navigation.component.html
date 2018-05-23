@@ -1,0 +1,44 @@
+<nav id='cssmenu'>
+  <div id="head-mobile"></div>
+  <div class="button"></div>
+  <ul>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <a [routerLink]="['/']" >Главная</a>
+    </li>
+    <li routerLinkActive="active"><a [routerLink]="['/performances']" >Спектакли</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['/employees']">Труппа</a>
+     <!-- <ul>
+        <li><a href='#'>Product 1</a>
+          <ul>
+            <li><a href='#'>Sub Product</a></li>
+            <li><a href='#'>Sub Product</a></li>
+          </ul>
+        </li>
+        <li><a href='#'>Product 2</a>
+          <ul>
+            <li><a href='#'>Sub Product</a></li>
+            <li><a href='#'>Sub Product</a></li>
+          </ul>
+        </li>
+      </ul>-->
+    </li>
+    <li routerLinkActive="active"><a [routerLink]="['/history']">История</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['/contacts']">Контакты</a></li>
+    <li
+    *ngIf="!usersService.loggedIn()" 
+    routerLinkActive="active">
+      <a [routerLink]="['/login']">Вход</a>
+    </li>
+    <li
+    *ngIf="usersService.loggedIn()" 
+    routerLinkActive="active">
+      <a>Мой кабинет</a>
+      <ul>
+        <li><a [routerLink]="['/profile-order']">Мои заказы</a></li>
+        <li><a (click)="logout()">Выход</a></li>
+      </ul>
+    </li>
+    
+    
+  </ul>
+</nav>

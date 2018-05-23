@@ -1,0 +1,19 @@
+.contact__form-return {
+    display: grid;
+    grid-template-rows: 32px 32px 32px;
+    grid-row-gap: 5px;
+}
+
+.print-pdf {
+    right: 40%;
+    top: 9%; 
+    font-size: 32px;
+}
+
+.ticket__save .fa-save{
+    font-size: 28px;
+}
+
+.ticket-profile .ticket {
+    height: 70px;
+}

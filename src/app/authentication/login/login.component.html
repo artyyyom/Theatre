@@ -1,0 +1,21 @@
+<div class="login__form">
+  <h3>Вход в систему</h3>
+  <div *ngIf="isLoginError" class="error-form error-login">Неправильный логин или пароль!</div>
+  <form class="contact__form-fields" 
+    [formGroup]="userform"
+    (ngSubmit)="OnSubmit(userform.value)"
+    >
+      <input  type="text" formControlName="email" placeholder="Ваш email">
+      <div class="error-form" *ngIf="!userform.controls['email'].valid&&userform.controls['email'].dirty">
+          - Поле "Email" некорректно!
+      </div>
+      <input type="password" formControlName="password" placeholder="Пароль">
+      <div class="error-form" *ngIf="!userform.controls['password'].valid&&userform.controls['password'].dirty">
+          - Поле "пароль" обязательно к заполнению!
+      </div>
+      <div>
+          <a  [routerLink]="['/reset']">Забыли пароль?</a>
+      </div>
+      <button  type="submit" class="btn btn-contacts" [disabled]="userform.invalid"><span>Войти</span></button>
+  </form>
+</div> 

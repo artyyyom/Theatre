@@ -1,0 +1,53 @@
+{
+  "name": "theatre",
+  "version": "1.0.0",
+  "description": "dramatic theatre design",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check-updates": "npm install -g npm-check-updates"
+  },
+  "author": "artyyyom",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "*",
+    "browser-sync": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-babel": "*",
+    "gulp-csscomb": "*",
+    "gulp-debug": "*",
+    "gulp-if": "*",
+    "gulp-imagemin": "*",
+    "gulp-jade": "*",
+    "gulp-plumber": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-spritesmith": "*",
+    "gulp-concat": "*",
+    "gulp-jsmin": "*",
+    "gulp-order": "*"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "lg-autoplay": "^1.0.4",
+    "lg-fullscreen": "^1.0.1",
+    "lg-hash": "^1.0.4",
+    "lg-pager": "^1.0.2",
+    "lg-share": "^1.1.0",
+    "lg-thumbnail": "^1.1.0",
+    "lg-video": "^1.2.1",
+    "lg-zoom": "^1.1.0",
+    "lightgallery": "^1.6.9",
+    "lightgallery.js": "^1.0.2",
+    "normalize.scss": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artyyyom/theatre.git"
+  },
+  "bugs": {
+    "url": "https://github.com/artyyyom/theatre/issues"
+  },
+  "homepage": "https://github.com/artyyyom/theatre#readme"
+}

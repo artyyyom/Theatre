@@ -1,0 +1,12 @@
+.seance-pay-block .pay__form .contact__form-fields {
+    grid-template-rows: 32px 32px 32px;
+}
+
+input[type=tel], input[type=visa] {
+    width: calc(100% - 5px); 
+    padding-left: 5px;
+
+    color: #b9b0a1;
+    border: 1px solid #504e4c;
+    background: #121212;
+}

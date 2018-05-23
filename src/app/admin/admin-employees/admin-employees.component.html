@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h2>Персонал</h2>
+  </div>
+</div>
+<div class="row" *ngIf="isLoad">
+  <div class="col-lg-12">
+    <p>
+      <a [routerLink]="['/employees/create']">
+        <button class="btn btn-primary">Добавить</button>
+      </a>
+    </p>
+    <div class="row">
+        <div class="col-md-3">
+          <p>
+            <input type="text" class="form-control" placeholder="Поиск" [(ngModel)]="search">
+          </p>
+        </div>
+        <div class="col-md-3">
+            <p>
+              <button (click)="sortBy()" class="btn btn-primary">Сортировка</button>
+            </p>
+        </div>
+    </div>
+    <div class="alert alert-success" *ngIf="isSuccess" role="alert">Удаление записи прошло успешно!</div>  
+    <div class="alert alert-danger" *ngIf="isError" role="alert">Нельзя удалить эту запись!</div>    
+    <table class="table table-bordered">
+      <tr>
+        <th>№</th>
+        <th>ФИО</th>
+        <th>Должность</th>
+        <th>Подразделение</th>
+        <th>Действие</th>
+      </tr>
+      <tr *ngFor="let employee of employees | search:search:'name'; let i = index">
+        <th>{{i+1}}</th>
+        <td>{{employee?.name}} {{employee?.surname}}</td>
+        <td><span *ngFor="let position of employee.positions">{{position?.name}} </span></td>
+        <td>{{employee?.unit.name}}</td>
+        <td>
+          <a [routerLink]="['/employees/edit', employee?.id]">
+            <button  class="btn btn-success">Изменить</button>
+          </a>
+          <a>
+            <button (click)="deleteEmployees(employee?.id)" 
+            class="btn btn-danger">
+              Удалить
+           </button>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div *ngIf="!isLoad">Загрузка...</div>

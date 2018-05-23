@@ -1,0 +1,46 @@
+<div class="performances-main" *ngIf="isLoaded">
+  <div class="title"><h3>Афиша</h3></div>
+  <ng-container *ngIf="keys.length; else message">
+  <div class="perforamnces-control">
+    <section>
+        <ng-select [(ngModel)]="seasonSelectId">   
+            <ng-option [disabled]="true">Все сезоны</ng-option>
+            <ng-container *ngFor="let season of seasons">
+                <ng-option *ngIf="season.is_parent && season.isActive" [value]="season.id">
+                    {{season.start_date | date:"dd.MM.yy"}} - 
+                    {{season.end_date | date:"dd.MM.yy"}} 
+                    {{season.name}} сезон
+                </ng-option>           
+            </ng-container>
+        </ng-select>    
+    </section>
+    <section>
+        <ng-select [(ngModel)]="stageSelectId">   
+            <ng-option [value]="-1">Все сцены</ng-option>
+            <ng-container *ngFor="let stage of stages">
+                <ng-option *ngIf="stage.is_parent" [value]="stage.id">{{stage.name}}</ng-option>           
+            </ng-container>
+            </ng-select>    
+    </section>
+    <section>
+
+        <ng-select [(ngModel)]="monthSelectId">
+            <ng-option [value]="-1">Все месяцы</ng-option>
+            <ng-container *ngFor="let uniqueKey of uniqueKeys">
+                <ng-option [value]="uniqueKey">{{uniqueKey | date:"LLLL" | uppercase}}</ng-option>
+            </ng-container>
+        </ng-select>
+    </section>
+  </div>
+  
+    <app-performances-list 
+    [seasonSelectId]="seasonSelectId" 
+    [stageSelectId]="stageSelectId"
+    [monthSelectId]="monthSelectId"
+    [seances]="seances" 
+    [keys]="keys">
+    </app-performances-list>
+  </ng-container>
+  <ng-template #message>Нет данных</ng-template>
+</div>
+<p-progressSpinner class="spinner" *ngIf="!isLoaded"></p-progressSpinner>
