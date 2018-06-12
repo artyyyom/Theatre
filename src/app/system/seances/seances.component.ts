@@ -101,7 +101,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     });
   }
   getSeances() {
-    
+
     this.isLoad=false;
     this.activatedRoute.queryParams.subscribe(params => {
       this.performance_id = params.performance_id;
@@ -109,8 +109,8 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       this.stage_id = params.stage_id;
     });
     this.sub1 = Observable.combineLatest(
-      this.performancesService.getPerformance(this.performance_id, 
-                                              'seances', 
+      this.performancesService.getPerformance(this.performance_id,
+                                              'seances',
                                               this.seance_id),
       this.rowsplacesService.getRowsPlaces(this.stage_id),
       this.ticketsService.getTickets('seances', this.seance_id),
@@ -124,9 +124,9 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         console.log(this.seances);
         this.timerStart();
         this.avalaiblePlace();
-        if(this.usersService.loggedIn()) 
+        if(this.usersService.loggedIn())
           this.getActiveUserTickets();
-        this.isLoad = true; 
+        this.isLoad = true;
     });
 
   }
@@ -143,7 +143,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         this.confirmationService.confirm({
           key: 'updatePageDialog',
           header: 'Упс, а место уже заняли(',
-          message: 'Но ничего, есть шанс выбрать другие!', 
+          message: 'Но ничего, есть шанс выбрать другие!',
           acceptLabel: 'Продолжить выбор мест',
           rejectVisible: false,
         });
@@ -160,10 +160,10 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       }
       this.isLoadPlace = true;
     });
-    
-    
 
-    
+
+
+
   }
   changeSeance(value) {
     this.sub3 = Observable.combineLatest(
@@ -174,14 +174,14 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       this.tickets = data[0];
       this.rows_places = data[1];
       this.avalaiblePlace();
-      if(this.usersService.loggedIn()) 
+      if(this.usersService.loggedIn())
         this.getActiveUserTickets();
     });
     /*this.sub3 = this.ticketsService.getTickets('seances', value.id)
       .subscribe((data: Tickets[]) => {
         this.tickets = data;
         this.avalaiblePlace();
-        if(this.usersService.loggedIn()) 
+        if(this.usersService.loggedIn())
           this.getActiveUserTickets();
       });*/
   }
@@ -198,11 +198,11 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       this.isLoadPlace = true;
     })
   }
-  
+
   @HostListener('window:beforeunload')
   canDeactivate() : boolean | Observable<boolean>{
-     
-    if(this.ticketsOrder.length) { 
+
+    if(this.ticketsOrder.length) {
       this.ticket.is_avalaible = 1;
       return Observable.create((observer: Observer<boolean>) => {
         this.confirmationService.confirm({
@@ -211,7 +211,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
             key: 'closeConfirmation',
             header: 'Вы уверены что хотите закрыть страницу?',
             message: 'Вы имеете выбранные места. После закрытия страницы все выбранные места будут сброшены!',
-            accept: () => {     
+            accept: () => {
                 this.ticketsOrder.forEach(ticketOrder => {
                   this.sub5 = this.ticketsService.updateTickets(ticketOrder.id, this.ticket)
                   .subscribe(data => {
@@ -219,7 +219,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
                     observer.complete();
                   });
                 });
-                
+
             },
             reject: () => {
                 observer.next(false);
@@ -239,7 +239,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     this.confirmationService.confirm({
       key: 'updatePageDialog',
       header: 'Время выбора мест истекло',
-      message: 'Все выбранные места получили статус свободные.', 
+      message: 'Все выбранные места получили статус свободные.',
       acceptLabel: 'Обновить',
       rejectVisible: false,
       accept: () => {
@@ -274,13 +274,13 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
     else
       this.updateTicketsAuth(value);
   }
-  
+
   buyTicket(value: any) {
     this.activeIndex = 2;
     if(!this.usersService.loggedIn())
       this.createUser(value);
     else {
-      this.updateTicketsAuth(value); 
+      this.updateTicketsAuth(value);
       console.log('istme');
     }
   }
@@ -293,19 +293,19 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
         if(data.email) {
           this.errorEmail = true;
           console.log('tut');
-        } 
+        }
         else {
           this.ticketsOrder.forEach(ticketOrder => {
             ticket.status = value.checkboxReserve ? 1 : -1;
             ticket.user_id = data;
             this.ticketsService.updateTickets(ticketOrder.id, ticket)
               .subscribe(data => {
-                if(ticket.status === 1)
+                if (ticket.status === 1)
                   this.displayReserveDialog = true;
-              });   
-          }); 
+              });
+          });
           if(ticket.status === 1)
-            this.ticketsOrder = [];       
+            this.ticketsOrder = [];
         }
       });
   }
@@ -317,7 +317,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       .subscribe(data => {
         data.forEach(e => {
           console.log(e);
-          if(e.id==this.seance_id) {
+          if (e.id == this.seance_id) {
             this.authCountTickets = e.tickets.length;
           }
         });
@@ -330,12 +330,12 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       ticket.status = value.checkboxReserve ? 1 : -1;
       this.ticketsService.updateTicketsAuth(ticketOrder.id, ticket)
         .subscribe(data => {
-          if(ticket.status === 1) {
+          if (ticket.status === 1) {
             this.displayReserveDialog = true;
             this.ticketsOrder = [];
           }
-        });   
-    }); 
+        });
+    });
   }
 
   updateTicketPayStatus() {
@@ -346,7 +346,7 @@ export class SeancesComponent implements OnInit, OnDestroy, ComponentCanDeactiva
       this.ticketsService.updateTickets(ticketOrder.id, ticket)
         .subscribe(data => {
           this.displayPayDialog = true;
-        });   
+        });
     });
     this.ticketsOrder = [];
   }

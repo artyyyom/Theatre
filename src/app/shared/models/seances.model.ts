@@ -10,13 +10,11 @@ export class Seances {
       public date: string,
       public datetime: string,
       public time: Time,
-      public performance_id: number, 
+      public performance_id: number,
       public stage_id: number,
       public stage: Stages,
       public performance: Performances,
       public tickets: Tickets[],
       public season: Seasons,
     ) {}
-  
   }
-  
